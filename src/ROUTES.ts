@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/naming-convention */
 import {ValueOf} from 'type-fest';
 import * as Url from './libs/Url';
 import CONST from './CONST';
@@ -20,7 +21,23 @@ const SETTINGS_CONTACT_METHODS = 'settings/profile/contact-methods';
 const SETTINGS_STATUS = 'settings/profile/status';
 const SETTINGS_STATUS_SET = 'settings/profile/status/set';
 
+/**
+ * This is a convenience method in order to clean up how the ROUTES file looks and is organized.
+ * Routes created with this can be accessed with MONEY_REQUEST.route and MONEY_REQUEST.getRoute() can be
+ * used to get a formatted route when custom navigation is necessary.
+ *
+ * @param {Object} params
+ * @returns {Object} routeConfig
+ *          {String} routeConfig.route that gets linked to components in linkingConfig
+ *          {Function} routeConfig.getRoute returns a formatted route using the params passed
+ */
+const createRouteWithGetter = (params) => ({
+    route: Object.keys(params)[0],
+    getRoute: Object.values(params)[0],
+});
+
 export default {
+    // MONEY_REQUEST: thing(':iouType/new/:reportID?', getRoute: (iouType: string, reportID = '') => `${iouType}/new/${reportID}`),
     BANK_ACCOUNT: 'bank-account',
     BANK_ACCOUNT_NEW: 'bank-account/new',
     BANK_ACCOUNT_WITH_STEP_TO_OPEN: 'bank-account/:stepToOpen?',
@@ -89,68 +106,22 @@ export default {
     IOU_SEND,
 
     // To see the available iouType, please refer to CONST.IOU.MONEY_REQUEST_TYPE
-    MONEY_REQUEST: {
-        route: ':iouType/new/:reportID?',
-        getRoute: (iouType: string, reportID = '') => `${iouType}/new/${reportID}`,
-    },
-    MONEY_REQUEST_MANUAL_TAB: {
-        route: ':iouType/new/:reportID?/manual',
-    },
-    MONEY_REQUEST_SCAN_TAB: {
-        route: ':iouType/new/:reportID?/scan',
-    },
-    MONEY_REQUEST_DISTANCE_TAB: {
-        route: ':iouType/new/:reportID?/distance',
-        getRoute: (iouType: string, reportID = '') => `${iouType}/new/${reportID}/distance`,
-    },
-    MONEY_REQUEST_AMOUNT: {
-        route: ':iouType/new/amount/:reportID?',
-        getRoute: (iouType: string, reportID = '') => `${iouType}/new/amount/${reportID}`,
-    },
-    MONEY_REQUEST_PARTICIPANTS: {
-        route: ':iouType/new/participants/:reportID?',
-        getRoute: (iouType: string, reportID = '') => `${iouType}/new/participants/${reportID}`,
-    },
-    MONEY_REQUEST_CONFIRMATION: {
-        route: ':iouType/new/confirmation/:reportID?',
-        getRoute: (iouType: string, reportID = '') => `${iouType}/new/confirmation/${reportID}`,
-    },
-    MONEY_REQUEST_DATE: {
-        route: ':iouType/new/date/:reportID?',
-        getRoute: (iouType: string, reportID = '') => `${iouType}/new/date/${reportID}`,
-    },
-    MONEY_REQUEST_CURRENCY: {
-        route: ':iouType/new/currency/:reportID?',
-        getRoute: (iouType: string, reportID: string, currency: string, backTo: string) => `${iouType}/new/currency/${reportID}?currency=${currency}&backTo=${backTo}`,
-    },
-    MONEY_REQUEST_DESCRIPTION: {
-        route: ':iouType/new/description/:reportID?',
-        getRoute: (iouType: string, reportID = '') => `${iouType}/new/description/${reportID}`,
-    },
-    MONEY_REQUEST_CATEGORY: {
-        route: ':iouType/new/category/:reportID?',
-        getRoute: (iouType: string, reportID = '') => `${iouType}/new/category/${reportID}`,
-    },
-    MONEY_REQUEST_TAG: {
-        route: ':iouType/new/tag/:reportID?',
-        getRoute: (iouType: string, reportID = '') => `${iouType}/new/tag/${reportID}`,
-    },
-    MONEY_REQUEST_MERCHANT: {
-        route: ':iouType/new/merchant/:reportID?',
-        getRoute: (iouType: string, reportID = '') => `${iouType}/new/merchant/${reportID}`,
-    },
-    MONEY_REQUEST_WAYPOINT: {
-        route: ':iouType/new/waypoint/:waypointIndex',
-        getRoute: (iouType: string, waypointIndex: number) => `${iouType}/new/waypoint/${waypointIndex}`,
-    },
-    MONEY_REQUEST_EDIT_WAYPOINT: {
-        route: 'r/:threadReportID/edit/distance/waypoint/:waypointIndex',
-        getRoute: (threadReportID: number, waypointIndex: number) => `r/${threadReportID}/edit/distance/waypoint/${waypointIndex}`,
-    },
-    MONEY_REQUEST_ADDRESS: {
-        route: ':iouType/new/address/:reportID?',
-        getRoute: (iouType: string, reportID = '') => `${iouType}/new/address/${reportID}`,
-    },
+    MONEY_REQUEST: createRouteWithGetter({              ':iouType/new/:reportID?'               : (iouType: string, reportID = '') => `${iouType}/new/${reportID}`,}),
+    MONEY_REQUEST_MANUAL_TAB: createRouteWithGetter({   ':iouType/new/:reportID?/manual'        : () => {},}),
+    MONEY_REQUEST_SCAN_TAB: createRouteWithGetter({     ':iouType/new/:reportID?/scan'          : () => {},}),
+    MONEY_REQUEST_DISTANCE_TAB: createRouteWithGetter({ ':iouType/new/:reportID?/distance'      : (iouType: string, reportID = '') => `${iouType}/new/${reportID}/distance`,}),
+    MONEY_REQUEST_AMOUNT: createRouteWithGetter({       ':iouType/new/amount/:reportID?'        : (iouType: string, reportID = '') => `${iouType}/new/amount/${reportID}`,}),
+    MONEY_REQUEST_PARTICIPANTS: createRouteWithGetter({ ':iouType/new/participants/:reportID?'  : (iouType: string, reportID = '') => `${iouType}/new/participants/${reportID}`,}),
+    MONEY_REQUEST_CONFIRMATION: createRouteWithGetter({ ':iouType/new/confirmation/:reportID?'  : (iouType: string, reportID = '') => `${iouType}/new/confirmation/${reportID}`,}),
+    MONEY_REQUEST_DATE: createRouteWithGetter({         ':iouType/new/date/:reportID?'          : (iouType: string, reportID = '') => `${iouType}/new/date/${reportID}`,}),
+    MONEY_REQUEST_CURRENCY: createRouteWithGetter({     ':iouType/new/currency/:reportID?'      : (iouType: string, reportID: string, currency: string, backTo: string) => `${iouType}/new/currency/${reportID}?currency=${currency}&backTo=${backTo}`,}),
+    MONEY_REQUEST_DESCRIPTION: createRouteWithGetter({  ':iouType/new/description/:reportID?'   : (iouType: string, reportID = '') => `${iouType}/new/description/${reportID}`,}),
+    MONEY_REQUEST_CATEGORY: createRouteWithGetter({     ':iouType/new/category/:reportID?'      : (iouType: string, reportID = '') => `${iouType}/new/category/${reportID}`,}),
+    MONEY_REQUEST_TAG: createRouteWithGetter({          ':iouType/new/tag/:reportID?'           : (iouType: string, reportID = '') => `${iouType}/new/tag/${reportID}`,}),
+    MONEY_REQUEST_MERCHANT: createRouteWithGetter({     ':iouType/new/merchant/:reportID?'      : (iouType: string, reportID = '') => `${iouType}/new/merchant/${reportID}`,}),
+    MONEY_REQUEST_WAYPOINT: createRouteWithGetter({     ':iouType/new/waypoint/:waypointIndex'  : (iouType: string, waypointIndex: number) => `${iouType}/new/waypoint/${waypointIndex}`,}),
+    MONEY_REQUEST_ADDRESS: createRouteWithGetter({      ':iouType/new/address/:reportID?'       : (iouType: string, reportID = '') => `${iouType}/new/address/${reportID}`,}),
+    MONEY_REQUEST_EDIT_WAYPOINT: createRouteWithGetter({'r/:threadReportID/edit/distance/waypoint/:waypointIndex': (threadReportID: number, waypointIndex: number) => `r/${threadReportID}/edit/distance/waypoint/${waypointIndex}`,}),
     IOU_SEND_ADD_BANK_ACCOUNT: `${IOU_SEND}/add-bank-account`,
     IOU_SEND_ADD_DEBIT_CARD: `${IOU_SEND}/add-debit-card`,
     IOU_SEND_ENABLE_PAYMENTS: `${IOU_SEND}/enable-payments`,
