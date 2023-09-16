@@ -2003,7 +2003,7 @@ function payMoneyRequest(paymentType, chatReport, iouReport) {
  */
 function startMoneyRequest(iouType, reportID = '') {
     resetMoneyRequestInfo(`${iouType}${reportID}`);
-    Navigation.navigate(ROUTES.getMoneyRequestRoute(iouType, reportID));
+    Navigation.navigate(ROUTES.MONEY_REQUEST.getRoute(iouType, reportID));
 }
 
 /**
@@ -2122,10 +2122,10 @@ function navigateToNextPage(iou, iouType, report) {
                       .value();
             setMoneyRequestParticipants(participants);
         }
-        Navigation.navigate(ROUTES.getMoneyRequestConfirmationRoute(iouType, report.reportID));
+        Navigation.navigate(ROUTES.MONEY_REQUEST_CONFIRMATION.getRoute(iouType, report.reportID));
         return;
     }
-    Navigation.navigate(ROUTES.getMoneyRequestParticipantsRoute(iouType));
+    Navigation.navigate(ROUTES.MONEY_REQUEST_PARTICIPANTS.getRoute(iouType));
 }
 
 export {

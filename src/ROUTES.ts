@@ -89,39 +89,72 @@ export default {
     IOU_SEND,
 
     // To see the available iouType, please refer to CONST.IOU.MONEY_REQUEST_TYPE
-    MONEY_REQUEST: ':iouType/new/:reportID?',
-    MONEY_REQUEST_AMOUNT: ':iouType/new/amount/:reportID?',
-    MONEY_REQUEST_PARTICIPANTS: ':iouType/new/participants/:reportID?',
-    MONEY_REQUEST_CONFIRMATION: ':iouType/new/confirmation/:reportID?',
-    MONEY_REQUEST_DATE: ':iouType/new/date/:reportID?',
-    MONEY_REQUEST_CURRENCY: ':iouType/new/currency/:reportID?',
-    MONEY_REQUEST_DESCRIPTION: ':iouType/new/description/:reportID?',
-    MONEY_REQUEST_CATEGORY: ':iouType/new/category/:reportID?',
-    MONEY_REQUEST_TAG: ':iouType/new/tag/:reportID?',
-    MONEY_REQUEST_MERCHANT: ':iouType/new/merchant/:reportID?',
-    MONEY_REQUEST_MANUAL_TAB: ':iouType/new/:reportID?/manual',
-    MONEY_REQUEST_SCAN_TAB: ':iouType/new/:reportID?/scan',
-    MONEY_REQUEST_DISTANCE_TAB: ':iouType/new/:reportID?/distance',
-    MONEY_REQUEST_WAYPOINT: ':iouType/new/waypoint/:waypointIndex',
-    MONEY_REQUEST_EDIT_WAYPOINT: 'r/:threadReportID/edit/distance/waypoint/:waypointIndex',
-    MONEY_REQUEST_ADDRESS: ':iouType/new/address/:reportID?',
+    MONEY_REQUEST: {
+        route: ':iouType/new/:reportID?',
+        getRoute: (iouType: string, reportID = '') => `${iouType}/new/${reportID}`,
+    },
+    MONEY_REQUEST_MANUAL_TAB: {
+        route: ':iouType/new/:reportID?/manual',
+    },
+    MONEY_REQUEST_SCAN_TAB: {
+        route: ':iouType/new/:reportID?/scan',
+    },
+    MONEY_REQUEST_DISTANCE_TAB: {
+        route: ':iouType/new/:reportID?/distance',
+        getRoute: (iouType: string, reportID = '') => `${iouType}/new/${reportID}/distance`,
+    },
+    MONEY_REQUEST_AMOUNT: {
+        route: ':iouType/new/amount/:reportID?',
+        getRoute: (iouType: string, reportID = '') => `${iouType}/new/amount/${reportID}`,
+    },
+    MONEY_REQUEST_PARTICIPANTS: {
+        route: ':iouType/new/participants/:reportID?',
+        getRoute: (iouType: string, reportID = '') => `${iouType}/new/participants/${reportID}`,
+    },
+    MONEY_REQUEST_CONFIRMATION: {
+        route: ':iouType/new/confirmation/:reportID?',
+        getRoute: (iouType: string, reportID = '') => `${iouType}/new/confirmation/${reportID}`,
+    },
+    MONEY_REQUEST_DATE: {
+        route: ':iouType/new/date/:reportID?',
+        getRoute: (iouType: string, reportID = '') => `${iouType}/new/date/${reportID}`,
+    },
+    MONEY_REQUEST_CURRENCY: {
+        route: ':iouType/new/currency/:reportID?',
+        getRoute: (iouType: string, reportID: string, currency: string, backTo: string) => `${iouType}/new/currency/${reportID}?currency=${currency}&backTo=${backTo}`,
+    },
+    MONEY_REQUEST_DESCRIPTION: {
+        route: ':iouType/new/description/:reportID?',
+        getRoute: (iouType: string, reportID = '') => `${iouType}/new/description/${reportID}`,
+    },
+    MONEY_REQUEST_CATEGORY: {
+        route: ':iouType/new/category/:reportID?',
+        getRoute: (iouType: string, reportID = '') => `${iouType}/new/category/${reportID}`,
+    },
+    MONEY_REQUEST_TAG: {
+        route: ':iouType/new/tag/:reportID?',
+        getRoute: (iouType: string, reportID = '') => `${iouType}/new/tag/${reportID}`,
+    },
+    MONEY_REQUEST_MERCHANT: {
+        route: ':iouType/new/merchant/:reportID?',
+        getRoute: (iouType: string, reportID = '') => `${iouType}/new/merchant/${reportID}`,
+    },
+    MONEY_REQUEST_WAYPOINT: {
+        route: ':iouType/new/waypoint/:waypointIndex',
+        getRoute: (iouType: string, waypointIndex: number) => `${iouType}/new/waypoint/${waypointIndex}`,
+    },
+    MONEY_REQUEST_EDIT_WAYPOINT: {
+        route: 'r/:threadReportID/edit/distance/waypoint/:waypointIndex',
+        getRoute: (threadReportID: number, waypointIndex: number) => `r/${threadReportID}/edit/distance/waypoint/${waypointIndex}`,
+    },
+    MONEY_REQUEST_ADDRESS: {
+        route: ':iouType/new/address/:reportID?',
+        getRoute: (iouType: string, reportID = '') => `${iouType}/new/address/${reportID}`,
+    },
     IOU_SEND_ADD_BANK_ACCOUNT: `${IOU_SEND}/add-bank-account`,
     IOU_SEND_ADD_DEBIT_CARD: `${IOU_SEND}/add-debit-card`,
     IOU_SEND_ENABLE_PAYMENTS: `${IOU_SEND}/enable-payments`,
-    getMoneyRequestRoute: (iouType: string, reportID = '') => `${iouType}/new/${reportID}`,
-    getMoneyRequestAmountRoute: (iouType: string, reportID = '') => `${iouType}/new/amount/${reportID}`,
-    getMoneyRequestParticipantsRoute: (iouType: string, reportID = '') => `${iouType}/new/participants/${reportID}`,
-    getMoneyRequestConfirmationRoute: (iouType: string, reportID = '') => `${iouType}/new/confirmation/${reportID}`,
-    getMoneyRequestCreatedRoute: (iouType: string, reportID = '') => `${iouType}/new/date/${reportID}`,
-    getMoneyRequestCurrencyRoute: (iouType: string, reportID: string, currency: string, backTo: string) => `${iouType}/new/currency/${reportID}?currency=${currency}&backTo=${backTo}`,
-    getMoneyRequestDescriptionRoute: (iouType: string, reportID = '') => `${iouType}/new/description/${reportID}`,
-    getMoneyRequestCategoryRoute: (iouType: string, reportID = '') => `${iouType}/new/category/${reportID}`,
-    getMoneyRequestMerchantRoute: (iouType: string, reportID = '') => `${iouType}/new/merchant/${reportID}`,
-    getMoneyRequestDistanceTabRoute: (iouType: string, reportID = '') => `${iouType}/new/${reportID}/distance`,
-    getMoneyRequestWaypointRoute: (iouType: string, waypointIndex: number) => `${iouType}/new/waypoint/${waypointIndex}`,
-    getMoneyRequestEditWaypointRoute: (threadReportID: number, waypointIndex: number) => `r/${threadReportID}/edit/distance/waypoint/${waypointIndex}`,
-    getMoneyRequestAddressRoute: (iouType: string, reportID = '') => `${iouType}/new/address/${reportID}`,
-    getMoneyRequestTagRoute: (iouType: string, reportID = '') => `${iouType}/new/tag/${reportID}`,
+
     SPLIT_BILL_DETAILS: `r/:reportID/split/:reportActionID`,
     getSplitBillDetailsRoute: (reportID: string, reportActionID: string) => `r/${reportID}/split/${reportActionID}`,
     getNewTaskRoute: (reportID: string) => `${NEW_TASK}/${reportID}`,

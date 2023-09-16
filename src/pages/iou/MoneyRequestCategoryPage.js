@@ -39,7 +39,7 @@ function MoneyRequestCategoryPage({route, report}) {
     const iouType = lodashGet(route, 'params.iouType', '');
 
     const navigateBack = () => {
-        Navigation.goBack(ROUTES.getMoneyRequestConfirmationRoute(iouType, reportID));
+        Navigation.goBack(ROUTES.MONEY_REQUEST_CONFIRMATION.getRoute(iouType, reportID));
     };
 
     return (

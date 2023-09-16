@@ -64,11 +64,11 @@ function MoneyRequestParticipantsPage({iou, selectedTab, route}) {
 
     const navigateToNextStep = (moneyRequestType) => {
         IOU.setMoneyRequestId(moneyRequestType);
-        Navigation.navigate(ROUTES.getMoneyRequestConfirmationRoute(moneyRequestType, reportID.current));
+        Navigation.navigate(ROUTES.MONEY_REQUEST_CONFIRMATION.getRoute(moneyRequestType, reportID.current));
     };
 
     const navigateBack = (forceFallback = false) => {
-        Navigation.goBack(ROUTES.getMoneyRequestRoute(iouType.current, reportID.current), forceFallback);
+        Navigation.goBack(ROUTES.MONEY_REQUEST.getRoute(iouType.current, reportID.current), forceFallback);
     };
 
     useEffect(() => {

@@ -54,7 +54,7 @@ function CategoryPicker({policyCategories, reportID, iouType, iou, policyRecentl
     const shouldShowTextInput = !isCategoriesCountBelowThreshold;
 
     const navigateBack = () => {
-        Navigation.goBack(ROUTES.getMoneyRequestConfirmationRoute(iouType, reportID));
+        Navigation.goBack(ROUTES.MONEY_REQUEST_CONFIRMATION.getRoute(iouType, reportID));
     };
 
     const updateCategory = (category) => {
