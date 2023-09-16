@@ -16,6 +16,9 @@ const propTypes = {
 
             /** Index of the waypoint being edited */
             waypointIndex: PropTypes.string,
+
+            /** The report ID attached to the request (used when creating a request for a workspace) */
+            reportID: PropTypes.string,
         }),
     }),
 };
@@ -26,6 +29,7 @@ const defaultProps = {
         params: {
             iouType: '',
             waypointIndex: '',
+            reportID: '',
         },
     },
 };
