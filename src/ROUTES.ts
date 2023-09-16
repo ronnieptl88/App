@@ -106,10 +106,14 @@ export default {
     IOU_SEND,
 
     // To see the available iouType, please refer to CONST.IOU.MONEY_REQUEST_TYPE
-    MONEY_REQUEST: createRouteWithGetter({              ':iouType/new/:reportID?'               : (iouType: string, reportID = '') => `${iouType}/new/${reportID}`,}),
-    MONEY_REQUEST_MANUAL_TAB: createRouteWithGetter({   ':iouType/new/:reportID?/manual'        : () => {},}),
-    MONEY_REQUEST_SCAN_TAB: createRouteWithGetter({     ':iouType/new/:reportID?/scan'          : () => {},}),
-    MONEY_REQUEST_DISTANCE_TAB: createRouteWithGetter({ ':iouType/new/:reportID?/distance'      : (iouType: string, reportID = '') => `${iouType}/new/${reportID}/distance`,}),
+    MONEY_REQUEST: {
+        ROOT: createRouteWithGetter({         ':iouType/new/:reportID?'               : (iouType: string, reportID = '') => `${iouType}/new/${reportID}`,}),
+        TABS: {
+            MANUAL: createRouteWithGetter({   ':iouType/new/:reportID?/manual'        : () => {},}),
+            SCAN: createRouteWithGetter({     ':iouType/new/:reportID?/scan'          : () => {},}),
+            DISTANCE: createRouteWithGetter({ ':iouType/new/:reportID?/distance'      : (iouType: string, reportID = '') => `${iouType}/new/${reportID}/distance`,}),
+        }
+    },
     MONEY_REQUEST_AMOUNT: createRouteWithGetter({       ':iouType/new/amount/:reportID?'        : (iouType: string, reportID = '') => `${iouType}/new/amount/${reportID}`,}),
     MONEY_REQUEST_PARTICIPANTS: createRouteWithGetter({ ':iouType/new/participants/:reportID?'  : (iouType: string, reportID = '') => `${iouType}/new/participants/${reportID}`,}),
     MONEY_REQUEST_CONFIRMATION: createRouteWithGetter({ ':iouType/new/confirmation/:reportID?'  : (iouType: string, reportID = '') => `${iouType}/new/confirmation/${reportID}`,}),

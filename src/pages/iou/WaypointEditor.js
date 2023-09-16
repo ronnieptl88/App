@@ -137,13 +137,13 @@ function WaypointEditor({transactionID, route: {params: {iouType = '', waypointI
         }
 
         // Other flows will be handled by selecting a waypoint with selectWaypoint as this is mainly for the offline flow
-        Navigation.goBack(ROUTES.MONEY_REQUEST_DISTANCE_TAB.getRoute(iouType));
+        Navigation.goBack(ROUTES.MONEY_REQUEST.TABS.DISTANCE.getRoute(iouType));
     };
 
     const deleteStopAndHideModal = () => {
         Transaction.removeWaypoint(transactionID, waypointIndex);
         setIsDeleteStopModalOpen(false);
-        Navigation.goBack(ROUTES.MONEY_REQUEST_DISTANCE_TAB.getRoute(iouType));
+        Navigation.goBack(ROUTES.MONEY_REQUEST.TABS.DISTANCE.getRoute(iouType));
     };
 
     const selectWaypoint = (values) => {
@@ -159,7 +159,7 @@ function WaypointEditor({transactionID, route: {params: {iouType = '', waypointI
             Navigation.goBack(ROUTES.getReportRoute(threadReportID));
             return;
         }
-        Navigation.goBack(ROUTES.MONEY_REQUEST_DISTANCE_TAB.getRoute(iouType));
+        Navigation.goBack(ROUTES.MONEY_REQUEST.TABS.DISTANCE.getRoute(iouType));
     };
 
     return (
@@ -173,7 +173,7 @@ function WaypointEditor({transactionID, route: {params: {iouType = '', waypointI
                     title={translate(wayPointDescriptionKey)}
                     shouldShowBackButton
                     onBackButtonPress={() => {
-                        Navigation.goBack(ROUTES.MONEY_REQUEST_DISTANCE_TAB.getRoute(iouType));
+                        Navigation.goBack(ROUTES.MONEY_REQUEST.TABS.DISTANCE.getRoute(iouType));
                     }}
                     shouldShowThreeDotsButton={shouldShowThreeDotsButton}
                     threeDotsAnchorPosition={styles.threeDotsPopoverOffset(windowWidth)}

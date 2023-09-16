@@ -306,19 +306,19 @@ export default {
                     MoneyRequest: {
                         screens: {
                             Money_Request: {
-                                path: ROUTES.MONEY_REQUEST.route,
+                                path: ROUTES.MONEY_REQUEST.ROOT.route,
                                 exact: true,
                                 screens: {
                                     manual: {
-                                        path: ROUTES.MONEY_REQUEST_MANUAL_TAB.route,
+                                        path: ROUTES.MONEY_REQUEST.TABS.MANUAL.route,
                                         exact: true,
                                     },
                                     scan: {
-                                        path: ROUTES.MONEY_REQUEST_SCAN_TAB.route,
+                                        path: ROUTES.MONEY_REQUEST.TABS.SCAN.route,
                                         exact: true,
                                     },
                                     distance: {
-                                        path: ROUTES.MONEY_REQUEST_DISTANCE_TAB.route,
+                                        path: ROUTES.MONEY_REQUEST.TABS.DISTANCE.route,
                                         exact: true,
                                     },
                                 },

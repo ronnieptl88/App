@@ -68,7 +68,7 @@ function MoneyRequestParticipantsPage({iou, selectedTab, route}) {
     };
 
     const navigateBack = (forceFallback = false) => {
-        Navigation.goBack(ROUTES.MONEY_REQUEST.getRoute(iouType.current, reportID.current), forceFallback);
+        Navigation.goBack(ROUTES.MONEY_REQUEST.ROOT.getRoute(iouType.current, reportID.current), forceFallback);
     };
 
     useEffect(() => {

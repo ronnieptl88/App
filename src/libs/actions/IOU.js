@@ -2003,7 +2003,7 @@ function payMoneyRequest(paymentType, chatReport, iouReport) {
  */
 function startMoneyRequest(iouType, reportID = '') {
     resetMoneyRequestInfo(`${iouType}${reportID}`);
-    Navigation.navigate(ROUTES.MONEY_REQUEST.getRoute(iouType, reportID));
+    Navigation.navigate(ROUTES.MONEY_REQUEST.ROOT.getRoute(iouType, reportID));
 }
 
 /**
