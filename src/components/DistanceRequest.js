@@ -184,7 +184,7 @@ function DistanceRequest({transactionID, report, transaction, mapboxAccessToken,
     useEffect(updateGradientVisibility, [scrollContainerHeight, scrollContentHeight]);
 
     const navigateBack = () => {
-        Navigation.goBack(isEditing ? ROUTES.MONEY_REQUEST_CONFIRMATION.getRoute(iouType, reportID) : null);
+        Navigation.goBack(isEditing ? ROUTES.MONEY_REQUEST.CONFIRMATION.getRoute(iouType, reportID) : null);
     };
 
     const content = (
@@ -225,7 +225,7 @@ function DistanceRequest({transactionID, report, transaction, mapboxAccessToken,
                                 shouldShowRightIcon
                                 onPress={() =>
                                     Navigation.navigate(
-                                        isEditingRequest ? ROUTES.MONEY_REQUEST_EDIT_WAYPOINT.getRoute(report.reportID, index) : ROUTES.MONEY_REQUEST_WAYPOINT.getRoute('request', index),
+                                        isEditingRequest ? ROUTES.MONEY_REQUEST_EDIT_WAYPOINT.getRoute(report.reportID, index) : ROUTES.MONEY_REQUEST.WAYPOINT.getRoute('request', index),
                                     )
                                 }
                                 key={key}

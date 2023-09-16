@@ -126,7 +126,7 @@ function NewRequestAmountPage({route, iou, report, selectedTab}) {
     }, [iou.participantAccountIDs, iou.amount, iou.id, isEditing, iouType, reportID, isDistanceRequestTab]);
 
     const navigateBack = () => {
-        Navigation.goBack(isEditing ? ROUTES.MONEY_REQUEST_CONFIRMATION.getRoute(iouType, reportID) : null);
+        Navigation.goBack(isEditing ? ROUTES.MONEY_REQUEST.CONFIRMATION.getRoute(iouType, reportID) : null);
     };
 
     const navigateToCurrencySelectionPage = () => {
@@ -138,7 +138,7 @@ function NewRequestAmountPage({route, iou, report, selectedTab}) {
 
         // Remove query from the route and encode it.
         const activeRoute = encodeURIComponent(Navigation.getActiveRoute().replace(/\?.*/, ''));
-        Navigation.navigate(ROUTES.MONEY_REQUEST_CURRENCY.getRoute(iouType, reportID, currency, activeRoute));
+        Navigation.navigate(ROUTES.MONEY_REQUEST.CURRENCY.getRoute(iouType, reportID, currency, activeRoute));
     };
 
     const navigateToNextPage = (currentAmount) => {
@@ -147,7 +147,7 @@ function NewRequestAmountPage({route, iou, report, selectedTab}) {
         IOU.setMoneyRequestCurrency(currency);
 
         if (isEditing) {
-            Navigation.goBack(ROUTES.MONEY_REQUEST_CONFIRMATION.getRoute(iouType, reportID));
+            Navigation.goBack(ROUTES.MONEY_REQUEST.CONFIRMATION.getRoute(iouType, reportID));
             return;
         }
 

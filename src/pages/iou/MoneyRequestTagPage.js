@@ -58,7 +58,7 @@ function MoneyRequestTagPage({route, report, policyTags}) {
     const tagListName = lodashGet(tagList, 'name', '');
 
     const navigateBack = () => {
-        Navigation.goBack(ROUTES.MONEY_REQUEST_CONFIRMATION.getRoute(iouType, lodashGet(report, 'reportID', '')));
+        Navigation.goBack(ROUTES.MONEY_REQUEST.CONFIRMATION.getRoute(iouType, lodashGet(report, 'reportID', '')));
     };
 
     return (

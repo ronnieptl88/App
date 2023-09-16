@@ -64,7 +64,7 @@ function MoneyRequestMerchantPage({iou, route}) {
     }, [iou.id, iou.participantAccountIDs, iou.amount, iou.receiptPath, iouType, reportID]);
 
     function navigateBack() {
-        Navigation.goBack(ROUTES.MONEY_REQUEST_CONFIRMATION.getRoute(iouType, reportID));
+        Navigation.goBack(ROUTES.MONEY_REQUEST.CONFIRMATION.getRoute(iouType, reportID));
     }
 
     const validate = useCallback((value) => {

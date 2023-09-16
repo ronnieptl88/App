@@ -67,7 +67,7 @@ function MoneyRequestDatePage({iou, route, selectedTab}) {
     }, [iou.id, iou.participantAccountIDs, iou.amount, iou.receiptPath, iouType, reportID, isDistanceRequest]);
 
     function navigateBack() {
-        Navigation.goBack(ROUTES.MONEY_REQUEST_CONFIRMATION.getRoute(iouType, reportID));
+        Navigation.goBack(ROUTES.MONEY_REQUEST.CONFIRMATION.getRoute(iouType, reportID));
     }
 
     /**

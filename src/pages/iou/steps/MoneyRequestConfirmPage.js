@@ -111,7 +111,7 @@ function MoneyRequestConfirmPage(props) {
         if (reportID.current) {
             fallback = ROUTES.MONEY_REQUEST.ROOT.getRoute(iouType.current, reportID.current);
         } else {
-            fallback = ROUTES.MONEY_REQUEST_PARTICIPANTS.getRoute(iouType.current);
+            fallback = ROUTES.MONEY_REQUEST.PARTICIPANTS.getRoute(iouType.current);
         }
         Navigation.goBack(fallback);
     };

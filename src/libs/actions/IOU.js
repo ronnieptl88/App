@@ -2122,10 +2122,10 @@ function navigateToNextPage(iou, iouType, report) {
                       .value();
             setMoneyRequestParticipants(participants);
         }
-        Navigation.navigate(ROUTES.MONEY_REQUEST_CONFIRMATION.getRoute(iouType, report.reportID));
+        Navigation.navigate(ROUTES.MONEY_REQUEST.CONFIRMATION.getRoute(iouType, report.reportID));
         return;
     }
-    Navigation.navigate(ROUTES.MONEY_REQUEST_PARTICIPANTS.getRoute(iouType));
+    Navigation.navigate(ROUTES.MONEY_REQUEST.PARTICIPANTS.getRoute(iouType));
 }
 
 export {
