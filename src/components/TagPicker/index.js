@@ -50,7 +50,7 @@ function TagPicker({policyTags, reportID, tag, iouType, iou}) {
     const headerMessage = OptionsListUtils.getHeaderMessage(lodashGet(sections, '[0].data.length', 0) > 0, false, '');
 
     const navigateBack = () => {
-        Navigation.goBack(ROUTES.MONEY_REQUEST.CONFIRMATION.getRoute(iouType, reportID));
+        Navigation.goBack(ROUTES.MONEY_REQUEST_CONFIRMATION.getRoute(iouType, reportID));
     };
 
     const updateTag = () => {

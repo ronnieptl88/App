@@ -62,6 +62,7 @@ function MoneyRequestConfirmPage(props) {
     const {windowHeight} = useWindowDimensions();
     const prevMoneyRequestId = useRef(props.iou.id);
     const iouType = useRef(lodashGet(props.route, 'params.iouType', ''));
+    const transactionID = useRef(lodashGet(props.route, 'params.transactionID', ''));
     const isDistanceRequest = MoneyRequestUtils.isDistanceRequest(iouType.current, props.selectedTab);
     const reportID = useRef(lodashGet(props.route, 'params.reportID', ''));
     const participants = useMemo(
@@ -111,7 +112,7 @@ function MoneyRequestConfirmPage(props) {
         if (reportID.current) {
             fallback = ROUTES.MONEY_REQUEST.ROOT.getRoute(iouType.current, reportID.current);
         } else {
-            fallback = ROUTES.MONEY_REQUEST.PARTICIPANTS.getRoute(iouType.current);
+            fallback = ROUTES.MONEY_REQUEST.PARTICIPANTS.getRoute(iouType.current, transactionID.current, reportID.current);
         }
         Navigation.goBack(fallback);
     };

@@ -225,7 +225,7 @@ function DistanceRequest({transactionID, report, transaction, mapboxAccessToken,
                                 shouldShowRightIcon
                                 onPress={() =>
                                     Navigation.navigate(
-                                        isEditingRequest ? ROUTES.MONEY_REQUEST_EDIT_WAYPOINT.getRoute(report.reportID, index) : ROUTES.MONEY_REQUEST.WAYPOINT.getRoute('request', index, report.reportID),
+                                        isEditingRequest ? ROUTES.MONEY_REQUEST_EDIT_WAYPOINT.getRoute(report.reportID, index) : ROUTES.MONEY_REQUEST.WAYPOINT.getRoute('request', index, transactionID, report.reportID),
                                     )
                                 }
                                 key={key}
