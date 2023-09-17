@@ -1,3 +1,4 @@
+/* eslint-disable rulesdir/no-negated-variables */
 import {ActivityIndicator, Alert, AppState, Linking, Text, View} from 'react-native';
 import React, {useCallback, useEffect, useRef, useState} from 'react';
 import {useCameraDevices} from 'react-native-vision-camera';
@@ -20,7 +21,7 @@ import Button from '../../../components/Button';
 import useLocalize from '../../../hooks/useLocalize';
 import ONYXKEYS from '../../../ONYXKEYS';
 import Log from '../../../libs/Log';
-import * as CameraPermission from './CameraPermission';
+import * as CameraPermission from './RequestScanTabNew/CameraPermission';
 import {iouPropTypes, iouDefaultProps} from '../propTypes';
 import NavigationAwareCamera from './NavigationAwareCamera';
 
@@ -74,7 +75,7 @@ function getImagePickerOptions(type) {
     };
 }
 
-function ReceiptSelector(props) {
+function RequestScanTabNew(props) {
     const devices = useCameraDevices('wide-angle-camera');
     const device = devices.back;
 
@@ -304,9 +305,9 @@ function ReceiptSelector(props) {
     );
 }
 
-ReceiptSelector.defaultProps = defaultProps;
-ReceiptSelector.propTypes = propTypes;
-ReceiptSelector.displayName = 'ReceiptSelector';
+RequestScanTabNew.defaultProps = defaultProps;
+RequestScanTabNew.propTypes = propTypes;
+RequestScanTabNew.displayName = 'RequestScanTabNew';
 
 export default withOnyx({
     iou: {
@@ -315,4 +316,4 @@ export default withOnyx({
     report: {
         key: ({route}) => `${ONYXKEYS.COLLECTION.REPORT}${lodashGet(route, 'params.reportID', '')}`,
     },
-})(ReceiptSelector);
+})(RequestScanTabNew);

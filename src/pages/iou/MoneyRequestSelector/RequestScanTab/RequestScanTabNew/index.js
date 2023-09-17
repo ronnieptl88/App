@@ -1,26 +1,27 @@
+/* eslint-disable rulesdir/no-negated-variables */
 import {View, Text, PixelRatio} from 'react-native';
 import React, {useContext, useState} from 'react';
 import lodashGet from 'lodash/get';
 import PropTypes from 'prop-types';
 import {withOnyx} from 'react-native-onyx';
-import * as IOU from '../../../libs/actions/IOU';
-import reportPropTypes from '../../reportPropTypes';
-import CONST from '../../../CONST';
+import * as IOU from '../../../../../libs/actions/IOU';
+import reportPropTypes from '../../../../reportPropTypes';
+import CONST from '../../../../../CONST';
 import ReceiptUpload from '../../../../assets/images/receipt-upload.svg';
-import PressableWithFeedback from '../../../components/Pressable/PressableWithFeedback';
-import Button from '../../../components/Button';
-import styles from '../../../styles/styles';
-import CopyTextToClipboard from '../../../components/CopyTextToClipboard';
-import ReceiptDropUI from '../ReceiptDropUI';
-import AttachmentPicker from '../../../components/AttachmentPicker';
-import ConfirmModal from '../../../components/ConfirmModal';
-import ONYXKEYS from '../../../ONYXKEYS';
-import Receipt from '../../../libs/actions/Receipt';
-import useWindowDimensions from '../../../hooks/useWindowDimensions';
-import useLocalize from '../../../hooks/useLocalize';
-import {DragAndDropContext} from '../../../components/DragAndDrop/Provider';
-import * as ReceiptUtils from '../../../libs/ReceiptUtils';
-import {iouPropTypes, iouDefaultProps} from '../propTypes';
+import PressableWithFeedback from '../../../../../components/Pressable/PressableWithFeedback';
+import Button from '../../../../../components/Button';
+import styles from '../../../../../styles/styles';
+import CopyTextToClipboard from '../../../../../components/CopyTextToClipboard';
+import ReceiptDropUI from '../../../ReceiptDropUI';
+import AttachmentPicker from '../../../../../components/AttachmentPicker';
+import ConfirmModal from '../../../../../components/ConfirmModal';
+import ONYXKEYS from '../../../../../ONYXKEYS';
+import Receipt from '../../../../../libs/actions/Receipt';
+import useWindowDimensions from '../../../../../hooks/useWindowDimensions';
+import useLocalize from '../../../../../hooks/useLocalize';
+import {DragAndDropContext} from '../../../../../components/DragAndDrop/Provider';
+import * as ReceiptUtils from '../../../../../libs/ReceiptUtils';
+import {iouPropTypes, iouDefaultProps} from '../../../propTypes';
 
 const propTypes = {
     /** Information shown to the user when a receipt is not valid */
@@ -59,7 +60,7 @@ const defaultProps = {
     iou: iouDefaultProps,
 };
 
-function ReceiptSelector(props) {
+function RequestScanTabNew(props) {
     const iouType = lodashGet(props.route, 'params.iouType', '');
     const isAttachmentInvalid = lodashGet(props.receiptModal, 'isAttachmentInvalid', false);
     const attachmentInvalidReasonTitle = lodashGet(props.receiptModal, 'attachmentInvalidReasonTitle', '');
@@ -152,9 +153,9 @@ function ReceiptSelector(props) {
     );
 }
 
-ReceiptSelector.defaultProps = defaultProps;
-ReceiptSelector.propTypes = propTypes;
-ReceiptSelector.displayName = 'ReceiptSelector';
+RequestScanTabNew.defaultProps = defaultProps;
+RequestScanTabNew.propTypes = propTypes;
+RequestScanTabNew.displayName = 'RequestScanTabNew';
 
 export default withOnyx({
     iou: {key: ONYXKEYS.IOU},
@@ -162,4 +163,4 @@ export default withOnyx({
     report: {
         key: ({route}) => `${ONYXKEYS.COLLECTION.REPORT}${lodashGet(route, 'params.reportID', '')}`,
     },
-})(ReceiptSelector);
+})(RequestScanTabNew);

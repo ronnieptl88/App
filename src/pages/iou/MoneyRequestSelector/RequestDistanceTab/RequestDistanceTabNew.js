@@ -3,12 +3,12 @@ import PropTypes from 'prop-types';
 import {withOnyx} from 'react-native-onyx';
 import lodashGet from 'lodash/get';
 import _ from 'underscore';
-import * as IOU from '../../libs/actions/IOU';
-import ONYXKEYS from '../../ONYXKEYS';
-import DistanceRequest from '../../components/DistanceRequest';
-import reportPropTypes from '../reportPropTypes';
-import CONST from '../../CONST';
-import {iouPropTypes} from './propTypes';
+import * as IOU from '../../../../libs/actions/IOU';
+import ONYXKEYS from '../../../../ONYXKEYS';
+import DistanceRequest from '../../../../components/DistanceRequest';
+import reportPropTypes from '../../../reportPropTypes';
+import CONST from '../../../../CONST';
+import {iouPropTypes} from '../../propTypes';
 
 const propTypes = {
     /** Holds data related to Money Request view state, rather than the underlying Money Request data. */
@@ -42,7 +42,7 @@ const defaultProps = {
 
 // This component is responsible for getting the transactionID from the IOU key, or creating the transaction if it doesn't exist yet, and then passing the transactionID.
 // You can't use Onyx props in the withOnyx mapping, so we need to set up and access the transactionID here, and then pass it down so that DistanceRequest can subscribe to the transaction.
-function NewDistanceRequestPage({iou, report, route}) {
+function RequestDistanceTabNew({iou, report, route}) {
     const iouType = lodashGet(route, 'params.iouType', 'request');
 
     useEffect(() => {
@@ -62,12 +62,12 @@ function NewDistanceRequestPage({iou, report, route}) {
     );
 }
 
-NewDistanceRequestPage.displayName = 'NewDistanceRequestPage';
-NewDistanceRequestPage.propTypes = propTypes;
-NewDistanceRequestPage.defaultProps = defaultProps;
+RequestDistanceTabNew.displayName = 'RequestDistanceTabNew';
+RequestDistanceTabNew.propTypes = propTypes;
+RequestDistanceTabNew.defaultProps = defaultProps;
 export default withOnyx({
     iou: {key: ONYXKEYS.IOU},
     report: {
         key: ({route}) => `${ONYXKEYS.COLLECTION.REPORT}${lodashGet(route, 'params.reportID')}`,
     },
-})(NewDistanceRequestPage);
+})(RequestDistanceTabNew);

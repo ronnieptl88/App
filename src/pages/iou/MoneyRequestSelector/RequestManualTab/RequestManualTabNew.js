@@ -5,23 +5,23 @@ import {withOnyx} from 'react-native-onyx';
 import {useFocusEffect} from '@react-navigation/native';
 import lodashGet from 'lodash/get';
 import _ from 'underscore';
-import ONYXKEYS from '../../../ONYXKEYS';
-import Navigation from '../../../libs/Navigation/Navigation';
-import ROUTES from '../../../ROUTES';
-import * as ReportUtils from '../../../libs/ReportUtils';
-import * as CurrencyUtils from '../../../libs/CurrencyUtils';
-import reportPropTypes from '../../reportPropTypes';
-import * as IOU from '../../../libs/actions/IOU';
-import useLocalize from '../../../hooks/useLocalize';
-import MoneyRequestAmountForm from './MoneyRequestAmountForm';
-import * as IOUUtils from '../../../libs/IOUUtils';
-import * as MoneyRequestUtils from '../../../libs/MoneyRequestUtils';
-import FullPageNotFoundView from '../../../components/BlockingViews/FullPageNotFoundView';
-import styles from '../../../styles/styles';
-import HeaderWithBackButton from '../../../components/HeaderWithBackButton';
-import ScreenWrapper from '../../../components/ScreenWrapper';
-import {iouPropTypes, iouDefaultProps} from '../propTypes';
-import CONST from '../../../CONST';
+import ONYXKEYS from '../../../../ONYXKEYS';
+import Navigation from '../../../../libs/Navigation/Navigation';
+import ROUTES from '../../../../ROUTES';
+import * as ReportUtils from '../../../../libs/ReportUtils';
+import * as CurrencyUtils from '../../../../libs/CurrencyUtils';
+import reportPropTypes from '../../../reportPropTypes';
+import * as IOU from '../../../../libs/actions/IOU';
+import useLocalize from '../../../../hooks/useLocalize';
+import MoneyRequestAmountForm from '../../steps/MoneyRequestAmountForm';
+import * as IOUUtils from '../../../../libs/IOUUtils';
+import * as MoneyRequestUtils from '../../../../libs/MoneyRequestUtils';
+import FullPageNotFoundView from '../../../../components/BlockingViews/FullPageNotFoundView';
+import styles from '../../../../styles/styles';
+import HeaderWithBackButton from '../../../../components/HeaderWithBackButton';
+import ScreenWrapper from '../../../../components/ScreenWrapper';
+import {iouPropTypes, iouDefaultProps} from '../../propTypes';
+import CONST from '../../../../CONST';
 
 const propTypes = {
     /** React Navigation route */
@@ -55,7 +55,7 @@ const defaultProps = {
     selectedTab: CONST.TAB.MANUAL,
 };
 
-function NewRequestAmountPage({route, iou, report, selectedTab}) {
+function RequestManualTabNew({route, iou, report, selectedTab}) {
     const {translate} = useLocalize();
 
     const prevMoneyRequestID = useRef(iou.id);
@@ -192,9 +192,9 @@ function NewRequestAmountPage({route, iou, report, selectedTab}) {
     );
 }
 
-NewRequestAmountPage.propTypes = propTypes;
-NewRequestAmountPage.defaultProps = defaultProps;
-NewRequestAmountPage.displayName = 'NewRequestAmountPage';
+RequestManualTabNew.propTypes = propTypes;
+RequestManualTabNew.defaultProps = defaultProps;
+RequestManualTabNew.displayName = 'RequestManualTabNew';
 
 export default withOnyx({
     iou: {key: ONYXKEYS.IOU},
@@ -204,4 +204,4 @@ export default withOnyx({
     selectedTab: {
         key: `${ONYXKEYS.COLLECTION.SELECTED_TAB}${CONST.TAB.RECEIPT_TAB_ID}`,
     },
-})(NewRequestAmountPage);
+})(RequestManualTabNew);

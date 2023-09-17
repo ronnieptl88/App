@@ -48,8 +48,8 @@ const createRouteRenderingComponent = (name, getComponent, initialParams) => ({
 });
 
 const MoneyRequestModalStackNavigator = createModalStackNavigator([
-    createRouteRenderingComponent('Money_Request', () => require('../../../pages/iou/MoneyRequestSelectorPage').default),
-    createRouteRenderingComponent('Money_Request_Amount', () => require('../../../pages/iou/steps/NewRequestAmountPage').default),
+    createRouteRenderingComponent('Money_Request', () => require('../../../pages/iou/MoneyRequestSelector/MoneyRequestSelectorPage').default),
+    createRouteRenderingComponent('Money_Request_Amount', () => require('../../../pages/iou/MoneyRequestSelector/RequestManualTab/RequestManualTabNew').default),
     createRouteRenderingComponent('Money_Request_Participants', () => require('../../../pages/iou/steps/MoneyRequstParticipantsPage/MoneyRequestParticipantsPage').default),
     createRouteRenderingComponent('Money_Request_Confirmation', () => require('../../../pages/iou/steps/MoneyRequestConfirmPage').default),
     createRouteRenderingComponent('Money_Request_Currency', () => require('../../../pages/iou/IOUCurrencySelection').default),
@@ -63,7 +63,7 @@ const MoneyRequestModalStackNavigator = createModalStackNavigator([
     createRouteRenderingComponent('IOU_Send_Enable_Payments', () => require('../../../pages/EnablePayments/EnablePaymentsPage').default),
     createRouteRenderingComponent('Money_Request_Waypoint', () => require('../../../pages/iou/NewDistanceRequestWaypointEditorPage').default),
     createRouteRenderingComponent('Money_Request_Edit_Waypoint', () => require('../../../pages/iou/MoneyRequestEditWaypointPage').default),
-    createRouteRenderingComponent('Money_Request_Address', () => require('../../../pages/iou/NewDistanceRequestPage').default),
+    createRouteRenderingComponent('Money_Request_Address', () => require('../../../pages/iou/MoneyRequestSelector/RequestDistanceTab/RequestDistanceTabNew').default),
 ]);
 
 const SplitDetailsModalStackNavigator = createModalStackNavigator([
