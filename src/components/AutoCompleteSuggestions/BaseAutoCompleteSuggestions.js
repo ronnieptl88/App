@@ -2,7 +2,7 @@ import React, {useEffect, useRef} from 'react';
 import Animated, {Easing, FadeOutDown, useAnimatedStyle, useSharedValue, withTiming} from 'react-native-reanimated';
 // We take FlatList from this package to properly handle the scrolling of AutoCompleteSuggestions in chats since one scroll is nested inside another
 import {FlatList} from 'react-native-gesture-handler';
-import styles from '../../styles/styles';
+import useThemeStyles from '../../styles/useThemeStyles';
 import * as StyleUtils from '../../styles/StyleUtils';
 import CONST from '../../CONST';
 import {propTypes} from './autoCompleteSuggestionsPropTypes';
@@ -29,6 +29,7 @@ const measureHeightOfSuggestionRows = (numRows, isSuggestionPickerLarge) => {
 };
 
 function BaseAutoCompleteSuggestions(props) {
+    const styles = useThemeStyles();
     const rowHeight = useSharedValue(0);
     const scrollRef = useRef(null);
     /**

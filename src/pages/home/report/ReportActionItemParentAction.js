@@ -4,7 +4,7 @@ import lodashGet from 'lodash/get';
 import {withOnyx} from 'react-native-onyx';
 import PropTypes from 'prop-types';
 import ONYXKEYS from '../../../ONYXKEYS';
-import styles from '../../../styles/styles';
+import useThemeStyles from '../../../styles/useThemeStyles';
 import OfflineWithFeedback from '../../../components/OfflineWithFeedback';
 import * as Report from '../../../libs/actions/Report';
 import reportPropTypes from '../../reportPropTypes';
@@ -46,6 +46,7 @@ const defaultProps = {
 };
 
 function ReportActionItemParentAction(props) {
+    const styles = useThemeStyles();
     const parentReportAction = props.parentReportActions[`${props.report.parentReportActionID}`];
 
     // In case of transaction threads, we do not want to render the parent report action.

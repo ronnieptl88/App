@@ -15,12 +15,12 @@ import * as LottieAnimations from '../../../components/LottieAnimations';
 import compose from '../../../libs/compose';
 import withCurrentUserPersonalDetails, {withCurrentUserPersonalDetailsDefaultProps, withCurrentUserPersonalDetailsPropTypes} from '../../../components/withCurrentUserPersonalDetails';
 import LinearGradient from '../../../components/LinearGradient';
-import styles from '../../../styles/styles';
+import useThemeStyles from '../../../styles/useThemeStyles';
 import Avatar from '../../../components/Avatar';
 import Text from '../../../components/Text';
 import * as UserUtils from '../../../libs/UserUtils';
 import CONST from '../../../CONST';
-import themeColors from '../../../styles/themes/default';
+import useTheme from '../../../styles/themes/useTheme';
 import * as LocalePhoneNumber from '../../../libs/LocalePhoneNumber';
 
 const propTypes = {
@@ -58,6 +58,8 @@ const menuItems = [
 ];
 
 function LoungeAccessPage(props) {
+    const theme = useTheme();
+    const styles = useThemeStyles();
     const {translate} = useLocalize();
 
     if (!props.user.hasLoungeAccess) {
@@ -66,7 +68,7 @@ function LoungeAccessPage(props) {
 
     const overlayContent = () => (
         <LinearGradient
-            colors={[`${themeColors.loungeAccessOverlay}00`, themeColors.loungeAccessOverlay]}
+            colors={[`${theme.loungeAccessOverlay}00`, theme.loungeAccessOverlay]}
             style={[styles.pAbsolute, styles.w100, styles.h100]}
         >
             <View style={[styles.flex1, styles.justifyContentCenter, styles.alignItemsCenter, styles.pt5, styles.ph5]}>

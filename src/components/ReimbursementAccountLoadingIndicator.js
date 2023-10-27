@@ -3,7 +3,7 @@ import {StyleSheet, View} from 'react-native';
 import PropTypes from 'prop-types';
 import Lottie from './Lottie';
 import * as LottieAnimations from './LottieAnimations';
-import styles from '../styles/styles';
+import useThemeStyles from '../styles/useThemeStyles';
 import useLocalize from '../hooks/useLocalize';
 import Text from './Text';
 import HeaderWithBackButton from './HeaderWithBackButton';
@@ -20,6 +20,7 @@ const propTypes = {
 };
 
 function ReimbursementAccountLoadingIndicator(props) {
+    const styles = useThemeStyles();
     const {translate} = useLocalize();
     return (
         <ScreenWrapper

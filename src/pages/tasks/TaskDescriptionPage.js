@@ -8,7 +8,7 @@ import withLocalize, {withLocalizePropTypes} from '../../components/withLocalize
 import ONYXKEYS from '../../ONYXKEYS';
 import TextInput from '../../components/TextInput';
 import reportPropTypes from '../reportPropTypes';
-import styles from '../../styles/styles';
+import useThemeStyles from '../../styles/useThemeStyles';
 import compose from '../../libs/compose';
 import * as Task from '../../libs/actions/Task';
 import * as ReportUtils from '../../libs/ReportUtils';
@@ -35,6 +35,7 @@ const defaultProps = {
 };
 
 function TaskDescriptionPage(props) {
+    const styles = useThemeStyles();
     const validate = useCallback(() => ({}), []);
 
     const submit = useCallback(

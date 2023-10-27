@@ -11,7 +11,7 @@ import withLocalize from '../../components/withLocalize';
 import ScreenWrapper from '../../components/ScreenWrapper';
 import HeaderWithBackButton from '../../components/HeaderWithBackButton';
 import Navigation from '../../libs/Navigation/Navigation';
-import styles from '../../styles/styles';
+import useThemeStyles from '../../styles/useThemeStyles';
 import compose from '../../libs/compose';
 import ONYXKEYS from '../../ONYXKEYS';
 import TextInput from '../../components/TextInput';
@@ -60,6 +60,7 @@ const defaultProps = {
 };
 
 function PrivateNotesEditPage({route, personalDetailsList, session, report}) {
+    const styles = useThemeStyles();
     const {translate} = useLocalize();
 
     // We need to edit the note in markdown format, but display it in HTML format

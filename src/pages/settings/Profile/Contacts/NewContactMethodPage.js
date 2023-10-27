@@ -14,7 +14,7 @@ import withLocalize, {withLocalizePropTypes} from '../../../../components/withLo
 import Navigation from '../../../../libs/Navigation/Navigation';
 import ONYXKEYS from '../../../../ONYXKEYS';
 import ROUTES from '../../../../ROUTES';
-import styles from '../../../../styles/styles';
+import useThemeStyles from '../../../../styles/useThemeStyles';
 import * as User from '../../../../libs/actions/User';
 import * as LoginUtils from '../../../../libs/LoginUtils';
 import * as ErrorUtils from '../../../../libs/ErrorUtils';
@@ -58,6 +58,7 @@ const addNewContactMethod = (values) => {
 };
 
 function NewContactMethodPage(props) {
+    const styles = useThemeStyles();
     const loginInputRef = useRef(null);
 
     const validate = React.useCallback(

@@ -6,7 +6,7 @@ import {withOnyx} from 'react-native-onyx';
 import EmojiReactionBubble from '../EmojiReactionBubble';
 import AddReactionBubble from '../AddReactionBubble';
 import CONST from '../../../CONST';
-import styles from '../../../styles/styles';
+import useThemeStyles from '../../../styles/useThemeStyles';
 import ONYXKEYS from '../../../ONYXKEYS';
 import Tooltip from '../../Tooltip';
 import * as EmojiUtils from '../../../libs/EmojiUtils';
@@ -60,6 +60,7 @@ const defaultProps = {
 };
 
 function BaseQuickEmojiReactions(props) {
+    const styles = useThemeStyles();
     return (
         <View style={styles.quickReactionsContainer}>
             {_.map(CONST.QUICK_REACTIONS, (emoji) => (

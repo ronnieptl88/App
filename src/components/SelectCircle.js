@@ -1,10 +1,10 @@
 import React from 'react';
 import {View} from 'react-native';
 import PropTypes from 'prop-types';
-import styles from '../styles/styles';
+import useThemeStyles from '../styles/useThemeStyles';
 import Icon from './Icon';
 import * as Expensicons from './Icon/Expensicons';
-import themeColors from '../styles/themes/default';
+import useTheme from '../styles/themes/useTheme';
 
 const propTypes = {
     /** Should we show the checkmark inside the circle */
@@ -21,12 +21,14 @@ const defaultProps = {
 };
 
 function SelectCircle(props) {
+    const theme = useTheme();
+    const styles = useThemeStyles();
     return (
         <View style={[styles.selectCircle, styles.alignSelfCenter, ...props.styles]}>
             {props.isChecked && (
                 <Icon
                     src={Expensicons.Checkmark}
-                    fill={themeColors.iconSuccessFill}
+                    fill={theme.iconSuccessFill}
                 />
             )}
         </View>

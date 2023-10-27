@@ -4,7 +4,7 @@ import lodashGet from 'lodash/get';
 import {InteractionManager, View} from 'react-native';
 import PropTypes from 'prop-types';
 import {withOnyx} from 'react-native-onyx';
-import styles from '../../styles/styles';
+import useThemeStyles from '../../styles/useThemeStyles';
 import ONYXKEYS from '../../ONYXKEYS';
 import HeaderWithBackButton from '../../components/HeaderWithBackButton';
 import Navigation from '../../libs/Navigation/Navigation';
@@ -72,6 +72,7 @@ const defaultProps = {
 };
 
 function WorkspaceMembersPage(props) {
+    const styles = useThemeStyles();
     const [selectedEmployees, setSelectedEmployees] = useState([]);
     const [removeMembersConfirmModalVisible, setRemoveMembersConfirmModalVisible] = useState(false);
     const [errors, setErrors] = useState({});

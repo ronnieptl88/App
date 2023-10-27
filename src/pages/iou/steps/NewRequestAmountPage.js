@@ -16,7 +16,7 @@ import MoneyRequestAmountForm from './MoneyRequestAmountForm';
 import * as IOUUtils from '../../../libs/IOUUtils';
 import * as MoneyRequestUtils from '../../../libs/MoneyRequestUtils';
 import FullPageNotFoundView from '../../../components/BlockingViews/FullPageNotFoundView';
-import styles from '../../../styles/styles';
+import useThemeStyles from '../../../styles/useThemeStyles';
 import HeaderWithBackButton from '../../../components/HeaderWithBackButton';
 import ScreenWrapper from '../../../components/ScreenWrapper';
 import {iouPropTypes, iouDefaultProps} from '../propTypes';
@@ -55,6 +55,7 @@ const defaultProps = {
 };
 
 function NewRequestAmountPage({route, iou, report, selectedTab}) {
+    const styles = useThemeStyles();
     const {translate} = useLocalize();
 
     const prevMoneyRequestID = useRef(iou.id);

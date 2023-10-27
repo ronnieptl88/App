@@ -2,7 +2,7 @@ import _ from 'underscore';
 import React from 'react';
 import PropTypes from 'prop-types';
 import Text from './Text';
-import styles from '../styles/styles';
+import useThemeStyles from '../styles/useThemeStyles';
 import stylePropTypes from '../styles/stylePropTypes';
 import CONST from '../CONST';
 import * as Link from '../libs/actions/Link';
@@ -37,6 +37,7 @@ const defaultProps = {
 };
 
 function TextLink(props) {
+    const styles = useThemeStyles();
     const rest = _.omit(props, _.keys(propTypes));
     const additionalStyles = _.isArray(props.style) ? props.style : [props.style];
 

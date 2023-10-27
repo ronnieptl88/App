@@ -1,11 +1,11 @@
 import React, {forwardRef, useCallback, useEffect, useImperativeHandle, useRef, useState} from 'react';
 import {Directions, FlingGestureHandler, State} from 'react-native-gesture-handler';
 import {View, Animated} from 'react-native';
-import themeColors from '../../styles/themes/default';
+import useTheme from '../../styles/themes/useTheme';
 import Text from '../Text';
 import Icon from '../Icon';
 import * as Expensicons from '../Icon/Expensicons';
-import styles from '../../styles/styles';
+import useThemeStyles from '../../styles/useThemeStyles';
 import GrowlNotificationContainer from './GrowlNotificationContainer';
 import CONST from '../../CONST';
 import * as Growl from '../../libs/Growl';
@@ -15,15 +15,15 @@ import useNativeDriver from '../../libs/useNativeDriver';
 const types = {
     [CONST.GROWL.SUCCESS]: {
         icon: Expensicons.Checkmark,
-        iconColor: themeColors.success,
+        iconColor: theme.success,
     },
     [CONST.GROWL.ERROR]: {
         icon: Expensicons.Exclamation,
-        iconColor: themeColors.danger,
+        iconColor: theme.danger,
     },
     [CONST.GROWL.WARNING]: {
         icon: Expensicons.Exclamation,
-        iconColor: themeColors.warning,
+        iconColor: theme.warning,
     },
 };
 
@@ -32,6 +32,8 @@ const INACTIVE_POSITION_Y = -255;
 const PressableWithoutFeedback = Pressables.PressableWithoutFeedback;
 
 function GrowlNotification(_, ref) {
+    const theme = useTheme();
+    const styles = useThemeStyles();
     const translateY = useRef(new Animated.Value(INACTIVE_POSITION_Y)).current;
     const [bodyText, setBodyText] = useState('');
     const [type, setType] = useState('success');

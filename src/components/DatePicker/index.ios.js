@@ -6,13 +6,15 @@ import isFunction from 'lodash/isFunction';
 import TextInput from '../TextInput';
 import Popover from '../Popover';
 import CONST from '../../CONST';
-import styles from '../../styles/styles';
-import themeColors from '../../styles/themes/default';
+import useThemeStyles from '../../styles/useThemeStyles';
+import useTheme from '../../styles/themes/useTheme';
 import {propTypes, defaultProps} from './datepickerPropTypes';
 import useKeyboardState from '../../hooks/useKeyboardState';
 import useLocalize from '../../hooks/useLocalize';
 
 function DatePicker({value, defaultValue, innerRef, onInputChange, preferredLocale, minDate, maxDate, label, disabled, onBlur, placeholder, containerStyles, errorText}) {
+    const theme = useTheme();
+    const styles = useThemeStyles();
     const [isPickerVisible, setIsPickerVisible] = useState(false);
     const [selectedDate, setSelectedDate] = useState(moment(value || defaultValue).toDate());
     const {isKeyboardShown} = useKeyboardState();
@@ -104,12 +106,13 @@ function DatePicker({value, defaultValue, innerRef, onInputChange, preferredLoca
                 <View style={[styles.flexRow, styles.justifyContentBetween, styles.borderBottom, styles.pb1, styles.ph4]}>
                     <Button
                         title={translate('common.reset')}
-                        color={themeColors.textError}
+                        color={theme.textError}
                         onPress={reset}
                     />
+
                     <Button
                         title={translate('common.done')}
-                        color={themeColors.link}
+                        color={theme.link}
                         onPress={selectDate}
                     />
                 </View>

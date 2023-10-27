@@ -5,7 +5,7 @@ import useLocalize from '../hooks/useLocalize';
 import ScreenWrapper from '../components/ScreenWrapper';
 import Text from '../components/Text';
 import HeaderWithBackButton from '../components/HeaderWithBackButton';
-import styles from '../styles/styles';
+import useThemeStyles from '../styles/useThemeStyles';
 import TagPicker from '../components/TagPicker';
 
 const propTypes = {
@@ -23,6 +23,7 @@ const propTypes = {
 };
 
 function EditRequestTagPage({defaultTag, policyID, tagName, onSubmit}) {
+    const styles = useThemeStyles();
     const {translate} = useLocalize();
 
     const selectTag = (tag) => {

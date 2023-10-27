@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import {View} from 'react-native';
 import lodashGet from 'lodash/get';
-import styles from '../../../styles/styles';
+import useThemeStyles from '../../../styles/useThemeStyles';
 import withLocalize, {withLocalizePropTypes} from '../../../components/withLocalize';
 import participantPropTypes from '../../../components/participantPropTypes';
 import Text from '../../../components/Text';
@@ -29,6 +29,7 @@ function getParticipantLocalTime(participant, preferredLocale) {
 }
 
 function ParticipantLocalTime(props) {
+    const styles = useThemeStyles();
     const {participant, preferredLocale, translate} = props;
 
     const [localTime, setLocalTime] = useState(() => getParticipantLocalTime(participant, preferredLocale));

@@ -1,7 +1,7 @@
 import _ from 'underscore';
 import React from 'react';
 import {View} from 'react-native';
-import styles from '../../../styles/styles';
+import useThemeStyles from '../../../styles/useThemeStyles';
 import Text from '../../../components/Text';
 import CollapsibleSection from '../../../components/CollapsibleSection';
 import * as Localize from '../../../libs/Localize';
@@ -77,6 +77,7 @@ const getLongTermsSections = () =>
     ));
 
 function LongTermsForm() {
+    const styles = useThemeStyles();
     return (
         <>
             <CollapsibleSection title={Localize.translateLocal('termsStep.longTermsForm.listOfAllFees')}>{getLongTermsSections()}</CollapsibleSection>

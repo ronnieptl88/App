@@ -4,7 +4,7 @@ import _ from 'underscore';
 import {CONST} from 'expensify-common/lib/CONST';
 import Text from './Text';
 import TextLink from './TextLink';
-import styles from '../styles/styles';
+import useThemeStyles from '../styles/useThemeStyles';
 
 const propTypes = {
     text: PropTypes.string.isRequired,
@@ -22,6 +22,7 @@ const defaultProps = {
  */
 
 function AutoEmailLink(props) {
+    const styles = useThemeStyles();
     return (
         <Text style={props.style}>
             {_.map(props.text.split(CONST.REG_EXP.EXTRACT_EMAIL), (str, index) => {

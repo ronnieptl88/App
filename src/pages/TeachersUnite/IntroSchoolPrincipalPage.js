@@ -12,7 +12,7 @@ import ONYXKEYS from '../../ONYXKEYS';
 import CONST from '../../CONST';
 import TextInput from '../../components/TextInput';
 import Text from '../../components/Text';
-import styles from '../../styles/styles';
+import useThemeStyles from '../../styles/useThemeStyles';
 import * as ErrorUtils from '../../libs/ErrorUtils';
 import ROUTES from '../../ROUTES';
 import Navigation from '../../libs/Navigation/Navigation';
@@ -33,6 +33,7 @@ const defaultProps = {
 };
 
 function IntroSchoolPrincipalPage(props) {
+    const styles = useThemeStyles();
     const {translate} = useLocalize();
 
     /**

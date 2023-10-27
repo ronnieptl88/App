@@ -7,7 +7,7 @@ import HeaderWithBackButton from '../../components/HeaderWithBackButton';
 import withLocalize, {withLocalizePropTypes} from '../../components/withLocalize';
 import ONYXKEYS from '../../ONYXKEYS';
 import TextInput from '../../components/TextInput';
-import styles from '../../styles/styles';
+import useThemeStyles from '../../styles/useThemeStyles';
 import reportPropTypes from '../reportPropTypes';
 import compose from '../../libs/compose';
 import * as Task from '../../libs/actions/Task';
@@ -33,6 +33,7 @@ const defaultProps = {
 };
 
 function TaskTitlePage(props) {
+    const styles = useThemeStyles();
     /**
      * @param {Object} values
      * @param {String} values.title

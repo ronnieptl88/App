@@ -4,7 +4,7 @@ import withLocalize, {withLocalizePropTypes} from '../../withLocalize';
 import IconButton from '../IconButton';
 import CONFIG from '../../../CONFIG';
 import ROUTES from '../../../ROUTES';
-import styles from '../../../styles/styles';
+import useThemeStyles from '../../../styles/useThemeStyles';
 import CONST from '../../../CONST';
 
 const propTypes = {...withLocalizePropTypes};
@@ -16,6 +16,7 @@ const googleSignInWebRouteForDesktopFlow = `${CONFIG.EXPENSIFY.NEW_EXPENSIFY_URL
  * @returns {React.Component}
  */
 function GoogleSignIn() {
+    const styles = useThemeStyles();
     return (
         <View style={styles.desktopSignInButtonContainer}>
             <IconButton

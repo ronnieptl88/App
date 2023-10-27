@@ -8,7 +8,7 @@ import useWindowDimensions from '../../../hooks/useWindowDimensions';
 import compose from '../../../libs/compose';
 import CONST from '../../../CONST';
 import ONYXKEYS from '../../../ONYXKEYS';
-import styles from '../../../styles/styles';
+import useThemeStyles from '../../../styles/useThemeStyles';
 import emojis from '../../../../assets/emojis';
 import EmojiPickerMenuItem from '../EmojiPickerMenuItem';
 import Text from '../../Text';
@@ -42,6 +42,7 @@ const defaultProps = {
 };
 
 function EmojiPickerMenu({preferredLocale, onEmojiSelected, preferredSkinTone, translate, frequentlyUsedEmojis}) {
+    const styles = useThemeStyles();
     const emojiList = useAnimatedRef();
     // eslint-disable-next-line react-hooks/exhaustive-deps
     const allEmojis = useMemo(() => EmojiUtils.mergeEmojisWithFrequentlyUsedEmojis(emojis), [frequentlyUsedEmojis]);

@@ -3,7 +3,7 @@ import React from 'react';
 import {FlatList} from 'react-native';
 import PropTypes from 'prop-types';
 import Str from 'expensify-common/lib/str';
-import styles from '../../../../styles/styles';
+import useThemeStyles from '../../../../styles/useThemeStyles';
 import HeaderReactionList from './HeaderReactionList';
 import * as UserUtils from '../../../../libs/UserUtils';
 import CONST from '../../../../CONST';
@@ -58,6 +58,7 @@ const getItemLayout = (_, index) => ({
 });
 
 function BaseReactionList(props) {
+    const styles = useThemeStyles();
     if (!props.isVisible) {
         return null;
     }

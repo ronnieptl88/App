@@ -12,7 +12,7 @@ import ONYXKEYS from '../ONYXKEYS';
 import * as ReportUtils from '../libs/ReportUtils';
 import reportPropTypes from '../pages/reportPropTypes';
 import * as ReportActionsUtils from '../libs/ReportActionsUtils';
-import styles from '../styles/styles';
+import useThemeStyles from '../styles/useThemeStyles';
 import * as PersonalDetailsUtils from '../libs/PersonalDetailsUtils';
 
 const propTypes = {
@@ -50,6 +50,7 @@ const defaultProps = {
 };
 
 function ArchivedReportFooter(props) {
+    const styles = useThemeStyles();
     const archiveReason = lodashGet(props.reportClosedAction, 'originalMessage.reason', CONST.REPORT.ARCHIVE_REASON.DEFAULT);
     let displayName = PersonalDetailsUtils.getDisplayNameOrDefault(props.personalDetails, [props.report.ownerAccountID, 'displayName']);
 

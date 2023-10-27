@@ -4,7 +4,7 @@ import {View} from 'react-native';
 import {withOnyx} from 'react-native-onyx';
 import lodashGet from 'lodash/get';
 import _ from 'underscore';
-import styles from '../../styles/styles';
+import useThemeStyles from '../../styles/useThemeStyles';
 import * as PolicyUtils from '../../libs/PolicyUtils';
 import Navigation from '../../libs/Navigation/Navigation';
 import compose from '../../libs/compose';
@@ -84,6 +84,7 @@ function fetchData(skipVBBACal) {
 }
 
 function WorkspacePageWithSections({backButtonRoute, children, footer, guidesCallTaskID, headerText, policy, reimbursementAccount, route, shouldUseScrollView, shouldSkipVBBACall, user}) {
+    const styles = useThemeStyles();
     useNetwork({onReconnect: () => fetchData(shouldSkipVBBACall)});
 
     const achState = lodashGet(reimbursementAccount, 'achData.state', '');

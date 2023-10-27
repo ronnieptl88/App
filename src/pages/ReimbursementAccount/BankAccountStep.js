@@ -8,10 +8,10 @@ import BankAccountPlaidStep from './BankAccountPlaidStep';
 import HeaderWithBackButton from '../../components/HeaderWithBackButton';
 import MenuItem from '../../components/MenuItem';
 import * as Expensicons from '../../components/Icon/Expensicons';
-import styles from '../../styles/styles';
+import useThemeStyles from '../../styles/useThemeStyles';
 import TextLink from '../../components/TextLink';
 import Icon from '../../components/Icon';
-import themeColors from '../../styles/themes/default';
+import useTheme from '../../styles/themes/useTheme';
 import CONST from '../../CONST';
 import withLocalize from '../../components/withLocalize';
 import Text from '../../components/Text';
@@ -64,6 +64,8 @@ const defaultProps = {
 };
 
 function BankAccountStep(props) {
+    const theme = useTheme();
+    const styles = useThemeStyles();
     let subStep = lodashGet(props.reimbursementAccount, 'achData.subStep', '');
     const shouldReinitializePlaidLink = props.plaidLinkOAuthToken && props.receivedRedirectURI && subStep !== CONST.BANK_ACCOUNT.SUBSTEP.MANUAL;
     if (shouldReinitializePlaidLink) {
@@ -157,8 +159,9 @@ function BankAccountStep(props) {
                         <View style={[styles.flexRow, styles.alignItemsCenter, styles.m4]}>
                             <Icon
                                 src={Expensicons.Exclamation}
-                                fill={themeColors.danger}
+                                fill={theme.danger}
                             />
+
                             <Text style={[styles.mutedTextLabel, styles.ml4, styles.flex1]}>{props.translate('bankAccount.validateAccountError')}</Text>
                         </View>
                     )}
@@ -175,7 +178,7 @@ function BankAccountStep(props) {
                             <View style={[styles.ml1]}>
                                 <Icon
                                     src={Expensicons.Lock}
-                                    fill={themeColors.link}
+                                    fill={theme.link}
                                 />
                             </View>
                         </PressableWithoutFeedback>

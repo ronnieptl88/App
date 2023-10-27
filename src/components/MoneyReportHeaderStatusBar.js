@@ -1,7 +1,7 @@
 import React, {useMemo} from 'react';
 import {Text, View} from 'react-native';
 import _ from 'underscore';
-import styles from '../styles/styles';
+import useThemeStyles from '../styles/useThemeStyles';
 import * as NextStepUtils from '../libs/NextStepUtils';
 import useLocalize from '../hooks/useLocalize';
 import nextStepPropTypes from '../pages/nextStepPropTypes';
@@ -17,6 +17,7 @@ const defaultProps = {
 };
 
 function MoneyReportHeaderStatusBar({nextStep}) {
+    const styles = useThemeStyles();
     const {translate} = useLocalize();
 
     const messageContent = useMemo(() => {

@@ -5,7 +5,7 @@ import {View, StyleSheet} from 'react-native';
 import lodashGet from 'lodash/get';
 import {useFocusEffect} from '@react-navigation/native';
 import * as optionRowStyles from '../../styles/optionRowStyles';
-import styles from '../../styles/styles';
+import useThemeStyles from '../../styles/useThemeStyles';
 import * as StyleUtils from '../../styles/StyleUtils';
 import DateUtils from '../../libs/DateUtils';
 import Icon from '../Icon';
@@ -16,7 +16,7 @@ import DisplayNames from '../DisplayNames';
 import Text from '../Text';
 import SubscriptAvatar from '../SubscriptAvatar';
 import CONST from '../../CONST';
-import themeColors from '../../styles/themes/default';
+import useTheme from '../../styles/themes/useTheme';
 import OfflineWithFeedback from '../OfflineWithFeedback';
 import PressableWithSecondaryInteraction from '../PressableWithSecondaryInteraction';
 import * as ReportActionContextMenu from '../../pages/home/report/ContextMenu/ReportActionContextMenu';
@@ -68,6 +68,8 @@ const defaultProps = {
 };
 
 function OptionRowLHN(props) {
+    const theme = useTheme();
+    const styles = useThemeStyles();
     const popoverAnchor = useRef(null);
     const isFocusedRef = useRef(true);
     const {isSmallScreenWidth} = useWindowDimensions();
@@ -111,7 +113,7 @@ function OptionRowLHN(props) {
             ? [styles.chatLinkRowPressable, styles.flexGrow1, styles.optionItemAvatarNameWrapper, styles.optionRowCompact, styles.justifyContentCenter]
             : [styles.chatLinkRowPressable, styles.flexGrow1, styles.optionItemAvatarNameWrapper, styles.optionRow, styles.justifyContentCenter],
     );
-    const hoveredBackgroundColor = props.hoverStyle && props.hoverStyle.backgroundColor ? props.hoverStyle.backgroundColor : themeColors.sidebar;
+    const hoveredBackgroundColor = props.hoverStyle && props.hoverStyle.backgroundColor ? props.hoverStyle.backgroundColor : theme.sidebar;
     const focusedBackgroundColor = styles.sidebarLinkActiveLHN.backgroundColor;
 
     const hasBrickError = optionItem.brickRoadIndicator === CONST.BRICK_ROAD_INDICATOR_STATUS.ERROR;
@@ -202,7 +204,7 @@ function OptionRowLHN(props) {
                             styles.justifyContentBetween,
                             styles.sidebarLinkLHN,
                             styles.sidebarLinkInnerLHN,
-                            StyleUtils.getBackgroundColorStyle(themeColors.sidebar),
+                            StyleUtils.getBackgroundColorStyle(theme.sidebar),
                             props.isFocused ? styles.sidebarLinkActive : null,
                             (hovered || isContextMenuActive) && !props.isFocused ? props.hoverStyle : null,
                         ]}
@@ -215,7 +217,7 @@ function OptionRowLHN(props) {
                                 {!_.isEmpty(optionItem.icons) &&
                                     (optionItem.shouldShowSubscript ? (
                                         <SubscriptAvatar
-                                            backgroundColor={props.isFocused ? themeColors.activeComponentBG : themeColors.sidebar}
+                                            backgroundColor={props.isFocused ? theme.activeComponentBG : theme.sidebar}
                                             mainAvatar={optionItem.icons[0]}
                                             secondaryAvatar={optionItem.icons[1]}
                                             size={props.viewMode === CONST.OPTION_MODE.COMPACT ? CONST.AVATAR_SIZE.SMALL : defaultSubscriptSize}
@@ -226,7 +228,7 @@ function OptionRowLHN(props) {
                                             isFocusMode={props.viewMode === CONST.OPTION_MODE.COMPACT}
                                             size={props.viewMode === CONST.OPTION_MODE.COMPACT ? CONST.AVATAR_SIZE.SMALL : CONST.AVATAR_SIZE.DEFAULT}
                                             secondAvatarStyle={[
-                                                StyleUtils.getBackgroundAndBorderStyle(themeColors.sidebar),
+                                                StyleUtils.getBackgroundAndBorderStyle(theme.sidebar),
                                                 props.isFocused ? StyleUtils.getBackgroundAndBorderStyle(focusedBackgroundColor) : undefined,
                                                 hovered && !props.isFocused ? StyleUtils.getBackgroundAndBorderStyle(hoveredBackgroundColor) : undefined,
                                             ]}
@@ -274,7 +276,7 @@ function OptionRowLHN(props) {
                                     <View style={[styles.alignItemsCenter, styles.justifyContentCenter]}>
                                         <Icon
                                             src={Expensicons.DotIndicator}
-                                            fill={themeColors.danger}
+                                            fill={theme.danger}
                                         />
                                     </View>
                                 )}
@@ -288,7 +290,7 @@ function OptionRowLHN(props) {
                                 <View style={styles.ml2}>
                                     <Icon
                                         src={Expensicons.DotIndicator}
-                                        fill={themeColors.success}
+                                        fill={theme.success}
                                     />
                                 </View>
                             )}

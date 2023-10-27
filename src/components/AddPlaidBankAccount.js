@@ -9,8 +9,8 @@ import PlaidLink from './PlaidLink';
 import * as App from '../libs/actions/App';
 import * as BankAccounts from '../libs/actions/BankAccounts';
 import ONYXKEYS from '../ONYXKEYS';
-import styles from '../styles/styles';
-import themeColors from '../styles/themes/default';
+import useThemeStyles from '../styles/useThemeStyles';
+import useTheme from '../styles/themes/useTheme';
 import Picker from './Picker';
 import {plaidDataPropTypes} from '../pages/ReimbursementAccount/plaidDataPropTypes';
 import Text from './Text';
@@ -83,6 +83,8 @@ function AddPlaidBankAccount({
     allowDebit,
     isPlaidDisabled,
 }) {
+    const theme = useTheme();
+    const styles = useThemeStyles();
     const subscribedKeyboardShortcuts = useRef([]);
     const previousNetworkState = useRef();
 
@@ -186,7 +188,7 @@ function AddPlaidBankAccount({
                 {lodashGet(plaidData, 'isLoading') && (
                     <View style={[styles.flex1, styles.alignItemsCenter, styles.justifyContentCenter]}>
                         <ActivityIndicator
-                            color={themeColors.spinner}
+                            color={theme.spinner}
                             size="large"
                         />
                     </View>

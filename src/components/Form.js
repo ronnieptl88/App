@@ -8,7 +8,7 @@ import compose from '../libs/compose';
 import withLocalize, {withLocalizePropTypes} from './withLocalize';
 import * as FormActions from '../libs/actions/FormActions';
 import * as ErrorUtils from '../libs/ErrorUtils';
-import styles from '../styles/styles';
+import useThemeStyles from '../styles/useThemeStyles';
 import CONST from '../CONST';
 import FormAlertWithSubmitButton from './FormAlertWithSubmitButton';
 import FormSubmit from './FormSubmit';
@@ -107,6 +107,7 @@ const defaultProps = {
 };
 
 function Form(props) {
+    const styles = useThemeStyles();
     const [errors, setErrors] = useState({});
     const [inputValues, setInputValues] = useState(() => ({...props.draftValues}));
     const formRef = useRef(null);

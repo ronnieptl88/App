@@ -3,7 +3,7 @@ import React, {useRef, useState} from 'react';
 import PropTypes from 'prop-types';
 import {View} from 'react-native';
 import {withOnyx} from 'react-native-onyx';
-import styles from '../../styles/styles';
+import useThemeStyles from '../../styles/useThemeStyles';
 import ONYXKEYS from '../../ONYXKEYS';
 import * as ErrorUtils from '../../libs/ErrorUtils';
 import useLocalize from '../../hooks/useLocalize';
@@ -52,6 +52,7 @@ const defaultProps = {
 };
 
 function IdologyQuestions({questions, walletAdditionalDetails, idNumber}) {
+    const styles = useThemeStyles();
     const formRef = useRef();
     const {translate} = useLocalize();
 

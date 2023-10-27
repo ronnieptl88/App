@@ -1,7 +1,7 @@
 import React from 'react';
 import {View} from 'react-native';
 import PropTypes from 'prop-types';
-import styles from '../../../../styles/styles';
+import useThemeStyles from '../../../../styles/useThemeStyles';
 import ScreenWrapper from '../../../../components/ScreenWrapper';
 import Timing from '../../../../libs/actions/Timing';
 import CONST from '../../../../CONST';
@@ -24,6 +24,7 @@ const startTimer = () => {
 };
 
 function BaseSidebarScreen(props) {
+    const styles = useThemeStyles();
     return (
         <ScreenWrapper
             includeSafeAreaPaddingBottom={false}

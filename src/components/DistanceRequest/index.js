@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 import _ from 'underscore';
 import ROUTES from '../../ROUTES';
 import ONYXKEYS from '../../ONYXKEYS';
-import styles from '../../styles/styles';
+import useThemeStyles from '../../styles/useThemeStyles';
 import variables from '../../styles/variables';
 import * as MapboxToken from '../../libs/actions/MapboxToken';
 import useNetwork from '../../hooks/useNetwork';
@@ -65,6 +65,7 @@ const defaultProps = {
 };
 
 function DistanceRequest({transactionID, report, transaction, route, isEditingRequest, onSubmit}) {
+    const styles = useThemeStyles();
     const {isOffline} = useNetwork();
     const {translate} = useLocalize();
 

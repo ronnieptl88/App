@@ -7,7 +7,7 @@ import Navigation from '../libs/Navigation/Navigation';
 import useLocalize from '../hooks/useLocalize';
 import ReceiptSelector from './iou/ReceiptSelector';
 import DragAndDropProvider from '../components/DragAndDrop/Provider';
-import styles from '../styles/styles';
+import useThemeStyles from '../styles/useThemeStyles';
 
 const propTypes = {
     /** React Navigation route */
@@ -31,6 +31,7 @@ const defaultProps = {
 };
 
 function EditRequestReceiptPage({route, transactionID}) {
+    const styles = useThemeStyles();
     const {translate} = useLocalize();
     const [isDraggingOver, setIsDraggingOver] = useState(false);
 

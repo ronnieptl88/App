@@ -2,7 +2,7 @@ import {View} from 'react-native';
 import React from 'react';
 import PropTypes from 'prop-types';
 import _ from 'underscore';
-import styles from '../styles/styles';
+import useThemeStyles from '../styles/useThemeStyles';
 import * as StyleUtils from '../styles/StyleUtils';
 import getButtonState from '../libs/getButtonState';
 import variables from '../styles/variables';
@@ -50,6 +50,7 @@ const defaultProps = {
  * @returns {JSX.Element}
  */
 function BaseMiniContextMenuItem(props) {
+    const styles = useThemeStyles();
     return (
         <Tooltip text={props.tooltipText}>
             <PressableWithoutFeedback

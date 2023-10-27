@@ -2,7 +2,7 @@ import _ from 'underscore';
 import React, {useState, useCallback} from 'react';
 import {View} from 'react-native';
 import PropTypes from 'prop-types';
-import styles from '../../styles/styles';
+import useThemeStyles from '../../styles/useThemeStyles';
 import * as Emojis from '../../../assets/emojis';
 import withLocalize, {withLocalizePropTypes} from '../withLocalize';
 import Text from '../Text';
@@ -23,6 +23,7 @@ const propTypes = {
 };
 
 function EmojiSkinToneList(props) {
+    const styles = useThemeStyles();
     const [highlightedIndex, setHighlightedIndex] = useState(null);
     const [isSkinToneListVisible, setIsSkinToneListVisible] = useState(false);
 

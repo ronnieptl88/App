@@ -1,6 +1,6 @@
 import _ from 'underscore';
 import React, {forwardRef, useEffect, useRef} from 'react';
-import styles from '../../styles/styles';
+import useThemeStyles from '../../styles/useThemeStyles';
 import * as DeviceCapabilities from '../../libs/DeviceCapabilities';
 import * as StyleUtils from '../../styles/StyleUtils';
 import PressableWithFeedback from '../Pressable/PressableWithFeedback';
@@ -25,6 +25,7 @@ function PressableWithSecondaryInteraction({
     forwardedRef,
     ...rest
 }) {
+    const styles = useThemeStyles();
     const pressableRef = useRef(null);
 
     /**

@@ -1,8 +1,8 @@
 import React from 'react';
 import {View} from 'react-native';
 import PropTypes from 'prop-types';
-import styles from '../styles/styles';
-import themeColors from '../styles/themes/default';
+import useThemeStyles from '../styles/useThemeStyles';
+import useTheme from '../styles/themes/useTheme';
 import stylePropTypes from '../styles/stylePropTypes';
 import Icon from './Icon';
 import * as Expensicons from './Icon/Expensicons';
@@ -67,6 +67,8 @@ const defaultProps = {
 };
 
 function Checkbox(props) {
+    const theme = useTheme();
+    const styles = useThemeStyles();
     const handleSpaceKey = (event) => {
         if (event.code !== 'Space') {
             return;
@@ -115,7 +117,7 @@ function Checkbox(props) {
                     {props.isChecked && (
                         <Icon
                             src={Expensicons.Checkmark}
-                            fill={themeColors.textLight}
+                            fill={theme.textLight}
                             height={props.caretSize}
                             width={props.caretSize}
                         />

@@ -1,7 +1,7 @@
 import React from 'react';
 import {View} from 'react-native';
 import Text from '../../../components/Text';
-import styles from '../../../styles/styles';
+import useThemeStyles from '../../../styles/useThemeStyles';
 import withLocalize, {withLocalizePropTypes} from '../../../components/withLocalize';
 import * as Expensicons from '../../../components/Icon/Expensicons';
 import * as Illustrations from '../../../components/Icon/Illustrations';
@@ -20,6 +20,7 @@ const MENU_LINKS = {
 };
 
 function WorkspaceCardVBAWithECardView(props) {
+    const styles = useThemeStyles();
     const menuItems = [
         {
             title: props.translate('workspace.common.issueAndManageCards'),

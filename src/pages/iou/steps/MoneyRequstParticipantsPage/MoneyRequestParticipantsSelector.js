@@ -5,7 +5,7 @@ import {withOnyx} from 'react-native-onyx';
 import _ from 'underscore';
 import lodashGet from 'lodash/get';
 import ONYXKEYS from '../../../../ONYXKEYS';
-import styles from '../../../../styles/styles';
+import useThemeStyles from '../../../../styles/useThemeStyles';
 import OptionsSelector from '../../../../components/OptionsSelector';
 import * as OptionsListUtils from '../../../../libs/OptionsListUtils';
 import * as ReportUtils from '../../../../libs/ReportUtils';
@@ -86,6 +86,7 @@ function MoneyRequestParticipantsSelector({
     iouType,
     isDistanceRequest,
 }) {
+    const styles = useThemeStyles();
     const [searchTerm, setSearchTerm] = useState('');
     const [newChatOptions, setNewChatOptions] = useState({
         recentReports: [],

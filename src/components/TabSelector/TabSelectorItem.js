@@ -1,7 +1,7 @@
 import {Animated, StyleSheet} from 'react-native';
 import React from 'react';
 import PropTypes from 'prop-types';
-import styles from '../../styles/styles';
+import useThemeStyles from '../../styles/useThemeStyles';
 import PressableWithFeedback from '../Pressable/PressableWithFeedback';
 import TabIcon from './TabIcon';
 import TabLabel from './TabLabel';
@@ -43,6 +43,7 @@ const defaultProps = {
 };
 
 function TabSelectorItem({icon, title, onPress, backgroundColor, activeOpacity, inactiveOpacity, isFocused}) {
+    const styles = useThemeStyles();
     return (
         <PressableWithFeedback
             accessibilityLabel={title}

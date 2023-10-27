@@ -8,7 +8,7 @@ import HeaderWithBackButton from '../../../../components/HeaderWithBackButton';
 import withLocalize, {withLocalizePropTypes} from '../../../../components/withLocalize';
 import ROUTES from '../../../../ROUTES';
 import Text from '../../../../components/Text';
-import styles from '../../../../styles/styles';
+import useThemeStyles from '../../../../styles/useThemeStyles';
 import Navigation from '../../../../libs/Navigation/Navigation';
 import compose from '../../../../libs/compose';
 import MenuItemWithTopDescription from '../../../../components/MenuItemWithTopDescription';
@@ -57,6 +57,7 @@ const defaultProps = {
 };
 
 function PersonalDetailsInitialPage(props) {
+    const styles = useThemeStyles();
     usePrivatePersonalDetails();
     const privateDetails = props.privatePersonalDetails || {};
     const legalName = `${privateDetails.legalFirstName || ''} ${privateDetails.legalLastName || ''}`.trim();

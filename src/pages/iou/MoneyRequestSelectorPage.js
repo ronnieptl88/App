@@ -13,7 +13,7 @@ import CONST from '../../CONST';
 import useLocalize from '../../hooks/useLocalize';
 import * as IOUUtils from '../../libs/IOUUtils';
 import Navigation from '../../libs/Navigation/Navigation';
-import styles from '../../styles/styles';
+import useThemeStyles from '../../styles/useThemeStyles';
 import ReceiptSelector from './ReceiptSelector';
 import * as IOU from '../../libs/actions/IOU';
 import NewDistanceRequestPage from './NewDistanceRequestPage';
@@ -56,6 +56,7 @@ const defaultProps = {
 };
 
 function MoneyRequestSelectorPage(props) {
+    const styles = useThemeStyles();
     const [isDraggingOver, setIsDraggingOver] = useState(false);
 
     const iouType = lodashGet(props.route, 'params.iouType', '');

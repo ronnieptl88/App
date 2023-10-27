@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styles from '../../styles/styles';
+import useThemeStyles from '../../styles/useThemeStyles';
 import PressableWithoutFeedback from '../Pressable/PressableWithoutFeedback';
 import withLocalize, {withLocalizePropTypes} from '../withLocalize';
 import CONST from '../../CONST';
@@ -33,6 +33,7 @@ const providerData = {
 };
 
 function IconButton({onPress, translate, provider}) {
+    const styles = useThemeStyles();
     return (
         <PressableWithoutFeedback
             onPress={onPress}

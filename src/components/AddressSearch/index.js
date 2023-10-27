@@ -6,8 +6,8 @@ import {GooglePlacesAutocomplete} from 'react-native-google-places-autocomplete'
 import lodashGet from 'lodash/get';
 import compose from '../../libs/compose';
 import withLocalize, {withLocalizePropTypes} from '../withLocalize';
-import styles from '../../styles/styles';
-import themeColors from '../../styles/themes/default';
+import useThemeStyles from '../../styles/useThemeStyles';
+import useTheme from '../../styles/themes/useTheme';
 import TextInput from '../TextInput';
 import * as ApiUtils from '../../libs/ApiUtils';
 import * as GooglePlacesUtils from '../../libs/GooglePlacesUtils';
@@ -141,6 +141,8 @@ const defaultProps = {
 };
 
 function AddressSearch(props) {
+    const theme = useTheme();
+    const styles = useThemeStyles();
     const [displayListViewBorder, setDisplayListViewBorder] = useState(false);
     const [isTyping, setIsTyping] = useState(false);
     const [isFocused, setIsFocused] = useState(false);
@@ -378,7 +380,7 @@ function AddressSearch(props) {
                         listLoaderComponent={
                             <View style={[styles.pv4]}>
                                 <ActivityIndicator
-                                    color={themeColors.spinner}
+                                    color={theme.spinner}
                                     size="small"
                                 />
                             </View>
@@ -474,8 +476,8 @@ function AddressSearch(props) {
                         }}
                         numberOfLines={2}
                         isRowScrollable={false}
-                        listHoverColor={themeColors.border}
-                        listUnderlayColor={themeColors.buttonPressedBG}
+                        listHoverColor={theme.border}
+                        listUnderlayColor={theme.buttonPressedBG}
                         onLayout={(event) => {
                             // We use the height of the element to determine if we should hide the border of the listView dropdown
                             // to prevent a lingering border when there are no address suggestions.

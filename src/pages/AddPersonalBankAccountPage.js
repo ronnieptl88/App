@@ -10,7 +10,7 @@ import * as BankAccounts from '../libs/actions/BankAccounts';
 import AddPlaidBankAccount from '../components/AddPlaidBankAccount';
 import getPlaidOAuthReceivedRedirectURI from '../libs/getPlaidOAuthReceivedRedirectURI';
 import ONYXKEYS from '../ONYXKEYS';
-import styles from '../styles/styles';
+import useThemeStyles from '../styles/useThemeStyles';
 import Form from '../components/Form';
 import ROUTES from '../ROUTES';
 import * as PlaidDataProps from './ReimbursementAccount/plaidDataPropTypes';
@@ -57,6 +57,7 @@ const defaultProps = {
 };
 
 function AddPersonalBankAccountPage({personalBankAccount, plaidData}) {
+    const styles = useThemeStyles();
     const {translate} = useLocalize();
     const [selectedPlaidAccountId, setSelectedPlaidAccountId] = useState('');
     const shouldShowSuccess = lodashGet(personalBankAccount, 'shouldShowSuccess', false);

@@ -6,7 +6,7 @@ import {withOnyx} from 'react-native-onyx';
 import Str from 'expensify-common/lib/str';
 import lodashGet from 'lodash/get';
 import {parsePhoneNumber} from 'awesome-phonenumber';
-import styles from '../styles/styles';
+import useThemeStyles from '../styles/useThemeStyles';
 import Text from '../components/Text';
 import ONYXKEYS from '../ONYXKEYS';
 import Avatar from '../components/Avatar';
@@ -85,6 +85,7 @@ const getPhoneNumber = (details) => {
 };
 
 function DetailsPage(props) {
+    const styles = useThemeStyles();
     const login = lodashGet(props.route.params, 'login', '');
     let details = _.find(props.personalDetails, (detail) => detail.login === login.toLowerCase());
 

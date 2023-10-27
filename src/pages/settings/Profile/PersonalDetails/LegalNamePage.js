@@ -11,7 +11,7 @@ import ONYXKEYS from '../../../../ONYXKEYS';
 import CONST from '../../../../CONST';
 import * as ValidationUtils from '../../../../libs/ValidationUtils';
 import TextInput from '../../../../components/TextInput';
-import styles from '../../../../styles/styles';
+import useThemeStyles from '../../../../styles/useThemeStyles';
 import * as PersonalDetails from '../../../../libs/actions/PersonalDetails';
 import compose from '../../../../libs/compose';
 import Navigation from '../../../../libs/Navigation/Navigation';
@@ -46,6 +46,7 @@ const updateLegalName = (values) => {
 };
 
 function LegalNamePage(props) {
+    const styles = useThemeStyles();
     usePrivatePersonalDetails();
     const legalFirstName = lodashGet(props.privatePersonalDetails, 'legalFirstName', '');
     const legalLastName = lodashGet(props.privatePersonalDetails, 'legalLastName', '');

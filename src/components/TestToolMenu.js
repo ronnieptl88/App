@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {withOnyx} from 'react-native-onyx';
 import lodashGet from 'lodash/get';
-import styles from '../styles/styles';
+import useThemeStyles from '../styles/useThemeStyles';
 import Switch from './Switch';
 import Text from './Text';
 import * as User from '../libs/actions/User';
@@ -37,6 +37,7 @@ const defaultProps = {
 };
 
 function TestToolMenu(props) {
+    const styles = useThemeStyles();
     return (
         <>
             <Text

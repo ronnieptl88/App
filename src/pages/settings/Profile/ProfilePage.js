@@ -17,7 +17,7 @@ import compose from '../../../libs/compose';
 import Navigation from '../../../libs/Navigation/Navigation';
 import * as UserUtils from '../../../libs/UserUtils';
 import ROUTES from '../../../ROUTES';
-import styles from '../../../styles/styles';
+import useThemeStyles from '../../../styles/useThemeStyles';
 import * as Expensicons from '../../../components/Icon/Expensicons';
 import ONYXKEYS from '../../../ONYXKEYS';
 import withWindowDimensions, {windowDimensionsPropTypes} from '../../../components/withWindowDimensions';
@@ -53,6 +53,7 @@ const defaultProps = {
 };
 
 function ProfilePage(props) {
+    const styles = useThemeStyles();
     const getPronouns = () => {
         let pronounsKey = lodashGet(props.currentUserPersonalDetails, 'pronouns', '');
         if (pronounsKey.startsWith(CONST.PRONOUNS.PREFIX)) {

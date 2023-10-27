@@ -5,12 +5,12 @@ import {withOnyx} from 'react-native-onyx';
 import lodashGet from 'lodash/get';
 import _ from 'underscore';
 import compose from '../../libs/compose';
-import styles from '../../styles/styles';
+import useThemeStyles from '../../styles/useThemeStyles';
 import ONYXKEYS from '../../ONYXKEYS';
 import MultipleAvatars from '../MultipleAvatars';
 import withLocalize, {withLocalizePropTypes} from '../withLocalize';
 import * as Report from '../../libs/actions/Report';
-import themeColors from '../../styles/themes/default';
+import useTheme from '../../styles/themes/useTheme';
 import Icon from '../Icon';
 import CONST from '../../CONST';
 import * as Expensicons from '../Icon/Expensicons';
@@ -138,6 +138,8 @@ const defaultProps = {
 };
 
 function MoneyRequestPreview(props) {
+    const theme = useTheme();
+    const styles = useThemeStyles();
     const {isSmallScreenWidth, windowWidth} = useWindowDimensions();
 
     if (_.isEmpty(props.iouReport) && !props.isBillSplit) {
@@ -278,7 +280,7 @@ function MoneyRequestPreview(props) {
                                 {hasFieldErrors && (
                                     <Icon
                                         src={Expensicons.DotIndicator}
-                                        fill={themeColors.danger}
+                                        fill={theme.danger}
                                     />
                                 )}
                             </View>
@@ -298,7 +300,7 @@ function MoneyRequestPreview(props) {
                                         <View style={styles.defaultCheckmarkWrapper}>
                                             <Icon
                                                 src={Expensicons.Checkmark}
-                                                fill={themeColors.iconSuccessFill}
+                                                fill={theme.iconSuccessFill}
                                             />
                                         </View>
                                     )}

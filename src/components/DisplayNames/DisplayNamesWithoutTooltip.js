@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import styles from '../../styles/styles';
+import useThemeStyles from '../../styles/useThemeStyles';
 import Text from '../Text';
 
 const propTypes = {
@@ -22,6 +22,7 @@ const defaultProps = {
 };
 
 function DisplayNamesWithoutTooltip({textStyles, numberOfLines, fullTitle}) {
+    const styles = useThemeStyles();
     return (
         <Text
             style={[...textStyles, numberOfLines === 1 ? styles.pre : styles.preWrap]}

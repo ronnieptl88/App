@@ -8,7 +8,7 @@ import Navigation from '../../../libs/Navigation/Navigation';
 import ROUTES from '../../../ROUTES';
 import * as User from '../../../libs/actions/User';
 import compose from '../../../libs/compose';
-import styles from '../../../styles/styles';
+import useThemeStyles from '../../../styles/useThemeStyles';
 import ScreenWrapper from '../../../components/ScreenWrapper';
 import TextInput from '../../../components/TextInput';
 import Text from '../../../components/Text';
@@ -40,6 +40,7 @@ const defaultProps = {
 };
 
 function CloseAccountPage(props) {
+    const styles = useThemeStyles();
     const [isConfirmModalVisible, setConfirmModalVisibility] = useState(false);
     const [reasonForLeaving, setReasonForLeaving] = useState('');
 

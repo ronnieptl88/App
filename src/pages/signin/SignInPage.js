@@ -6,7 +6,7 @@ import {View} from 'react-native';
 import Str from 'expensify-common/lib/str';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import ONYXKEYS from '../../ONYXKEYS';
-import styles from '../../styles/styles';
+import useThemeStyles from '../../styles/useThemeStyles';
 import SignInPageLayout from './SignInPageLayout';
 import LoginForm from './LoginForm';
 import ValidateCodeForm from './ValidateCodeForm';
@@ -136,6 +136,7 @@ function getRenderOptions({hasLogin, hasValidateCode, account, isPrimaryLogin, i
 }
 
 function SignInPage({credentials, account, isInModal, activeClients, preferredLocale}) {
+    const styles = useThemeStyles();
     const {translate, formatPhoneNumber} = useLocalize();
     const {isSmallScreenWidth} = useWindowDimensions();
     const shouldShowSmallScreen = isSmallScreenWidth || isInModal;
@@ -243,7 +244,7 @@ function SignInPage({credentials, account, isInModal, activeClients, preferredLo
                 isInModal={isInModal}
             >
                 {/* LoginForm must use the isVisible prop. This keeps it mounted, but visually hidden
-                    so that password managers can access the values. Conditionally rendering this component will break this feature. */}
+             so that password managers can access the values. Conditionally rendering this component will break this feature. */}
                 <LoginForm
                     isInModal={isInModal}
                     isVisible={shouldShowLoginForm}
@@ -277,12 +278,12 @@ export default withOnyx({
     account: {key: ONYXKEYS.ACCOUNT},
     credentials: {key: ONYXKEYS.CREDENTIALS},
     /** 
-    This variable is only added to make sure the component is re-rendered 
-    whenever the activeClients change, so that we call the 
-    ActiveClientManager.isClientTheLeader function 
-    everytime the leader client changes.
-    We use that function to prevent repeating code that checks which client is the leader.
-    */
+  This variable is only added to make sure the component is re-rendered 
+  whenever the activeClients change, so that we call the 
+  ActiveClientManager.isClientTheLeader function 
+  everytime the leader client changes.
+  We use that function to prevent repeating code that checks which client is the leader.
+  */
     activeClients: {key: ONYXKEYS.ACTIVE_CLIENTS},
     preferredLocale: {
         key: ONYXKEYS.NVP_PREFERRED_LOCALE,

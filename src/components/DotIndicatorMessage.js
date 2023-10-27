@@ -2,11 +2,11 @@ import React from 'react';
 import _ from 'underscore';
 import PropTypes from 'prop-types';
 import {View} from 'react-native';
-import styles from '../styles/styles';
+import useThemeStyles from '../styles/useThemeStyles';
 import stylePropTypes from '../styles/stylePropTypes';
 import Icon from './Icon';
 import * as Expensicons from './Icon/Expensicons';
-import themeColors from '../styles/themes/default';
+import useTheme from '../styles/themes/useTheme';
 import Text from './Text';
 import * as Localize from '../libs/Localize';
 
@@ -38,6 +38,8 @@ const defaultProps = {
 };
 
 function DotIndicatorMessage(props) {
+    const theme = useTheme();
+    const styles = useThemeStyles();
     if (_.isEmpty(props.messages)) {
         return null;
     }
@@ -62,7 +64,7 @@ function DotIndicatorMessage(props) {
             <View style={styles.offlineFeedback.errorDot}>
                 <Icon
                     src={Expensicons.DotIndicator}
-                    fill={props.type === 'error' ? themeColors.danger : themeColors.success}
+                    fill={props.type === 'error' ? theme.danger : theme.success}
                 />
             </View>
             <View style={styles.offlineFeedback.textContainer}>

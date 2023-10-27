@@ -8,8 +8,8 @@ import reportPropTypes from '../pages/reportPropTypes';
 import participantPropTypes from './participantPropTypes';
 import withWindowDimensions, {windowDimensionsPropTypes} from './withWindowDimensions';
 import withLocalize, {withLocalizePropTypes} from './withLocalize';
-import styles from '../styles/styles';
-import themeColors from '../styles/themes/default';
+import useThemeStyles from '../styles/useThemeStyles';
+import useTheme from '../styles/themes/useTheme';
 import SubscriptAvatar from './SubscriptAvatar';
 import * as ReportUtils from '../libs/ReportUtils';
 import MultipleAvatars from './MultipleAvatars';
@@ -89,6 +89,8 @@ const showActorDetails = (report, shouldEnableDetailPageNavigation = false) => {
 };
 
 function AvatarWithDisplayName(props) {
+    const theme = useTheme();
+    const styles = useThemeStyles();
     const title = ReportUtils.getReportName(props.report);
     const subtitle = ReportUtils.getChatRoomSubtitle(props.report);
     const parentNavigationSubtitleData = ReportUtils.getParentNavigationSubtitle(props.report);
@@ -99,7 +101,7 @@ function AvatarWithDisplayName(props) {
     const shouldShowSubscriptAvatar = ReportUtils.shouldReportShowSubscript(props.report);
     const isExpenseRequest = ReportUtils.isExpenseRequest(props.report);
     const defaultSubscriptSize = isExpenseRequest ? CONST.AVATAR_SIZE.SMALL_NORMAL : props.size;
-    const avatarBorderColor = props.isAnonymous ? themeColors.highlightBG : themeColors.componentBG;
+    const avatarBorderColor = props.isAnonymous ? theme.highlightBG : theme.componentBG;
 
     const headerView = (
         <View style={[styles.appContentHeaderTitle, styles.flex1]}>

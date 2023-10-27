@@ -8,7 +8,7 @@ import withLocalize, {withLocalizePropTypes} from '../../../components/withLocal
 import ROUTES from '../../../ROUTES';
 import CONST from '../../../CONST';
 import Text from '../../../components/Text';
-import styles from '../../../styles/styles';
+import useThemeStyles from '../../../styles/useThemeStyles';
 import Navigation from '../../../libs/Navigation/Navigation';
 import * as PersonalDetails from '../../../libs/actions/PersonalDetails';
 import compose from '../../../libs/compose';
@@ -25,6 +25,7 @@ const defaultProps = {
 };
 
 function TimezoneInitialPage(props) {
+    const styles = useThemeStyles();
     const timezone = lodashGet(props.currentUserPersonalDetails, 'timezone', CONST.DEFAULT_TIME_ZONE);
 
     /**

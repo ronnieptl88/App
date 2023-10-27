@@ -5,7 +5,7 @@ import * as StyleUtils from '../../styles/StyleUtils';
 import withWindowDimensions, {windowDimensionsPropTypes} from '../../components/withWindowDimensions';
 import SignInHeroImage from './SignInHeroImage';
 import SignInHeroCopy from './SignInHeroCopy';
-import styles from '../../styles/styles';
+import useThemeStyles from '../../styles/useThemeStyles';
 import variables from '../../styles/variables';
 
 const propTypes = {
@@ -24,6 +24,7 @@ const defaultProps = {
 };
 
 function SignInPageHero(props) {
+    const styles = useThemeStyles();
     return (
         <View
             style={[

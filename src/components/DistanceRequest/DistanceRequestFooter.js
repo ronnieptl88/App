@@ -7,10 +7,10 @@ import PropTypes from 'prop-types';
 import _ from 'underscore';
 import CONST from '../../CONST';
 import ONYXKEYS from '../../ONYXKEYS';
-import styles from '../../styles/styles';
+import useThemeStyles from '../../styles/useThemeStyles';
 import useNetwork from '../../hooks/useNetwork';
 import useLocalize from '../../hooks/useLocalize';
-import theme from '../../styles/themes/default';
+import useTheme from '../../styles/themes/useTheme';
 import * as TransactionUtils from '../../libs/TransactionUtils';
 import Button from '../Button';
 import DistanceMapView from '../DistanceMapView';
@@ -55,6 +55,8 @@ const defaultProps = {
     transaction: {},
 };
 function DistanceRequestFooter({waypoints, transaction, mapboxAccessToken, navigateToWaypointEditPage}) {
+    const theme = useTheme();
+    const styles = useThemeStyles();
     const {isOffline} = useNetwork();
     const {translate} = useLocalize();
 

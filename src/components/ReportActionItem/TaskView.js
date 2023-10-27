@@ -13,7 +13,7 @@ import MenuItemWithTopDescription from '../MenuItemWithTopDescription';
 import Hoverable from '../Hoverable';
 import MenuItem from '../MenuItem';
 import OfflineWithFeedback from '../OfflineWithFeedback';
-import styles from '../../styles/styles';
+import useThemeStyles from '../../styles/useThemeStyles';
 import * as ReportUtils from '../../libs/ReportUtils';
 import * as OptionsListUtils from '../../libs/OptionsListUtils';
 import * as StyleUtils from '../../styles/StyleUtils';
@@ -42,6 +42,7 @@ const propTypes = {
 };
 
 function TaskView(props) {
+    const styles = useThemeStyles();
     useEffect(() => {
         Task.setTaskReport({...props.report});
     }, [props.report]);

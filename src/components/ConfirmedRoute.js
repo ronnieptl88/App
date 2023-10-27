@@ -10,8 +10,8 @@ import CONST from '../CONST';
 import * as MapboxToken from '../libs/actions/MapboxToken';
 import * as TransactionUtils from '../libs/TransactionUtils';
 import * as Expensicons from './Icon/Expensicons';
-import theme from '../styles/themes/default';
-import styles from '../styles/styles';
+import useTheme from '../styles/themes/useTheme';
+import useThemeStyles from '../styles/useThemeStyles';
 import transactionPropTypes from './transactionPropTypes';
 import PendingMapView from './MapView/PendingMapView';
 import useNetwork from '../hooks/useNetwork';
@@ -74,6 +74,8 @@ const getWaypointMarkers = (waypoints) => {
 };
 
 function ConfirmedRoute({mapboxAccessToken, transaction}) {
+    const theme = useTheme();
+    const styles = useThemeStyles();
     const {isOffline} = useNetwork();
     const {route0: route} = transaction.routes || {};
     const waypoints = lodashGet(transaction, 'comment.waypoints', {});

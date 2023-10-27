@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import _ from 'underscore';
 import Str from 'expensify-common/lib/str';
 import {parsePhoneNumber} from 'awesome-phonenumber';
-import styles from '../../../styles/styles';
+import useThemeStyles from '../../../styles/useThemeStyles';
 import Text from '../../../components/Text';
 import * as Session from '../../../libs/actions/Session';
 import ONYXKEYS from '../../../ONYXKEYS';
@@ -94,6 +94,7 @@ const defaultProps = {
 };
 
 function LoginForm(props) {
+    const styles = useThemeStyles();
     const input = useRef();
     const [login, setLogin] = useState(() => Str.removeSMSDomain(props.credentials.login || ''));
     const [formError, setFormError] = useState(false);

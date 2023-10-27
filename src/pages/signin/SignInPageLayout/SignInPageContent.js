@@ -2,7 +2,7 @@ import React from 'react';
 import {View} from 'react-native';
 import PropTypes from 'prop-types';
 import {withSafeAreaInsets} from 'react-native-safe-area-context';
-import styles from '../../../styles/styles';
+import useThemeStyles from '../../../styles/useThemeStyles';
 import ExpensifyWordmark from '../../../components/ExpensifyWordmark';
 import Text from '../../../components/Text';
 import withLocalize, {withLocalizePropTypes} from '../../../components/withLocalize';
@@ -37,6 +37,7 @@ const propTypes = {
 };
 
 function SignInPageContent(props) {
+    const styles = useThemeStyles();
     return (
         <View style={[styles.flex1, styles.signInPageLeftContainer]}>
             <View style={[styles.flex1, styles.alignSelfCenter, styles.signInPageWelcomeFormContainer]}>

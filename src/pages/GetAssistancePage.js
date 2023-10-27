@@ -7,7 +7,7 @@ import ScreenWrapper from '../components/ScreenWrapper';
 import withLocalize, {withLocalizePropTypes} from '../components/withLocalize';
 import HeaderWithBackButton from '../components/HeaderWithBackButton';
 import Section from '../components/Section';
-import styles from '../styles/styles';
+import useThemeStyles from '../styles/useThemeStyles';
 import Text from '../components/Text';
 import * as Expensicons from '../components/Icon/Expensicons';
 import * as Illustrations from '../components/Icon/Illustrations';
@@ -44,6 +44,7 @@ const defaultProps = {
 };
 
 function GetAssistancePage(props) {
+    const styles = useThemeStyles();
     const menuItems = [
         {
             title: props.translate('getAssistancePage.chatWithConcierge'),

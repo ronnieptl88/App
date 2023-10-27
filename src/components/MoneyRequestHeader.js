@@ -9,7 +9,7 @@ import * as ReportUtils from '../libs/ReportUtils';
 import compose from '../libs/compose';
 import * as Expensicons from './Icon/Expensicons';
 import participantPropTypes from './participantPropTypes';
-import styles from '../styles/styles';
+import useThemeStyles from '../styles/useThemeStyles';
 import Navigation from '../libs/Navigation/Navigation';
 import ROUTES from '../ROUTES';
 import CONST from '../CONST';
@@ -66,6 +66,7 @@ const defaultProps = {
 };
 
 function MoneyRequestHeader({session, parentReport, report, parentReportAction, transaction, policy, personalDetails}) {
+    const styles = useThemeStyles();
     const {translate} = useLocalize();
     const [isDeleteModalVisible, setIsDeleteModalVisible] = useState(false);
     const moneyRequestReport = parentReport;

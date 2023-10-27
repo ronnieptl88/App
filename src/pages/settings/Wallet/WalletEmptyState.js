@@ -8,7 +8,7 @@ import Navigation from '../../../libs/Navigation/Navigation';
 import ROUTES from '../../../ROUTES';
 import * as Illustrations from '../../../components/Icon/Illustrations';
 import FeatureList from '../../../components/FeatureList';
-import themeColors from '../../../styles/themes/default';
+import useTheme from '../../../styles/themes/useTheme';
 import SCREENS from '../../../SCREENS';
 
 const propTypes = {
@@ -32,10 +32,11 @@ const WALLET_FEATURES = [
 ];
 
 function WalletEmptyState({onAddPaymentMethod}) {
+    const theme = useTheme();
     const {translate} = useLocalize();
     return (
         <IllustratedHeaderPageLayout
-            backgroundColor={themeColors.PAGE_BACKGROUND_COLORS[SCREENS.SETTINGS.WALLET]}
+            backgroundColor={theme.PAGE_BACKGROUND_COLORS[SCREENS.SETTINGS.WALLET]}
             illustration={LottieAnimations.FastMoney}
             onBackButtonPress={() => Navigation.goBack(ROUTES.SETTINGS)}
             title={translate('common.wallet')}

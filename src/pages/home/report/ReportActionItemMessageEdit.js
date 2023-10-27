@@ -6,8 +6,8 @@ import _ from 'underscore';
 import ExpensiMark from 'expensify-common/lib/ExpensiMark';
 import Str from 'expensify-common/lib/str';
 import reportActionPropTypes from './reportActionPropTypes';
-import styles from '../../../styles/styles';
-import themeColors from '../../../styles/themes/default';
+import useThemeStyles from '../../../styles/useThemeStyles';
+import useTheme from '../../../styles/themes/useTheme';
 import containerComposeStyles from '../../../styles/containerComposeStyles';
 import Composer from '../../../components/Composer';
 import * as Report from '../../../libs/actions/Report';
@@ -80,6 +80,8 @@ const messageEditInput = 'messageEditInput';
 const isMobileSafari = Browser.isMobileSafari();
 
 function ReportActionItemMessageEdit(props) {
+    const theme = useTheme();
+    const styles = useThemeStyles();
     const reportScrollManager = useReportScrollManager();
     const {translate, preferredLocale} = useLocalize();
     const {isKeyboardShown} = useKeyboardState();
@@ -457,7 +459,7 @@ function ReportActionItemMessageEdit(props) {
                             >
                                 <Icon
                                     src={Expensicons.Checkmark}
-                                    fill={hasExceededMaxCommentLength ? themeColors.icon : themeColors.textLight}
+                                    fill={hasExceededMaxCommentLength ? theme.icon : theme.textLight}
                                 />
                             </PressableWithFeedback>
                         </Tooltip>

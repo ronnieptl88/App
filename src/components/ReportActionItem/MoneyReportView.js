@@ -3,8 +3,8 @@ import {View} from 'react-native';
 import PropTypes from 'prop-types';
 import reportPropTypes from '../../pages/reportPropTypes';
 import withWindowDimensions, {windowDimensionsPropTypes} from '../withWindowDimensions';
-import styles from '../../styles/styles';
-import themeColors from '../../styles/themes/default';
+import useThemeStyles from '../../styles/useThemeStyles';
+import useTheme from '../../styles/themes/useTheme';
 import * as ReportUtils from '../../libs/ReportUtils';
 import * as StyleUtils from '../../styles/StyleUtils';
 import Text from '../Text';
@@ -27,6 +27,8 @@ const propTypes = {
 };
 
 function MoneyReportView(props) {
+    const theme = useTheme();
+    const styles = useThemeStyles();
     const {translate} = useLocalize();
     const isSettled = ReportUtils.isSettled(props.report.reportID);
 
@@ -37,7 +39,7 @@ function MoneyReportView(props) {
     const formattedOutOfPocketAmount = CurrencyUtils.convertToDisplayString(reimbursableSpend, props.report.currency);
     const formattedCompanySpendAmount = CurrencyUtils.convertToDisplayString(nonReimbursableSpend, props.report.currency);
 
-    const subAmountTextStyles = [styles.taskTitleMenuItem, styles.alignSelfCenter, StyleUtils.getFontSizeStyle(variables.fontSizeh1), StyleUtils.getColorStyle(themeColors.textSupporting)];
+    const subAmountTextStyles = [styles.taskTitleMenuItem, styles.alignSelfCenter, StyleUtils.getFontSizeStyle(variables.fontSizeh1), StyleUtils.getColorStyle(theme.textSupporting)];
 
     return (
         <View style={[StyleUtils.getReportWelcomeContainerStyle(props.isSmallScreenWidth, true)]}>
@@ -57,7 +59,7 @@ function MoneyReportView(props) {
                             <View style={[styles.defaultCheckmarkWrapper, styles.mh2]}>
                                 <Icon
                                     src={Expensicons.Checkmark}
-                                    fill={themeColors.success}
+                                    fill={theme.success}
                                 />
                             </View>
                         )}

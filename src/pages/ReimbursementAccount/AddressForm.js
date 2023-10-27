@@ -3,7 +3,7 @@ import {View} from 'react-native';
 import PropTypes from 'prop-types';
 import TextInput from '../../components/TextInput';
 import AddressSearch from '../../components/AddressSearch';
-import styles from '../../styles/styles';
+import useThemeStyles from '../../styles/useThemeStyles';
 import CONST from '../../CONST';
 import StatePicker from '../../components/StatePicker';
 
@@ -92,6 +92,7 @@ const defaultProps = {
 };
 
 function AddressForm(props) {
+    const styles = useThemeStyles();
     return (
         <>
             <View>

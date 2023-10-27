@@ -4,7 +4,7 @@ import _ from 'underscore';
 import PropTypes from 'prop-types';
 import * as Expensicons from '../Icon/Expensicons';
 import MenuItemWithTopDescription from '../MenuItemWithTopDescription';
-import theme from '../../styles/themes/default';
+import useTheme from '../../styles/themes/useTheme';
 import useLocalize from '../../hooks/useLocalize';
 
 const propTypes = {
@@ -48,6 +48,7 @@ const defaultProps = {
 };
 
 function DistanceRequestRenderItem({waypoints, item, onSecondaryInteraction, getIndex, isActive, onPress, disabled}) {
+    const theme = useTheme();
     const {translate} = useLocalize();
     const numberOfWaypoints = _.size(waypoints);
     const lastWaypointIndex = numberOfWaypoints - 1;

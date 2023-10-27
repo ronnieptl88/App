@@ -8,7 +8,7 @@ import ROUTES from '../../../../ROUTES';
 import ScreenWrapper from '../../../../components/ScreenWrapper';
 import Navigation from '../../../../libs/Navigation/Navigation';
 import compose from '../../../../libs/compose';
-import styles from '../../../../styles/styles';
+import useThemeStyles from '../../../../styles/useThemeStyles';
 import useLocalize from '../../../../hooks/useLocalize';
 import CONST from '../../../../CONST';
 import EmojiPickerButtonDropdown from '../../../../components/EmojiPicker/EmojiPickerButtonDropdown';
@@ -38,6 +38,7 @@ const INPUT_IDS = {
 };
 
 function StatusSetPage({draftStatus, currentUserPersonalDetails}) {
+    const styles = useThemeStyles();
     const {translate} = useLocalize();
     const defaultEmoji = lodashGet(draftStatus, 'emojiCode') || lodashGet(currentUserPersonalDetails, 'status.emojiCode', '💬');
     const defaultText = lodashGet(draftStatus, 'text') || lodashGet(currentUserPersonalDetails, 'status.text', '');

@@ -14,7 +14,7 @@ import compose from '../../../../libs/compose';
 import Navigation from '../../../../libs/Navigation/Navigation';
 import ONYXKEYS from '../../../../ONYXKEYS';
 import ROUTES from '../../../../ROUTES';
-import styles from '../../../../styles/styles';
+import useThemeStyles from '../../../../styles/useThemeStyles';
 import MenuItem from '../../../../components/MenuItem';
 import Text from '../../../../components/Text';
 import CopyTextToClipboard from '../../../../components/CopyTextToClipboard';
@@ -58,6 +58,7 @@ const defaultProps = {
 };
 
 function ContactMethodsPage(props) {
+    const styles = useThemeStyles();
     const loginNames = _.keys(props.loginList);
 
     // Sort the login names by placing the one corresponding to the default contact method as the first item before displaying the contact methods.

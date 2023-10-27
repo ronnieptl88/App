@@ -5,7 +5,7 @@ import {View, ScrollView} from 'react-native';
 import Button from '../Button';
 import Text from '../Text';
 import TextInput from '../TextInput';
-import styles from '../../styles/styles';
+import useThemeStyles from '../../styles/useThemeStyles';
 import PDFInfoMessage from './PDFInfoMessage';
 import shouldDelayFocus from '../../libs/shouldDelayFocus';
 import * as Browser from '../../libs/Browser';
@@ -42,6 +42,7 @@ const defaultProps = {
 };
 
 function PDFPasswordForm({isFocused, isPasswordInvalid, shouldShowLoadingIndicator, onSubmit, onPasswordUpdated, onPasswordFieldFocused}) {
+    const styles = useThemeStyles();
     const {isSmallScreenWidth} = useWindowDimensions();
     const {translate} = useLocalize();
 

@@ -7,7 +7,7 @@ import CONST from '../../../../CONST';
 import ONYXKEYS from '../../../../ONYXKEYS';
 import ROUTES from '../../../../ROUTES';
 import MoneyRequestParticipantsSelector from './MoneyRequestParticipantsSelector';
-import styles from '../../../../styles/styles';
+import useThemeStyles from '../../../../styles/useThemeStyles';
 import ScreenWrapper from '../../../../components/ScreenWrapper';
 import Navigation from '../../../../libs/Navigation/Navigation';
 import * as DeviceCapabilities from '../../../../libs/DeviceCapabilities';
@@ -44,6 +44,7 @@ const defaultProps = {
 };
 
 function MoneyRequestParticipantsPage({iou, selectedTab, route}) {
+    const styles = useThemeStyles();
     const {translate} = useLocalize();
     const prevMoneyRequestId = useRef(iou.id);
     const optionsSelectorRef = useRef();

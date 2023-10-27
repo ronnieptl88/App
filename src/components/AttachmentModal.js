@@ -11,10 +11,10 @@ import Modal from './Modal';
 import AttachmentView from './Attachments/AttachmentView';
 import AttachmentCarousel from './Attachments/AttachmentCarousel';
 import useLocalize from '../hooks/useLocalize';
-import styles from '../styles/styles';
+import useThemeStyles from '../styles/useThemeStyles';
 import * as StyleUtils from '../styles/StyleUtils';
 import * as FileUtils from '../libs/fileDownload/FileUtils';
-import themeColors from '../styles/themes/default';
+import useTheme from '../styles/themes/useTheme';
 import compose from '../libs/compose';
 import withWindowDimensions, {windowDimensionsPropTypes} from './withWindowDimensions';
 import Button from './Button';
@@ -111,6 +111,8 @@ const defaultProps = {
 };
 
 function AttachmentModal(props) {
+    const theme = useTheme();
+    const styles = useThemeStyles();
     const onModalHideCallbackRef = useRef(null);
     const [isModalOpen, setIsModalOpen] = useState(props.defaultOpen);
     const [shouldLoadAttachment, setShouldLoadAttachment] = useState(false);
@@ -400,7 +402,7 @@ function AttachmentModal(props) {
                 onSubmit={submitAndClose}
                 onClose={closeModal}
                 isVisible={isModalOpen}
-                backgroundColor={themeColors.componentBG}
+                backgroundColor={theme.componentBG}
                 onModalShow={() => {
                     props.onModalShow();
                     setShouldLoadAttachment(true);

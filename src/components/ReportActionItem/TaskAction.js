@@ -3,7 +3,7 @@ import {View} from 'react-native';
 import PropTypes from 'prop-types';
 import withLocalize, {withLocalizePropTypes} from '../withLocalize';
 import Text from '../Text';
-import styles from '../../styles/styles';
+import useThemeStyles from '../../styles/useThemeStyles';
 import * as Task from '../../libs/actions/Task';
 
 const propTypes = {
@@ -18,6 +18,7 @@ const propTypes = {
 };
 
 function TaskAction(props) {
+    const styles = useThemeStyles();
     return (
         <>
             <View style={[styles.flex1, styles.flexRow, styles.alignItemsCenter]}>

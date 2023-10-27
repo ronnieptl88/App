@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react';
 import PropTypes from 'prop-types';
 import {View} from 'react-native';
-import styles from '../styles/styles';
+import useThemeStyles from '../styles/useThemeStyles';
 import Navigation from '../libs/Navigation/Navigation';
 import ROUTES from '../ROUTES';
 import useLocalize from '../hooks/useLocalize';
@@ -33,6 +33,7 @@ const defaultProps = {
 };
 
 function CountrySelector({errorText, value: countryCode, onInputChange, forwardedRef}) {
+    const styles = useThemeStyles();
     const {translate} = useLocalize();
 
     const title = countryCode ? translate(`allCountries.${countryCode}`) : '';

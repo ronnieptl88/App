@@ -5,7 +5,7 @@ import {withOnyx} from 'react-native-onyx';
 import Str from 'expensify-common/lib/str';
 import _ from 'underscore';
 import PropTypes from 'prop-types';
-import styles from '../../styles/styles';
+import useThemeStyles from '../../styles/useThemeStyles';
 import withLocalize, {withLocalizePropTypes} from '../../components/withLocalize';
 import compose from '../../libs/compose';
 import * as BankAccounts from '../../libs/actions/BankAccounts';
@@ -74,6 +74,7 @@ const filterInput = (amount) => {
 };
 
 function ValidationStep({reimbursementAccount, translate, onBackButtonPress, account}) {
+    const styles = useThemeStyles();
     /**
      * @param {Object} values - form input values passed by the Form component
      * @returns {Object}

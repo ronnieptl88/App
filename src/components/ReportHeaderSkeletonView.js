@@ -3,12 +3,12 @@ import {View} from 'react-native';
 import {Rect, Circle} from 'react-native-svg';
 import SkeletonViewContentLoader from 'react-content-loader/native';
 import PropTypes from 'prop-types';
-import styles from '../styles/styles';
+import useThemeStyles from '../styles/useThemeStyles';
 import Icon from './Icon';
 import * as Expensicons from './Icon/Expensicons';
 import withWindowDimensions, {windowDimensionsPropTypes} from './withWindowDimensions';
 import variables from '../styles/variables';
-import themeColors from '../styles/themes/default';
+import useTheme from '../styles/themes/useTheme';
 import PressableWithFeedback from './Pressable/PressableWithFeedback';
 import compose from '../libs/compose';
 import withLocalize, {withLocalizePropTypes} from './withLocalize';
@@ -25,6 +25,8 @@ const defaultProps = {
 };
 
 function ReportHeaderSkeletonView(props) {
+    const theme = useTheme();
+    const styles = useThemeStyles();
     return (
         <View style={[styles.appContentHeader]}>
             <View style={[styles.appContentHeaderTitle, !props.isSmallScreenWidth && styles.pl5]}>
@@ -42,8 +44,8 @@ function ReportHeaderSkeletonView(props) {
                     animate={props.shouldAnimate}
                     width={styles.w100.width}
                     height={variables.contentHeaderHeight}
-                    backgroundColor={themeColors.highlightBG}
-                    foregroundColor={themeColors.border}
+                    backgroundColor={theme.highlightBG}
+                    foregroundColor={theme.border}
                 >
                     <Circle
                         cx="20"

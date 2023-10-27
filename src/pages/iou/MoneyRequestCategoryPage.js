@@ -12,7 +12,7 @@ import CategoryPicker from '../../components/CategoryPicker';
 import ONYXKEYS from '../../ONYXKEYS';
 import reportPropTypes from '../reportPropTypes';
 import * as IOU from '../../libs/actions/IOU';
-import styles from '../../styles/styles';
+import useThemeStyles from '../../styles/useThemeStyles';
 import Text from '../../components/Text';
 import {iouPropTypes, iouDefaultProps} from './propTypes';
 
@@ -43,6 +43,7 @@ const defaultProps = {
 };
 
 function MoneyRequestCategoryPage({route, report, iou}) {
+    const styles = useThemeStyles();
     const {translate} = useLocalize();
 
     const reportID = lodashGet(route, 'params.reportID', '');

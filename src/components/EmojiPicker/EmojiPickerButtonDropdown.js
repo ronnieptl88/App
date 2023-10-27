@@ -1,7 +1,7 @@
 import React, {useRef, useEffect} from 'react';
 import PropTypes from 'prop-types';
 import {View} from 'react-native';
-import styles from '../../styles/styles';
+import useThemeStyles from '../../styles/useThemeStyles';
 import CONST from '../../CONST';
 import * as StyleUtils from '../../styles/StyleUtils';
 import getButtonState from '../../libs/getButtonState';
@@ -25,6 +25,7 @@ const defaultProps = {
 };
 
 function EmojiPickerButtonDropdown(props) {
+    const styles = useThemeStyles();
     const emojiPopoverAnchor = useRef(null);
     useEffect(() => EmojiPickerAction.resetEmojiPopoverAnchor, []);
 

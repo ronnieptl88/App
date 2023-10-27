@@ -2,7 +2,7 @@ import React from 'react';
 import {View} from 'react-native';
 import {withOnyx} from 'react-native-onyx';
 import PropTypes from 'prop-types';
-import styles from '../styles/styles';
+import useThemeStyles from '../styles/useThemeStyles';
 import Text from './Text';
 import usePrivatePersonalDetails from '../hooks/usePrivatePersonalDetails';
 import ONYXKEYS from '../ONYXKEYS';
@@ -33,6 +33,7 @@ const defaultProps = {
 };
 
 function CardPreview({privatePersonalDetails: {legalFirstName, legalLastName}, session: {email}}) {
+    const styles = useThemeStyles();
     usePrivatePersonalDetails();
     const cardHolder = legalFirstName && legalLastName ? `${legalFirstName} ${legalLastName}` : email;
 

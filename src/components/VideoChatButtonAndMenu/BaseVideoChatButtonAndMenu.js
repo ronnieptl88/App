@@ -9,8 +9,8 @@ import MenuItem from '../MenuItem';
 import ZoomIcon from '../../../assets/images/zoom-icon.svg';
 import GoogleMeetIcon from '../../../assets/images/google-meet.svg';
 import CONST from '../../CONST';
-import styles from '../../styles/styles';
-import themeColors from '../../styles/themes/default';
+import useThemeStyles from '../../styles/useThemeStyles';
+import useTheme from '../../styles/themes/useTheme';
 import withWindowDimensions, {windowDimensionsPropTypes} from '../withWindowDimensions';
 import withLocalize, {withLocalizePropTypes} from '../withLocalize';
 import compose from '../../libs/compose';
@@ -30,6 +30,8 @@ const propTypes = {
 };
 
 function BaseVideoChatButtonAndMenu(props) {
+    const theme = useTheme();
+    const styles = useThemeStyles();
     const [isVideoChatMenuActive, setIsVideoChatMenuActive] = useState(false);
     const [videoChatIconPosition, setVideoChatIconPosition] = useState({x: 0, y: 0});
     const videoChatIconWrapperRef = useRef(null);
@@ -105,7 +107,7 @@ function BaseVideoChatButtonAndMenu(props) {
                     >
                         <Icon
                             src={Expensicons.Phone}
-                            fill={isVideoChatMenuActive ? themeColors.heading : themeColors.icon}
+                            fill={isVideoChatMenuActive ? theme.heading : theme.icon}
                         />
                     </PressableWithoutFeedback>
                 </Tooltip>

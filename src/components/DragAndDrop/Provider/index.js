@@ -4,7 +4,7 @@ import {View} from 'react-native';
 import {PortalHost} from '@gorhom/portal';
 import Str from 'expensify-common/lib/str';
 import dragAndDropProviderPropTypes from './dragAndDropProviderPropTypes';
-import styles from '../../../styles/styles';
+import useThemeStyles from '../../../styles/useThemeStyles';
 import useDragAndDrop from '../../../hooks/useDragAndDrop';
 
 const DragAndDropContext = React.createContext({});
@@ -18,6 +18,7 @@ function shouldAcceptDrop(event) {
 }
 
 function DragAndDropProvider({children, isDisabled = false, setIsDraggingOver = () => {}}) {
+    const styles = useThemeStyles();
     const dropZone = useRef(null);
     const dropZoneID = useRef(Str.guid('drag-n-drop'));
 

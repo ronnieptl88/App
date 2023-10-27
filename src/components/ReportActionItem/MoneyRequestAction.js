@@ -13,7 +13,7 @@ import iouReportPropTypes from '../../pages/iouReportPropTypes';
 import MoneyRequestPreview from './MoneyRequestPreview';
 import Navigation from '../../libs/Navigation/Navigation';
 import ROUTES from '../../ROUTES';
-import styles from '../../styles/styles';
+import useThemeStyles from '../../styles/useThemeStyles';
 import * as IOUUtils from '../../libs/IOUUtils';
 import * as ReportUtils from '../../libs/ReportUtils';
 import * as Report from '../../libs/actions/Report';
@@ -92,6 +92,7 @@ function MoneyRequestAction({
     style,
     isWhisper,
 }) {
+    const styles = useThemeStyles();
     const {translate} = useLocalize();
     const isSplitBillAction = lodashGet(action, 'originalMessage.type', '') === CONST.IOU.REPORT_ACTION_TYPE.SPLIT;
 

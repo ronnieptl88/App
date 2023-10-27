@@ -5,7 +5,7 @@ import lodashGet from 'lodash/get';
 import {useFocusEffect, useIsFocused} from '@react-navigation/native';
 import SectionList from '../SectionList';
 import Text from '../Text';
-import styles from '../../styles/styles';
+import useThemeStyles from '../../styles/useThemeStyles';
 import TextInput from '../TextInput';
 import CONST from '../../CONST';
 import variables from '../../styles/variables';
@@ -23,7 +23,7 @@ import OptionsListSkeletonView from '../OptionsListSkeletonView';
 import useActiveElement from '../../hooks/useActiveElement';
 import BaseListItem from './BaseListItem';
 import ArrowKeyFocusManager from '../ArrowKeyFocusManager';
-import themeColors from '../../styles/themes/default';
+import useTheme from '../../styles/themes/useTheme';
 
 const propTypes = {
     ...keyboardStatePropTypes,
@@ -58,6 +58,8 @@ function BaseSelectionList({
     disableKeyboardShortcuts = false,
     children,
 }) {
+    const theme = useTheme();
+    const styles = useThemeStyles();
     const {translate} = useLocalize();
     const firstLayoutRef = useRef(true);
     const listRef = useRef(null);
@@ -428,7 +430,7 @@ function BaseSelectionList({
                                     onScrollBeginDrag={onScrollBeginDrag}
                                     keyExtractor={(item) => item.keyForList}
                                     extraData={focusedIndex}
-                                    indicatorStyle={themeColors.white}
+                                    indicatorStyle={theme.white}
                                     keyboardShouldPersistTaps="always"
                                     showsVerticalScrollIndicator={showScrollIndicator}
                                     initialNumToRender={12}

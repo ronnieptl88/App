@@ -14,8 +14,8 @@ import withLocalize, {withLocalizePropTypes} from '../../../components/withLocal
 import useWaitForNavigation from '../../../hooks/useWaitForNavigation';
 import Navigation from '../../../libs/Navigation/Navigation';
 import compose from '../../../libs/compose';
-import styles from '../../../styles/styles';
-import themeColors from '../../../styles/themes/default';
+import useThemeStyles from '../../../styles/useThemeStyles';
+import useTheme from '../../../styles/themes/useTheme';
 
 const propTypes = {
     ...withLocalizePropTypes,
@@ -34,6 +34,8 @@ const defaultProps = {
 };
 
 function SecuritySettingsPage(props) {
+    const theme = useTheme();
+    const styles = useThemeStyles();
     const {translate} = props;
     const waitForNavigate = useWaitForNavigation();
 
@@ -67,7 +69,7 @@ function SecuritySettingsPage(props) {
             onBackButtonPress={() => Navigation.goBack(ROUTES.SETTINGS)}
             shouldShowBackButton
             illustration={LottieAnimations.Safe}
-            backgroundColor={themeColors.PAGE_BACKGROUND_COLORS[SCREENS.SETTINGS.SECURITY]}
+            backgroundColor={theme.PAGE_BACKGROUND_COLORS[SCREENS.SETTINGS.SECURITY]}
         >
             <ScrollView contentContainerStyle={[styles.flexGrow1, styles.flexColumn, styles.justifyContentBetween]}>
                 <View style={[styles.flex1]}>

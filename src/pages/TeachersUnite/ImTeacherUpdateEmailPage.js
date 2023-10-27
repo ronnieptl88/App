@@ -4,7 +4,7 @@ import HeaderWithBackButton from '../../components/HeaderWithBackButton';
 import ROUTES from '../../ROUTES';
 import Navigation from '../../libs/Navigation/Navigation';
 import FixedFooter from '../../components/FixedFooter';
-import styles from '../../styles/styles';
+import useThemeStyles from '../../styles/useThemeStyles';
 import Button from '../../components/Button';
 import * as Illustrations from '../../components/Icon/Illustrations';
 import variables from '../../styles/variables';
@@ -16,6 +16,7 @@ const propTypes = {};
 const defaultProps = {};
 
 function ImTeacherUpdateEmailPage() {
+    const styles = useThemeStyles();
     const {translate} = useLocalize();
 
     return (

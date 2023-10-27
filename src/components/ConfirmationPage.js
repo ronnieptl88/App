@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import Lottie from './Lottie';
 import * as LottieAnimations from './LottieAnimations';
 import Text from './Text';
-import styles from '../styles/styles';
+import useThemeStyles from '../styles/useThemeStyles';
 import Button from './Button';
 import FixedFooter from './FixedFooter';
 
@@ -39,6 +39,7 @@ const defaultProps = {
 };
 
 function ConfirmationPage(props) {
+    const styles = useThemeStyles();
     return (
         <>
             <View style={[styles.screenCenteredContainer, styles.alignItemsCenter]}>

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import {View} from 'react-native';
 import * as ReimbursementAccount from '../libs/actions/ReimbursementAccount';
 import * as Expensicons from './Icon/Expensicons';
-import styles from '../styles/styles';
+import useThemeStyles from '../styles/useThemeStyles';
 import Button from './Button';
 import {withNetwork} from './OnyxProvider';
 import compose from '../libs/compose';
@@ -30,6 +30,7 @@ const defaultProps = {
 };
 
 function ConnectBankAccountButton(props) {
+    const styles = useThemeStyles();
     const activeRoute = Navigation.getActiveRoute().replace(/\?.*/, '');
     return props.network.isOffline ? (
         <View style={props.style}>

@@ -4,7 +4,7 @@ import ScreenWrapper from '../components/ScreenWrapper';
 import HeaderWithBackButton from '../components/HeaderWithBackButton';
 import Navigation from '../libs/Navigation/Navigation';
 import useLocalize from '../hooks/useLocalize';
-import styles from '../styles/styles';
+import useThemeStyles from '../styles/useThemeStyles';
 import Text from '../components/Text';
 import CategoryPicker from '../components/CategoryPicker';
 
@@ -20,6 +20,7 @@ const propTypes = {
 };
 
 function EditRequestCategoryPage({defaultCategory, policyID, onSubmit}) {
+    const styles = useThemeStyles();
     const {translate} = useLocalize();
 
     const selectCategory = (category) => {

@@ -5,7 +5,7 @@ import DeviceInfo from 'react-native-device-info';
 import HeaderWithBackButton from '../../../components/HeaderWithBackButton';
 import Navigation from '../../../libs/Navigation/Navigation';
 import ROUTES from '../../../ROUTES';
-import styles from '../../../styles/styles';
+import useThemeStyles from '../../../styles/useThemeStyles';
 import Text from '../../../components/Text';
 import TextLink from '../../../components/TextLink';
 import CONST from '../../../CONST';
@@ -41,6 +41,7 @@ function getFlavor() {
 }
 
 function AboutPage(props) {
+    const styles = useThemeStyles();
     const {translate} = props;
     const popoverAnchor = useRef(null);
     const waitForNavigate = useWaitForNavigation();

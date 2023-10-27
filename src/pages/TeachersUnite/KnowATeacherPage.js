@@ -13,7 +13,7 @@ import CONST from '../../CONST';
 import * as LoginUtils from '../../libs/LoginUtils';
 import TextInput from '../../components/TextInput';
 import Text from '../../components/Text';
-import styles from '../../styles/styles';
+import useThemeStyles from '../../styles/useThemeStyles';
 import * as ErrorUtils from '../../libs/ErrorUtils';
 import ROUTES from '../../ROUTES';
 import Navigation from '../../libs/Navigation/Navigation';
@@ -34,6 +34,7 @@ const defaultProps = {
 };
 
 function KnowATeacherPage(props) {
+    const styles = useThemeStyles();
     const {translate} = useLocalize();
 
     /**

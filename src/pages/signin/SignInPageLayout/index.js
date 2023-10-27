@@ -7,11 +7,11 @@ import SignInPageContent from './SignInPageContent';
 import Footer from './Footer';
 import withWindowDimensions, {windowDimensionsPropTypes} from '../../../components/withWindowDimensions';
 import withLocalize, {withLocalizePropTypes} from '../../../components/withLocalize';
-import styles from '../../../styles/styles';
+import useThemeStyles from '../../../styles/useThemeStyles';
 import SignInPageHero from '../SignInPageHero';
 import * as StyleUtils from '../../../styles/StyleUtils';
 import scrollViewContentContainerStyles from './signInPageStyles';
-import themeColors from '../../../styles/themes/default';
+import useTheme from '../../../styles/themes/useTheme';
 import BackgroundImage from './BackgroundImage';
 import SignInGradient from '../../../../assets/images/home-fade-gradient.svg';
 import variables from '../../../styles/variables';
@@ -59,6 +59,8 @@ const defaultProps = {
 };
 
 function SignInPageLayout(props) {
+    const theme = useTheme();
+    const styles = useThemeStyles();
     const scrollViewRef = useRef();
     const prevPreferredLocale = usePrevious(props.preferredLocale);
     let containerStyles = [styles.flex1, styles.signInPageInner];
@@ -111,7 +113,7 @@ function SignInPageLayout(props) {
                         </SignInPageContent>
                     </ScrollView>
                     <ScrollView
-                        style={[styles.flex1, StyleUtils.getBackgroundColorStyle(themeColors.signInPage)]}
+                        style={[styles.flex1, StyleUtils.getBackgroundColorStyle(theme.signInPage)]}
                         contentContainerStyle={[styles.flex1]}
                         ref={scrollViewRef}
                     >

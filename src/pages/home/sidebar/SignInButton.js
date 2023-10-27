@@ -3,12 +3,13 @@ import React from 'react';
 import {View} from 'react-native';
 import PressableWithoutFeedback from '../../../components/Pressable/PressableWithoutFeedback';
 import Button from '../../../components/Button';
-import styles from '../../../styles/styles';
+import useThemeStyles from '../../../styles/useThemeStyles';
 import * as Session from '../../../libs/actions/Session';
 import useLocalize from '../../../hooks/useLocalize';
 import CONST from '../../../CONST';
 
 function SignInButton() {
+    const styles = useThemeStyles();
     const {translate} = useLocalize();
 
     return (

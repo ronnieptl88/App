@@ -12,7 +12,7 @@ import HeaderWithBackButton from '../../components/HeaderWithBackButton';
 import Navigation from '../../libs/Navigation/Navigation';
 import ONYXKEYS from '../../ONYXKEYS';
 import Form from '../../components/Form';
-import styles from '../../styles/styles';
+import useThemeStyles from '../../styles/useThemeStyles';
 import useWindowDimensions from '../../hooks/useWindowDimensions';
 import useLocalize from '../../hooks/useLocalize';
 import useNetwork from '../../hooks/useNetwork';
@@ -77,6 +77,7 @@ const defaultProps = {
 };
 
 function WaypointEditor({route: {params: {iouType = '', transactionID = '', waypointIndex = '', threadReportID = 0}} = {}, transaction, recentWaypoints}) {
+    const styles = useThemeStyles();
     const {windowWidth} = useWindowDimensions();
     const [isDeleteStopModalOpen, setIsDeleteStopModalOpen] = useState(false);
     const navigation = useNavigation();

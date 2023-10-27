@@ -3,9 +3,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import _ from 'underscore';
 import Text from '../../../components/Text';
-import styles from '../../../styles/styles';
+import useThemeStyles from '../../../styles/useThemeStyles';
 import * as StyleUtils from '../../../styles/StyleUtils';
-import themeColors from '../../../styles/themes/default';
+import useTheme from '../../../styles/themes/useTheme';
 import variables from '../../../styles/variables';
 import * as Expensicons from '../../../components/Icon/Expensicons';
 import TextLink from '../../../components/TextLink';
@@ -150,6 +150,8 @@ const columns = ({scrollPageToTop}) => [
 ];
 
 function Footer(props) {
+    const theme = useTheme();
+    const styles = useThemeStyles();
     const isVertical = props.shouldShowSmallScreen;
     const imageDirection = isVertical ? styles.flexRow : styles.flexColumn;
     const imageStyle = isVertical ? styles.pr0 : styles.alignSelfCenter;
@@ -157,7 +159,7 @@ function Footer(props) {
     const pageFooterWrapper = [styles.footerWrapper, imageDirection, imageStyle, isVertical ? styles.pl10 : {}];
     const footerColumns = [styles.footerColumnsContainer, columnDirection];
     const footerColumn = isVertical ? [styles.p4] : [styles.p4, props.isMediumScreenWidth ? styles.w50 : styles.w25];
-    const footerWrapper = isVertical ? [StyleUtils.getBackgroundColorStyle(themeColors.signInPage), styles.overflowHidden] : [];
+    const footerWrapper = isVertical ? [StyleUtils.getBackgroundColorStyle(theme.signInPage), styles.overflowHidden] : [];
 
     return (
         <View style={[styles.flex1]}>

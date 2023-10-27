@@ -4,7 +4,7 @@ import {withOnyx} from 'react-native-onyx';
 import PropTypes from 'prop-types';
 import HeaderWithBackButton from '../../../components/HeaderWithBackButton';
 import ScreenWrapper from '../../../components/ScreenWrapper';
-import styles from '../../../styles/styles';
+import useThemeStyles from '../../../styles/useThemeStyles';
 import Text from '../../../components/Text';
 import TextLink from '../../../components/TextLink';
 import useLocalize from '../../../hooks/useLocalize';
@@ -41,6 +41,7 @@ const defaultProps = {
 };
 
 function DebitCardPage(props) {
+    const styles = useThemeStyles();
     const {translate} = useLocalize();
     const prevFormDataSetupComplete = usePrevious(props.formData.setupComplete);
     const nameOnCardRef = useRef(null);

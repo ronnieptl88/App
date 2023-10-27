@@ -7,7 +7,7 @@ import compose from '../../libs/compose';
 import HeaderWithBackButton from '../../components/HeaderWithBackButton';
 import Navigation from '../../libs/Navigation/Navigation';
 import ScreenWrapper from '../../components/ScreenWrapper';
-import styles from '../../styles/styles';
+import useThemeStyles from '../../styles/useThemeStyles';
 import ONYXKEYS from '../../ONYXKEYS';
 import * as ErrorUtils from '../../libs/ErrorUtils';
 import Form from '../../components/Form';
@@ -39,6 +39,7 @@ const defaultProps = {
 };
 
 function NewTaskTitlePage(props) {
+    const styles = useThemeStyles();
     const {inputCallbackRef} = useAutoFocusInput();
 
     /**

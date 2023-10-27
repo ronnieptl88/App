@@ -4,7 +4,7 @@ import lodashGet from 'lodash/get';
 import {withOnyx} from 'react-native-onyx';
 import CONST from '../../CONST';
 import ONYXKEYS from '../../ONYXKEYS';
-import styles from '../../styles/styles';
+import useThemeStyles from '../../styles/useThemeStyles';
 import useLocalize from '../../hooks/useLocalize';
 import * as OptionsListUtils from '../../libs/OptionsListUtils';
 import * as PolicyUtils from '../../libs/PolicyUtils';
@@ -12,6 +12,7 @@ import OptionsSelector from '../OptionsSelector';
 import {propTypes, defaultProps} from './tagPickerPropTypes';
 
 function TagPicker({selectedTag, tag, policyTags, policyRecentlyUsedTags, onSubmit}) {
+    const styles = useThemeStyles();
     const {translate} = useLocalize();
     const [searchValue, setSearchValue] = useState('');
 

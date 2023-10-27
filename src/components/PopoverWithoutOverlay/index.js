@@ -4,12 +4,13 @@ import {SafeAreaInsetsContext} from 'react-native-safe-area-context';
 import {PopoverContext} from '../PopoverProvider';
 import * as Modal from '../../libs/actions/Modal';
 import {propTypes, defaultProps} from '../Popover/popoverPropTypes';
-import styles from '../../styles/styles';
+import useThemeStyles from '../../styles/useThemeStyles';
 import * as StyleUtils from '../../styles/StyleUtils';
 import getModalStyles from '../../styles/getModalStyles';
 import withWindowDimensions from '../withWindowDimensions';
 
 function Popover(props) {
+    const styles = useThemeStyles();
     const {onOpen, close} = React.useContext(PopoverContext);
     const {modalStyle, modalContainerStyle, shouldAddTopSafeAreaMargin, shouldAddBottomSafeAreaMargin, shouldAddTopSafeAreaPadding, shouldAddBottomSafeAreaPadding} = getModalStyles(
         'popover',

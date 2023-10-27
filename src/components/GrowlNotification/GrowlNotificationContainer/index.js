@@ -1,6 +1,6 @@
 import React from 'react';
 import {Animated} from 'react-native';
-import styles from '../../../styles/styles';
+import useThemeStyles from '../../../styles/useThemeStyles';
 import withWindowDimensions, {windowDimensionsPropTypes} from '../../withWindowDimensions';
 import growlNotificationContainerPropTypes from './growlNotificationContainerPropTypes';
 
@@ -10,6 +10,7 @@ const propTypes = {
 };
 
 function GrowlNotificationContainer(props) {
+    const styles = useThemeStyles();
     return (
         <Animated.View
             style={[

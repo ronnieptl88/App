@@ -2,7 +2,7 @@ import React, {forwardRef, useImperativeHandle} from 'react';
 import PropTypes from 'prop-types';
 import MenuItem from './MenuItem';
 import Icon from './Icon';
-import styles from '../styles/styles';
+import useThemeStyles from '../styles/useThemeStyles';
 import * as StyleUtils from '../styles/StyleUtils';
 import getButtonState from '../libs/getButtonState';
 import useThrottledButtonState from '../hooks/useThrottledButtonState';
@@ -53,6 +53,7 @@ const defaultProps = {
 };
 
 function ContextMenuItem({onPress, successIcon, successText, icon, text, isMini, description, isAnonymousAction, isFocused, innerRef}) {
+    const styles = useThemeStyles();
     const {windowWidth} = useWindowDimensions();
     const [isThrottledButtonActive, setThrottledButtonInactive] = useThrottledButtonState();
 

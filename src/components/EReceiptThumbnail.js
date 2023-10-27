@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import ONYXKEYS from '../ONYXKEYS';
 import * as StyleUtils from '../styles/StyleUtils';
 import transactionPropTypes from './transactionPropTypes';
-import styles from '../styles/styles';
+import useThemeStyles from '../styles/useThemeStyles';
 import * as Expensicons from './Icon/Expensicons';
 import * as MCCIcons from './Icon/MCCIcons';
 import Icon from './Icon';
@@ -42,6 +42,7 @@ function getBackgroundImage(transaction) {
 }
 
 function EReceiptThumbnail({transaction}) {
+    const styles = useThemeStyles();
     // Get receipt colorway, or default to Yellow.
     const {backgroundColor: primaryColor, color: secondaryColor} = StyleUtils.getEReceiptColorStyles(StyleUtils.getEReceiptColorCode(transaction));
 

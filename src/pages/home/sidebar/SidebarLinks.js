@@ -3,7 +3,7 @@ import React, {useEffect, useRef, useCallback} from 'react';
 import {View, InteractionManager} from 'react-native';
 import _ from 'underscore';
 import PropTypes from 'prop-types';
-import styles from '../../../styles/styles';
+import useThemeStyles from '../../../styles/useThemeStyles';
 import * as StyleUtils from '../../../styles/StyleUtils';
 import ONYXKEYS from '../../../ONYXKEYS';
 import safeAreaInsetPropTypes from '../../safeAreaInsetPropTypes';
@@ -46,6 +46,7 @@ const propTypes = {
 };
 
 function SidebarLinks({onLinkClick, insets, optionListItems, isLoading, priorityMode = CONST.PRIORITY_MODE.DEFAULT, isActiveReport, isCreateMenuOpen}) {
+    const styles = useThemeStyles();
     const modal = useRef({});
     const {translate, updateLocale} = useLocalize();
     const {isSmallScreenWidth} = useWindowDimensions();

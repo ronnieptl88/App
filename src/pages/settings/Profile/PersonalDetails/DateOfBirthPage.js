@@ -14,7 +14,7 @@ import Navigation from '../../../../libs/Navigation/Navigation';
 import * as ValidationUtils from '../../../../libs/ValidationUtils';
 import * as PersonalDetails from '../../../../libs/actions/PersonalDetails';
 import compose from '../../../../libs/compose';
-import styles from '../../../../styles/styles';
+import useThemeStyles from '../../../../styles/useThemeStyles';
 import usePrivatePersonalDetails from '../../../../hooks/usePrivatePersonalDetails';
 import FullscreenLoadingIndicator from '../../../../components/FullscreenLoadingIndicator';
 import FormProvider from '../../../../components/Form/FormProvider';
@@ -37,6 +37,7 @@ const defaultProps = {
 };
 
 function DateOfBirthPage({translate, privatePersonalDetails}) {
+    const styles = useThemeStyles();
     usePrivatePersonalDetails();
     const isLoadingPersonalDetails = lodashGet(privatePersonalDetails, 'isLoading', true);
 

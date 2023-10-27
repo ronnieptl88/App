@@ -8,7 +8,7 @@ import ROUTES from '../../../../ROUTES';
 import HeaderWithBackButton from '../../../../components/HeaderWithBackButton';
 import ScreenWrapper from '../../../../components/ScreenWrapper';
 import Navigation from '../../../../libs/Navigation/Navigation';
-import styles from '../../../../styles/styles';
+import useThemeStyles from '../../../../styles/useThemeStyles';
 import compose from '../../../../libs/compose';
 import * as BankAccounts from '../../../../libs/actions/BankAccounts';
 import Popover from '../../../../components/Popover';
@@ -30,7 +30,7 @@ import * as PaymentUtils from '../../../../libs/PaymentUtils';
 import OfflineWithFeedback from '../../../../components/OfflineWithFeedback';
 import ConfirmContent from '../../../../components/ConfirmContent';
 import Button from '../../../../components/Button';
-import themeColors from '../../../../styles/themes/default';
+import useTheme from '../../../../styles/themes/useTheme';
 import variables from '../../../../styles/variables';
 import useLocalize from '../../../../hooks/useLocalize';
 import useWindowDimensions from '../../../../hooks/useWindowDimensions';
@@ -39,6 +39,8 @@ import * as Illustrations from '../../../../components/Icon/Illustrations';
 import WalletSection from '../../../../components/WalletSection';
 
 function WalletPage({bankAccountList, betas, cardList, fundList, isLoadingPaymentMethods, network, shouldListenForResize, userWallet, walletTerms}) {
+    const theme = useTheme();
+    const styles = useThemeStyles();
     const {translate} = useLocalize();
     const {isSmallScreenWidth, windowWidth} = useWindowDimensions();
     const [shouldShowAddPaymentMenu, setShouldShowAddPaymentMenu] = useState(false);
@@ -343,7 +345,7 @@ function WalletPage({bankAccountList, betas, cardList, fundList, isLoadingPaymen
                                         <>
                                             {shouldShowLoadingSpinner ? (
                                                 <ActivityIndicator
-                                                    color={themeColors.spinner}
+                                                    color={theme.spinner}
                                                     size={CONST.ACTIVITY_INDICATOR_SIZE.LARGE}
                                                     style={[styles.mt7, styles.mb5]}
                                                 />
@@ -399,8 +401,9 @@ function WalletPage({bankAccountList, betas, cardList, fundList, isLoadingPaymen
                                                             <View style={alertViewStyle}>
                                                                 <Icon
                                                                     src={Expensicons.Hourglass}
-                                                                    fill={themeColors.icon}
+                                                                    fill={theme.icon}
                                                                 />
+
                                                                 <Text style={alertTextStyle}>{translate('walletPage.walletActivationPending')}</Text>
                                                             </View>
                                                         );
@@ -411,8 +414,9 @@ function WalletPage({bankAccountList, betas, cardList, fundList, isLoadingPaymen
                                                             <View style={alertViewStyle}>
                                                                 <Icon
                                                                     src={Expensicons.Exclamation}
-                                                                    fill={themeColors.icon}
+                                                                    fill={theme.icon}
                                                                 />
+
                                                                 <Text style={alertTextStyle}>{translate('walletPage.walletActivationFailed')}</Text>
                                                             </View>
                                                         );

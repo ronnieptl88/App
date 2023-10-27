@@ -8,8 +8,8 @@ import withLocalize, {withLocalizePropTypes} from './withLocalize';
 import ONYXKEYS from '../ONYXKEYS';
 import CONST from '../CONST';
 import Picker from './Picker';
-import styles from '../styles/styles';
-import themeColors from '../styles/themes/default';
+import useThemeStyles from '../styles/useThemeStyles';
+import useTheme from '../styles/themes/useTheme';
 
 const propTypes = {
     /** Indicates which locale the user currently has selected */
@@ -27,6 +27,8 @@ const defaultProps = {
 };
 
 function LocalePicker(props) {
+    const theme = useTheme();
+    const styles = useThemeStyles();
     const localesToLanguages = _.map(CONST.LANGUAGES, (language) => ({
         value: language,
         label: props.translate(`languagePage.languages.${language}.label`),
@@ -47,7 +49,7 @@ function LocalePicker(props) {
             size={props.size}
             value={props.preferredLocale}
             containerStyles={props.size === 'small' ? [styles.pickerContainerSmall] : []}
-            backgroundColor={themeColors.signInPage}
+            backgroundColor={theme.signInPage}
         />
     );
 }

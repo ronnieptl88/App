@@ -3,7 +3,7 @@ import {withOnyx} from 'react-native-onyx';
 import lodashGet from 'lodash/get';
 import Navigation from '../../../libs/Navigation/Navigation';
 import htmlRendererPropTypes from './htmlRendererPropTypes';
-import styles from '../../../styles/styles';
+import useThemeStyles from '../../../styles/useThemeStyles';
 import ThumbnailImage from '../../ThumbnailImage';
 import PressableWithoutFocus from '../../Pressable/PressableWithoutFocus';
 import CONST from '../../../CONST';
@@ -17,6 +17,7 @@ import useLocalize from '../../../hooks/useLocalize';
 const propTypes = {...htmlRendererPropTypes};
 
 function ImageRenderer(props) {
+    const styles = useThemeStyles();
     const {translate} = useLocalize();
 
     const htmlAttribs = props.tnode.attributes;

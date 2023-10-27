@@ -6,8 +6,8 @@ import * as Expensicons from '../Icon/Expensicons';
 import TabSelectorItem from './TabSelectorItem';
 import CONST from '../../CONST';
 import useLocalize from '../../hooks/useLocalize';
-import styles from '../../styles/styles';
-import themeColors from '../../styles/themes/default';
+import useThemeStyles from '../../styles/useThemeStyles';
+import useTheme from '../../styles/themes/useTheme';
 
 const propTypes = {
     /* Navigation state provided by React Navigation */
@@ -74,13 +74,15 @@ const getBackgroundColor = (position, routesLength, tabIndex, affectedTabs) => {
 
         return position.interpolate({
             inputRange,
-            outputRange: _.map(inputRange, (i) => (affectedTabs.includes(tabIndex) && i === tabIndex ? themeColors.border : themeColors.appBG)),
+            outputRange: _.map(inputRange, (i) => (affectedTabs.includes(tabIndex) && i === tabIndex ? theme.border : theme.appBG)),
         });
     }
-    return themeColors.border;
+    return theme.border;
 };
 
 function TabSelector({state, navigation, onTabPress, position}) {
+    const theme = useTheme();
+    const styles = useThemeStyles();
     const {translate} = useLocalize();
 
     const defaultAffectedAnimatedTabs = useMemo(() => Array.from({length: state.routes.length}, (v, i) => i), [state.routes.length]);

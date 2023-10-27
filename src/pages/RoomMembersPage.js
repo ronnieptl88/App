@@ -3,7 +3,7 @@ import _ from 'underscore';
 import PropTypes from 'prop-types';
 import {View} from 'react-native';
 import {withOnyx} from 'react-native-onyx';
-import styles from '../styles/styles';
+import useThemeStyles from '../styles/useThemeStyles';
 import compose from '../libs/compose';
 import CONST from '../CONST';
 import ONYXKEYS from '../ONYXKEYS';
@@ -78,6 +78,7 @@ const defaultProps = {
 };
 
 function RoomMembersPage(props) {
+    const styles = useThemeStyles();
     const [selectedMembers, setSelectedMembers] = useState([]);
     const [removeMembersConfirmModalVisible, setRemoveMembersConfirmModalVisible] = useState(false);
     const [searchValue, setSearchValue] = useState('');

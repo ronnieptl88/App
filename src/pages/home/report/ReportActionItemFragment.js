@@ -2,9 +2,9 @@ import React, {memo} from 'react';
 import PropTypes from 'prop-types';
 import Str from 'expensify-common/lib/str';
 import reportActionFragmentPropTypes from './reportActionFragmentPropTypes';
-import styles from '../../../styles/styles';
+import useThemeStyles from '../../../styles/useThemeStyles';
 import variables from '../../../styles/variables';
-import themeColors from '../../../styles/themes/default';
+import useTheme from '../../../styles/themes/useTheme';
 import RenderHTML from '../../../components/RenderHTML';
 import Text from '../../../components/Text';
 import * as EmojiUtils from '../../../libs/EmojiUtils';
@@ -90,6 +90,8 @@ const defaultProps = {
 };
 
 function ReportActionItemFragment(props) {
+    const theme = useTheme();
+    const styles = useThemeStyles();
     switch (props.fragment.type) {
         case 'COMMENT': {
             const {html, text} = props.fragment;
@@ -142,7 +144,7 @@ function ReportActionItemFragment(props) {
                             </Text>
                             <Text
                                 fontSize={variables.fontSizeSmall}
-                                color={themeColors.textSupporting}
+                                color={theme.textSupporting}
                                 style={[editedLabelStyles, isPendingDelete ? styles.offlineFeedback.deleted : undefined, ...props.style]}
                             >
                                 {props.translate('reportActionCompose.edited')}

@@ -1,7 +1,7 @@
 import React from 'react';
 import {View} from 'react-native';
 import PropTypes from 'prop-types';
-import styles from '../../../styles/styles';
+import useThemeStyles from '../../../styles/useThemeStyles';
 import * as Expensicons from '../../Icon/Expensicons';
 import * as StyleUtils from '../../../styles/StyleUtils';
 import Icon from '../../Icon';
@@ -21,6 +21,7 @@ const defaultProps = {
 };
 
 function ArrowIcon(props) {
+    const styles = useThemeStyles();
     return (
         <View style={[styles.p1, StyleUtils.getDirectionStyle(props.direction), props.disabled ? styles.buttonOpacityDisabled : {}]}>
             <Icon src={Expensicons.ArrowRight} />

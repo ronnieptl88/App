@@ -7,8 +7,8 @@ import Text from '../Text';
 import Icon from '../Icon';
 import * as Illustrations from '../Icon/Illustrations';
 import * as Expensicons from '../Icon/Expensicons';
-import themeColors from '../../styles/themes/default';
-import styles from '../../styles/styles';
+import useTheme from '../../styles/themes/useTheme';
+import useThemeStyles from '../../styles/useThemeStyles';
 import withLocalize, {withLocalizePropTypes} from '../withLocalize';
 import Navigation from '../../libs/Navigation/Navigation';
 import ROUTES from '../../ROUTES';
@@ -33,6 +33,8 @@ const defaultProps = {
 };
 
 function DeeplinkRedirectLoadingIndicator({translate, openLinkInBrowser, session}) {
+    const theme = useTheme();
+    const styles = useThemeStyles();
     return (
         <View style={styles.deeplinkWrapperContainer}>
             <View style={styles.deeplinkWrapperMessage}>
@@ -56,7 +58,7 @@ function DeeplinkRedirectLoadingIndicator({translate, openLinkInBrowser, session
                 <Icon
                     width={154}
                     height={34}
-                    fill={themeColors.success}
+                    fill={theme.success}
                     src={Expensicons.ExpensifyWordmark}
                 />
             </View>

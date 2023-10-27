@@ -6,7 +6,7 @@ import lodashGet from 'lodash/get';
 import Navigation from '../../../libs/Navigation/Navigation';
 import ROUTES from '../../../ROUTES';
 import Text from '../../Text';
-import styles from '../../../styles/styles';
+import useThemeStyles from '../../../styles/useThemeStyles';
 import * as ReportUtils from '../../../libs/ReportUtils';
 import {ShowContextMenuContext, showContextMenuForReport} from '../../ShowContextMenuContext';
 import UserDetailsTooltip from '../../UserDetailsTooltip';
@@ -32,6 +32,7 @@ const propTypes = {
 };
 
 function MentionUserRenderer(props) {
+    const styles = useThemeStyles();
     const {translate} = useLocalize();
     const defaultRendererProps = _.omit(props, ['TDefaultRenderer', 'style']);
     const htmlAttribAccountID = lodashGet(props.tnode.attributes, 'accountid');

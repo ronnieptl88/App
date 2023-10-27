@@ -3,7 +3,7 @@ import {View} from 'react-native';
 import _ from 'underscore';
 import BlockingView from '../BlockingViews/BlockingView';
 import MapView from '../MapView';
-import styles from '../../styles/styles';
+import useThemeStyles from '../../styles/useThemeStyles';
 import useNetwork from '../../hooks/useNetwork';
 import useLocalize from '../../hooks/useLocalize';
 import * as Expensicons from '../Icon/Expensicons';
@@ -11,6 +11,7 @@ import * as StyleUtils from '../../styles/StyleUtils';
 import * as distanceMapViewPropTypes from './distanceMapViewPropTypes';
 
 function DistanceMapView(props) {
+    const styles = useThemeStyles();
     const [isMapReady, setIsMapReady] = useState(false);
     const {isOffline} = useNetwork();
     const {translate} = useLocalize();

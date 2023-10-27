@@ -6,7 +6,7 @@ import {PickerAvoidingView} from 'react-native-picker-select';
 import {useNavigation} from '@react-navigation/native';
 import KeyboardAvoidingView from '../KeyboardAvoidingView';
 import CONST from '../../CONST';
-import styles from '../../styles/styles';
+import useThemeStyles from '../../styles/useThemeStyles';
 import HeaderGap from '../HeaderGap';
 import OfflineIndicator from '../OfflineIndicator';
 import {propTypes, defaultProps} from './propTypes';
@@ -36,6 +36,7 @@ function ScreenWrapper({
     onEntryTransitionEnd,
     testID,
 }) {
+    const styles = useThemeStyles();
     const {windowHeight, isSmallScreenWidth} = useWindowDimensions();
     const keyboardState = useKeyboardState();
     const {isDevelopment} = useEnvironment();

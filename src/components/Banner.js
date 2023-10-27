@@ -7,7 +7,7 @@ import Icon from './Icon';
 import * as Expensicons from './Icon/Expensicons';
 import RenderHTML from './RenderHTML';
 import Text from './Text';
-import styles from '../styles/styles';
+import useThemeStyles from '../styles/useThemeStyles';
 import * as StyleUtils from '../styles/StyleUtils';
 import getButtonState from '../libs/getButtonState';
 import Tooltip from './Tooltip';
@@ -56,6 +56,7 @@ const defaultProps = {
 };
 
 function Banner(props) {
+    const styles = useThemeStyles();
     return (
         <Hoverable>
             {(isHovered) => {

@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styles from '../styles/styles';
+import useThemeStyles from '../styles/useThemeStyles';
 import CONST from '../CONST';
 import Text from './Text';
 import PressableWithoutFeedback from './Pressable/PressableWithoutFeedback';
@@ -31,6 +31,7 @@ const defaultProps = {
 };
 
 function ParentNavigationSubtitle(props) {
+    const styles = useThemeStyles();
     const {workspaceName, rootReportName} = props.parentNavigationSubtitleData;
 
     const {translate} = useLocalize();

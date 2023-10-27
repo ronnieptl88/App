@@ -4,8 +4,8 @@ import {ActivityIndicator, View} from 'react-native';
 import lodashGet from 'lodash/get';
 import _ from 'underscore';
 import Text from '../../../components/Text';
-import styles from '../../../styles/styles';
-import themeColors from '../../../styles/themes/default';
+import useThemeStyles from '../../../styles/useThemeStyles';
+import useTheme from '../../../styles/themes/useTheme';
 import * as Expensicons from '../../../components/Icon/Expensicons';
 import * as Illustrations from '../../../components/Icon/Illustrations';
 import Section from '../../../components/Section';
@@ -33,6 +33,8 @@ const propTypes = {
 };
 
 function WorkspaceReimburseSection(props) {
+    const theme = useTheme();
+    const styles = useThemeStyles();
     const [shouldShowLoadingSpinner, setShouldShowLoadingSpinner] = useState(false);
     const achState = lodashGet(props.reimbursementAccount, 'achData.state', '');
     const hasVBA = achState === BankAccount.STATE.OPEN;
@@ -69,7 +71,7 @@ function WorkspaceReimburseSection(props) {
         return (
             <View style={[styles.flex1, styles.alignItemsCenter, styles.justifyContentCenter]}>
                 <ActivityIndicator
-                    color={themeColors.spinner}
+                    color={theme.spinner}
                     size="large"
                 />
             </View>

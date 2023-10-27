@@ -4,7 +4,7 @@ import {View} from 'react-native';
 import {withOnyx} from 'react-native-onyx';
 import PropTypes from 'prop-types';
 import Str from 'expensify-common/lib/str';
-import styles from '../../styles/styles';
+import useThemeStyles from '../../styles/useThemeStyles';
 import Button from '../../components/Button';
 import Text from '../../components/Text';
 import * as Session from '../../libs/actions/Session';
@@ -51,6 +51,7 @@ const defaultProps = {
 };
 
 function UnlinkLoginForm(props) {
+    const styles = useThemeStyles();
     const primaryLogin = Str.isSMSLogin(props.account.primaryLogin) ? Str.removeSMSDomain(props.account.primaryLogin) : props.account.primaryLogin;
     const secondaryLogin = Str.isSMSLogin(props.credentials.login) ? Str.removeSMSDomain(props.credentials.login) : props.credentials.login;
 

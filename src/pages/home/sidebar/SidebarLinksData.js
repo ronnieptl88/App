@@ -13,7 +13,7 @@ import ONYXKEYS from '../../../ONYXKEYS';
 import reportPropTypes from '../../reportPropTypes';
 import CONST from '../../../CONST';
 import useLocalize from '../../../hooks/useLocalize';
-import styles from '../../../styles/styles';
+import useThemeStyles from '../../../styles/useThemeStyles';
 import withNavigationFocus from '../../../components/withNavigationFocus';
 import * as SessionUtils from '../../../libs/SessionUtils';
 
@@ -64,6 +64,7 @@ const defaultProps = {
 };
 
 function SidebarLinksData({isFocused, allReportActions, betas, chatReports, currentReportID, insets, isLoadingReportData, onLinkClick, policies, priorityMode}) {
+    const styles = useThemeStyles();
     const {translate} = useLocalize();
 
     const reportIDsRef = useRef(null);

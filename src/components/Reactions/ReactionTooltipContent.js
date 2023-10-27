@@ -2,7 +2,7 @@ import React, {useMemo} from 'react';
 import {View} from 'react-native';
 import PropTypes from 'prop-types';
 import _ from 'underscore';
-import styles from '../../styles/styles';
+import useThemeStyles from '../../styles/useThemeStyles';
 import * as PersonalDetailsUtils from '../../libs/PersonalDetailsUtils';
 import Text from '../Text';
 import {withCurrentUserPersonalDetailsDefaultProps, withCurrentUserPersonalDetailsPropTypes} from '../withCurrentUserPersonalDetails';
@@ -32,6 +32,7 @@ const defaultProps = {
 };
 
 function ReactionTooltipContent(props) {
+    const styles = useThemeStyles();
     const users = useMemo(
         () => PersonalDetailsUtils.getPersonalDetailsByIDs(props.accountIDs, props.currentUserPersonalDetails.accountID, true),
         [props.currentUserPersonalDetails.accountID, props.accountIDs],

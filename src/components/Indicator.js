@@ -3,7 +3,7 @@ import React from 'react';
 import {StyleSheet, View} from 'react-native';
 import PropTypes from 'prop-types';
 import {withOnyx} from 'react-native-onyx';
-import styles from '../styles/styles';
+import useThemeStyles from '../styles/useThemeStyles';
 import ONYXKEYS from '../ONYXKEYS';
 import policyMemberPropType from '../pages/policyMemberPropType';
 import bankAccountPropTypes from './bankAccountPropTypes';
@@ -15,7 +15,7 @@ import * as PolicyUtils from '../libs/PolicyUtils';
 import * as PaymentMethods from '../libs/actions/PaymentMethods';
 import * as ReimbursementAccountProps from '../pages/ReimbursementAccount/reimbursementAccountPropTypes';
 import * as UserUtils from '../libs/UserUtils';
-import themeColors from '../styles/themes/default';
+import useTheme from '../styles/themes/useTheme';
 
 const propTypes = {
     /* Onyx Props */
@@ -63,6 +63,8 @@ const defaultProps = {
 };
 
 function Indicator(props) {
+    const theme = useTheme();
+    const styles = useThemeStyles();
     // If a policy was just deleted from Onyx, then Onyx will pass a null value to the props, and
     // those should be cleaned out before doing any error checking
     const cleanPolicies = _.pick(props.policies, (policy) => policy);
@@ -89,7 +91,7 @@ function Indicator(props) {
     const shouldShowErrorIndicator = _.some(errorCheckingMethods, (errorCheckingMethod) => errorCheckingMethod());
     const shouldShowInfoIndicator = !shouldShowErrorIndicator && _.some(infoCheckingMethods, (infoCheckingMethod) => infoCheckingMethod());
 
-    const indicatorColor = shouldShowErrorIndicator ? themeColors.danger : themeColors.success;
+    const indicatorColor = shouldShowErrorIndicator ? theme.danger : theme.success;
     const indicatorStyles = [styles.alignItemsCenter, styles.justifyContentCenter, styles.statusIndicator(indicatorColor)];
 
     return (shouldShowErrorIndicator || shouldShowInfoIndicator) && <View style={StyleSheet.flatten(indicatorStyles)} />;

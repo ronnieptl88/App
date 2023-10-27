@@ -1,6 +1,6 @@
 import React from 'react';
 import {View} from 'react-native';
-import styles from '../../styles/styles';
+import useThemeStyles from '../../styles/useThemeStyles';
 import CONST from '../../CONST';
 import Text from '../../components/Text';
 import TextLink from '../../components/TextLink';
@@ -10,6 +10,7 @@ import LocalePicker from '../../components/LocalePicker';
 const currentYear = new Date().getFullYear();
 
 function Licenses(props) {
+    const styles = useThemeStyles();
     return (
         <>
             <Text style={[styles.textExtraSmallSupporting, styles.mb4]}>{`© ${currentYear} Expensify`}</Text>

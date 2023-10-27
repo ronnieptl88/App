@@ -6,7 +6,7 @@ import AvatarWithDisplayName from './AvatarWithDisplayName';
 import ExpensifyWordmark from './ExpensifyWordmark';
 import withLocalize, {withLocalizePropTypes} from './withLocalize';
 import reportPropTypes from '../pages/reportPropTypes';
-import styles from '../styles/styles';
+import useThemeStyles from '../styles/useThemeStyles';
 import * as Session from '../libs/actions/Session';
 import participantPropTypes from './participantPropTypes';
 
@@ -29,6 +29,7 @@ const defaultProps = {
 };
 
 function AnonymousReportFooter(props) {
+    const styles = useThemeStyles();
     return (
         <View style={styles.anonymousRoomFooter(props.isSmallSizeLayout)}>
             <View style={[styles.flexRow, styles.flexShrink1]}>

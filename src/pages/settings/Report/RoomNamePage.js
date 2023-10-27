@@ -9,7 +9,7 @@ import HeaderWithBackButton from '../../../components/HeaderWithBackButton';
 import withLocalize, {withLocalizePropTypes} from '../../../components/withLocalize';
 import Form from '../../../components/Form';
 import ONYXKEYS from '../../../ONYXKEYS';
-import styles from '../../../styles/styles';
+import useThemeStyles from '../../../styles/useThemeStyles';
 import Navigation from '../../../libs/Navigation/Navigation';
 import compose from '../../../libs/compose';
 import * as ErrorUtils from '../../../libs/ErrorUtils';
@@ -43,6 +43,7 @@ const defaultProps = {
 };
 
 function RoomNamePage(props) {
+    const styles = useThemeStyles();
     const policy = props.policy;
     const report = props.report;
     const reports = props.reports;

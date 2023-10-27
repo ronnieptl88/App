@@ -6,7 +6,7 @@ import CONST from '../CONST';
 import * as ReportUtils from '../libs/ReportUtils';
 import useLocalize from '../hooks/useLocalize';
 import Text from './Text';
-import styles from '../styles/styles';
+import useThemeStyles from '../styles/useThemeStyles';
 import ONYXKEYS from '../ONYXKEYS';
 
 const propTypes = {
@@ -26,6 +26,7 @@ const defaultProps = {
 };
 
 function ExceededCommentLength(props) {
+    const styles = useThemeStyles();
     const {numberFormat, translate} = useLocalize();
     const [commentLength, setCommentLength] = useState(0);
     const updateCommentLength = useMemo(

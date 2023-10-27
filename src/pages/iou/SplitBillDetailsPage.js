@@ -4,7 +4,7 @@ import {View} from 'react-native';
 import PropTypes from 'prop-types';
 import lodashGet from 'lodash/get';
 import {withOnyx} from 'react-native-onyx';
-import styles from '../../styles/styles';
+import useThemeStyles from '../../styles/useThemeStyles';
 import ONYXKEYS from '../../ONYXKEYS';
 import CONST from '../../CONST';
 import * as OptionsListUtils from '../../libs/OptionsListUtils';
@@ -70,6 +70,7 @@ const defaultProps = {
 };
 
 function SplitBillDetailsPage(props) {
+    const styles = useThemeStyles();
     const {reportID} = props.report;
     const {translate} = useLocalize();
     const reportAction = props.reportActions[`${props.route.params.reportActionID.toString()}`];

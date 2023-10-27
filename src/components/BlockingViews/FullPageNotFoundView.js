@@ -6,7 +6,7 @@ import * as Illustrations from '../Icon/Illustrations';
 import HeaderWithBackButton from '../HeaderWithBackButton';
 import Navigation from '../../libs/Navigation/Navigation';
 import variables from '../../styles/variables';
-import styles from '../../styles/styles';
+import useThemeStyles from '../../styles/useThemeStyles';
 import useLocalize from '../../hooks/useLocalize';
 import ROUTES from '../../ROUTES';
 
@@ -53,6 +53,7 @@ const defaultProps = {
 
 // eslint-disable-next-line rulesdir/no-negated-variables
 function FullPageNotFoundView({children, shouldShow, titleKey, subtitleKey, linkKey, onBackButtonPress, shouldShowLink, shouldShowBackButton, onLinkPress}) {
+    const styles = useThemeStyles();
     const {translate} = useLocalize();
     if (shouldShow) {
         return (

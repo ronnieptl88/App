@@ -6,7 +6,7 @@ import withWindowDimensions, {windowDimensionsPropTypes} from '../../components/
 import withLocalize, {withLocalizePropTypes} from '../../components/withLocalize';
 import compose from '../../libs/compose';
 import * as StyleUtils from '../../styles/StyleUtils';
-import styles from '../../styles/styles';
+import useThemeStyles from '../../styles/useThemeStyles';
 import variables from '../../styles/variables';
 
 const propTypes = {
@@ -26,6 +26,7 @@ const defaultProps = {
 };
 
 function SignInHeroCopy(props) {
+    const styles = useThemeStyles();
     return (
         <View style={[styles.flex1, styles.alignSelfCenter, styles.gap7]}>
             <Text

@@ -7,7 +7,7 @@ import * as Link from '../../../libs/actions/Link';
 import CONFIG from '../../../CONFIG';
 import Text from '../../Text';
 import CONST from '../../../CONST';
-import styles from '../../../styles/styles';
+import useThemeStyles from '../../../styles/useThemeStyles';
 import Navigation from '../../../libs/Navigation/Navigation';
 import AnchorForCommentsOnly from '../../AnchorForCommentsOnly';
 import AnchorForAttachmentsOnly from '../../AnchorForAttachmentsOnly';
@@ -17,6 +17,7 @@ import tryResolveUrlFromApiRoot from '../../../libs/tryResolveUrlFromApiRoot';
 import useEnvironment from '../../../hooks/useEnvironment';
 
 function AnchorRenderer(props) {
+    const styles = useThemeStyles();
     const htmlAttribs = props.tnode.attributes;
     const {environmentURL} = useEnvironment();
     // An auth token is needed to download Expensify chat attachments

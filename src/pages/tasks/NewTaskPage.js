@@ -9,7 +9,7 @@ import compose from '../../libs/compose';
 import HeaderWithBackButton from '../../components/HeaderWithBackButton';
 import Navigation from '../../libs/Navigation/Navigation';
 import ScreenWrapper from '../../components/ScreenWrapper';
-import styles from '../../styles/styles';
+import useThemeStyles from '../../styles/useThemeStyles';
 import ONYXKEYS from '../../ONYXKEYS';
 import Permissions from '../../libs/Permissions';
 import ROUTES from '../../ROUTES';
@@ -64,6 +64,7 @@ const defaultProps = {
 };
 
 function NewTaskPage(props) {
+    const styles = useThemeStyles();
     const [assignee, setAssignee] = useState({});
     const assigneeTooltipDetails = ReportUtils.getDisplayNamesWithTooltips(OptionsListUtils.getPersonalDetailsForAccountIDs([props.task.assigneeAccountID], props.personalDetails), false);
     const [shareDestination, setShareDestination] = useState({});

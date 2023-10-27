@@ -4,7 +4,7 @@ import _ from 'underscore';
 import {withOnyx} from 'react-native-onyx';
 import PropTypes from 'prop-types';
 import CONST from '../../CONST';
-import styles from '../../styles/styles';
+import useThemeStyles from '../../styles/useThemeStyles';
 import Text from '../Text';
 import * as StyleUtils from '../../styles/StyleUtils';
 import BaseMiniContextMenuItem from '../BaseMiniContextMenuItem';
@@ -55,6 +55,7 @@ const defaultProps = {
  * @returns {JSX.Element}
  */
 function MiniQuickEmojiReactions(props) {
+    const styles = useThemeStyles();
     const ref = useRef();
 
     const openEmojiPicker = () => {

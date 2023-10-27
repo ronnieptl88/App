@@ -5,7 +5,7 @@
 import {View} from 'react-native';
 import React, {useCallback, useEffect, useMemo, useRef, useState} from 'react';
 import PropTypes from 'prop-types';
-import styles from '../styles/styles';
+import useThemeStyles from '../styles/useThemeStyles';
 import DateUtils from '../libs/DateUtils';
 import withLocalize, {withLocalizePropTypes} from './withLocalize';
 import Text from './Text';
@@ -23,6 +23,7 @@ const propTypes = {
 };
 
 function AutoUpdateTime(props) {
+    const styles = useThemeStyles();
     /**
      * @returns {Date} Returns the locale Date object
      */

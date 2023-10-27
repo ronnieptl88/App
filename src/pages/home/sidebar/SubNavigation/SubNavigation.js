@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react';
 import PropTypes from 'prop-types';
 import {View} from 'react-native';
-import styles from '../../../../styles/styles';
+import useThemeStyles from '../../../../styles/useThemeStyles';
 import SidebarLinksData from '../SidebarLinksData';
 import Timing from '../../../../libs/actions/Timing';
 import CONST from '../../../../CONST';
@@ -17,6 +17,7 @@ const propTypes = {
 };
 
 function SubNavigation({onLinkClick, insets}) {
+    const styles = useThemeStyles();
     useEffect(() => {
         Performance.markStart(CONST.TIMING.SIDEBAR_LOADED);
         Timing.start(CONST.TIMING.SIDEBAR_LOADED, true);

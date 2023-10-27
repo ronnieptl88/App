@@ -4,7 +4,7 @@ import {View} from 'react-native';
 import PropTypes from 'prop-types';
 import CONST from '../CONST';
 import stylePropTypes from '../styles/stylePropTypes';
-import styles from '../styles/styles';
+import useThemeStyles from '../styles/useThemeStyles';
 import Tooltip from './Tooltip';
 import Icon from './Icon';
 import * as Expensicons from './Icon/Expensicons';
@@ -97,6 +97,7 @@ function applyStrikeThrough(children) {
 }
 
 function OfflineWithFeedback(props) {
+    const styles = useThemeStyles();
     const {translate} = useLocalize();
     const {isOffline} = useNetwork();
 

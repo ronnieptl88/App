@@ -7,7 +7,7 @@ import lodashGet from 'lodash/get';
 import ScreenWrapper from '../components/ScreenWrapper';
 import HeaderWithBackButton from '../components/HeaderWithBackButton';
 import Navigation from '../libs/Navigation/Navigation';
-import styles from '../styles/styles';
+import useThemeStyles from '../styles/useThemeStyles';
 import compose from '../libs/compose';
 import ONYXKEYS from '../ONYXKEYS';
 import FormAlertWithSubmitButton from '../components/FormAlertWithSubmitButton';
@@ -62,6 +62,7 @@ const defaultProps = {
 };
 
 function RoomInvitePage(props) {
+    const styles = useThemeStyles();
     const {translate} = useLocalize();
     const [searchTerm, setSearchTerm] = useState('');
     const [selectedOptions, setSelectedOptions] = useState([]);

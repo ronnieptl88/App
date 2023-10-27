@@ -2,7 +2,7 @@ import React, {useCallback, useMemo} from 'react';
 import {View} from 'react-native';
 import PropTypes from 'prop-types';
 import _ from 'lodash';
-import styles from '../../styles/styles';
+import useThemeStyles from '../../styles/useThemeStyles';
 import HeaderWithBackButton from '../../components/HeaderWithBackButton';
 import CONST from '../../CONST';
 import TextLink from '../../components/TextLink';
@@ -71,6 +71,7 @@ const validate = (values) => {
 };
 
 function RequestorStep({reimbursementAccount, shouldShowOnfido, onBackButtonPress, getDefaultStateForField}) {
+    const styles = useThemeStyles();
     const {translate} = useLocalize();
 
     const defaultValues = useMemo(

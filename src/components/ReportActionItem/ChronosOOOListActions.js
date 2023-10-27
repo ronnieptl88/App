@@ -4,7 +4,7 @@ import _ from 'underscore';
 import PropTypes from 'prop-types';
 import lodashGet from 'lodash/get';
 import reportActionPropTypes from '../../pages/home/report/reportActionPropTypes';
-import styles from '../../styles/styles';
+import useThemeStyles from '../../styles/useThemeStyles';
 import Text from '../Text';
 import Button from '../Button';
 import * as Chronos from '../../libs/actions/Chronos';
@@ -23,6 +23,7 @@ const propTypes = {
 };
 
 function ChronosOOOListActions(props) {
+    const styles = useThemeStyles();
     const events = lodashGet(props.action, 'originalMessage.events', []);
 
     if (!events.length) {

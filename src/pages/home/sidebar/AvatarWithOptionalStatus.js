@@ -7,7 +7,7 @@ import Text from '../../../components/Text';
 import PressableAvatarWithIndicator from './PressableAvatarWithIndicator';
 import Navigation from '../../../libs/Navigation/Navigation';
 import useLocalize from '../../../hooks/useLocalize';
-import styles from '../../../styles/styles';
+import useThemeStyles from '../../../styles/useThemeStyles';
 import ROUTES from '../../../ROUTES';
 import CONST from '../../../CONST';
 
@@ -25,6 +25,7 @@ const defaultProps = {
 };
 
 function AvatarWithOptionalStatus({emojiStatus, isCreateMenuOpen}) {
+    const styles = useThemeStyles();
     const {translate} = useLocalize();
 
     const showStatusPage = useCallback(() => {

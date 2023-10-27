@@ -6,7 +6,7 @@ import _ from 'underscore';
 import {withOnyx} from 'react-native-onyx';
 import reportActionPropTypes from './reportActionPropTypes';
 import ReportActionItemFragment from './ReportActionItemFragment';
-import styles from '../../../styles/styles';
+import useThemeStyles from '../../../styles/useThemeStyles';
 import ReportActionItemDate from './ReportActionItemDate';
 import Avatar from '../../../components/Avatar';
 import compose from '../../../libs/compose';
@@ -25,7 +25,7 @@ import PressableWithoutFeedback from '../../../components/Pressable/PressableWit
 import UserDetailsTooltip from '../../../components/UserDetailsTooltip';
 import MultipleAvatars from '../../../components/MultipleAvatars';
 import * as StyleUtils from '../../../styles/StyleUtils';
-import themeColors from '../../../styles/themes/default';
+import useTheme from '../../../styles/themes/useTheme';
 import Permissions from '../../../libs/Permissions';
 import ONYXKEYS from '../../../ONYXKEYS';
 import Text from '../../../components/Text';
@@ -83,6 +83,8 @@ const showWorkspaceDetails = (reportID) => {
 };
 
 function ReportActionItemSingle(props) {
+    const theme = useTheme();
+    const styles = useThemeStyles();
     const personalDetails = usePersonalDetails() || CONST.EMPTY_OBJECT;
     const actorAccountID = props.action.actionName === CONST.REPORT.ACTIONS.TYPE.REPORTPREVIEW && props.iouReport ? props.iouReport.managerID : props.action.actorAccountID;
     let {displayName} = personalDetails[actorAccountID] || {};
@@ -169,10 +171,7 @@ function ReportActionItemSingle(props) {
                     icons={[icon, secondaryAvatar]}
                     isInReportAction
                     shouldShowTooltip
-                    secondAvatarStyle={[
-                        StyleUtils.getBackgroundAndBorderStyle(themeColors.appBG),
-                        props.isHovered ? StyleUtils.getBackgroundAndBorderStyle(themeColors.highlightBG) : undefined,
-                    ]}
+                    secondAvatarStyle={[StyleUtils.getBackgroundAndBorderStyle(theme.appBG), props.isHovered ? StyleUtils.getBackgroundAndBorderStyle(theme.highlightBG) : undefined]}
                 />
             );
         }
@@ -251,9 +250,12 @@ function ReportActionItemSingle(props) {
                                 <Text
                                     style={styles.userReportStatusEmoji}
                                     numberOfLines={1}
-                                >{`${status.emojiCode}`}</Text>
+                                >
+                                    {`${status.emojiCode}`}
+                                </Text>
                             </Tooltip>
                         )}
+
                         <ReportActionItemDate created={props.action.created} />
                     </View>
                 ) : null}

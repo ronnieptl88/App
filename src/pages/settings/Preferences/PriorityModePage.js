@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import HeaderWithBackButton from '../../../components/HeaderWithBackButton';
 import ScreenWrapper from '../../../components/ScreenWrapper';
 import withLocalize, {withLocalizePropTypes} from '../../../components/withLocalize';
-import styles from '../../../styles/styles';
+import useThemeStyles from '../../../styles/useThemeStyles';
 import Text from '../../../components/Text';
 import ONYXKEYS from '../../../ONYXKEYS';
 import * as User from '../../../libs/actions/User';
@@ -26,6 +26,7 @@ const defaultProps = {
 };
 
 function PriorityModePage(props) {
+    const styles = useThemeStyles();
     const priorityModes = _.map(_.values(CONST.PRIORITY_MODE), (mode) => ({
         value: mode,
         text: props.translate(`priorityModePage.priorityModes.${mode}.label`),

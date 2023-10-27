@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from '../../styles/styles';
+import useThemeStyles from '../../styles/useThemeStyles';
 import CONST from '../../CONST';
 import Text from '../../components/Text';
 import TextLink from '../../components/TextLink';
@@ -8,6 +8,7 @@ import withLocalize, {withLocalizePropTypes} from '../../components/withLocalize
 const linkStyles = [styles.textExtraSmallSupporting, styles.link];
 
 function Terms(props) {
+    const styles = useThemeStyles();
     return (
         <Text style={[styles.textExtraSmallSupporting, styles.mb4]}>
             {props.translate('termsOfUse.phrase1')}

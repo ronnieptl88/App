@@ -7,7 +7,7 @@ import Icon from './Icon';
 import * as Expensicons from './Icon/Expensicons';
 import variables from '../styles/variables';
 import Text from './Text';
-import styles from '../styles/styles';
+import useThemeStyles from '../styles/useThemeStyles';
 import compose from '../libs/compose';
 import withLocalize, {withLocalizePropTypes} from './withLocalize';
 import * as StyleUtils from '../styles/StyleUtils';
@@ -39,6 +39,7 @@ const setStyles = (containerStyles, isSmallScreenWidth) => {
 };
 
 function OfflineIndicator(props) {
+    const styles = useThemeStyles();
     if (!props.network.isOffline) {
         return null;
     }

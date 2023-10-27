@@ -7,7 +7,7 @@ import withNavigationFocus from '../../components/withNavigationFocus';
 import * as Report from '../../libs/actions/Report';
 import * as App from '../../libs/actions/App';
 import useLocalize from '../../hooks/useLocalize';
-import styles from '../../styles/styles';
+import useThemeStyles from '../../styles/useThemeStyles';
 import RoomNameInput from '../../components/RoomNameInput';
 import KeyboardAvoidingView from '../../components/KeyboardAvoidingView';
 import ScreenWrapper from '../../components/ScreenWrapper';
@@ -72,6 +72,7 @@ const defaultProps = {
 };
 
 function WorkspaceNewRoomPage(props) {
+    const styles = useThemeStyles();
     const {translate} = useLocalize();
     const [visibility, setVisibility] = useState(CONST.REPORT.VISIBILITY.RESTRICTED);
     const [policyID, setPolicyID] = useState(null);

@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import _ from 'underscore';
 import lodashGet from 'lodash/get';
 import ONYXKEYS from '../../ONYXKEYS';
-import styles from '../../styles/styles';
+import useThemeStyles from '../../styles/useThemeStyles';
 import compose from '../../libs/compose';
 import * as Policy from '../../libs/actions/Policy';
 import * as Expensicons from '../../components/Icon/Expensicons';
@@ -55,6 +55,7 @@ const defaultProps = {
 };
 
 function WorkspaceSettingsPage({policy, currencyList, windowWidth, route}) {
+    const styles = useThemeStyles();
     const {translate} = useLocalize();
 
     const formattedCurrency = !_.isEmpty(policy) && !_.isEmpty(currencyList) ? `${policy.outputCurrency} - ${currencyList[policy.outputCurrency].symbol}` : '';

@@ -8,8 +8,8 @@ import ROUTES from '../../ROUTES';
 import SCREENS from '../../SCREENS';
 import ONYXKEYS from '../../ONYXKEYS';
 import CONST from '../../CONST';
-import styles from '../../styles/styles';
-import themeColors from '../../styles/themes/default';
+import useThemeStyles from '../../styles/useThemeStyles';
+import useTheme from '../../styles/themes/useTheme';
 import Text from '../../components/Text';
 import MenuItem from '../../components/MenuItem';
 import IllustratedHeaderPageLayout from '../../components/IllustratedHeaderPageLayout';
@@ -29,6 +29,8 @@ const defaultProps = {
 };
 
 function SaveTheWorldPage(props) {
+    const theme = useTheme();
+    const styles = useThemeStyles();
     const {translate} = useLocalize();
     const isTeacherAlreadyInvited = !_.isUndefined(props.policy) && props.policy.role === CONST.POLICY.ROLE.USER;
 
@@ -36,7 +38,7 @@ function SaveTheWorldPage(props) {
         <IllustratedHeaderPageLayout
             shouldShowBackButton
             title={translate('sidebarScreen.saveTheWorld')}
-            backgroundColor={themeColors.PAGE_BACKGROUND_COLORS[SCREENS.SAVE_THE_WORLD.ROOT]}
+            backgroundColor={theme.PAGE_BACKGROUND_COLORS[SCREENS.SAVE_THE_WORLD.ROOT]}
             onBackButtonPress={() => Navigation.goBack(ROUTES.HOME)}
             illustration={LottieAnimations.SaveTheWorld}
         >

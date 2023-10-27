@@ -9,7 +9,7 @@ import IdologyQuestions from './IdologyQuestions';
 import ScreenWrapper from '../../components/ScreenWrapper';
 import HeaderWithBackButton from '../../components/HeaderWithBackButton';
 import withLocalize, {withLocalizePropTypes} from '../../components/withLocalize';
-import styles from '../../styles/styles';
+import useThemeStyles from '../../styles/useThemeStyles';
 import Text from '../../components/Text';
 import CONST from '../../CONST';
 import compose from '../../libs/compose';
@@ -79,6 +79,7 @@ const fieldNameTranslationKeys = {
 };
 
 function AdditionalDetailsStep({walletAdditionalDetails, translate, currentUserPersonalDetails}) {
+    const styles = useThemeStyles();
     const currentDate = new Date();
     const minDate = subYears(currentDate, CONST.DATE_BIRTH.MAX_AGE);
     const maxDate = subYears(currentDate, CONST.DATE_BIRTH.MIN_AGE_FOR_PAYMENT);

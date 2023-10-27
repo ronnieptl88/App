@@ -9,7 +9,7 @@ import reportPropTypes from '../../reportPropTypes';
 import CONST from '../../../CONST';
 import ReceiptUpload from '../../../../assets/images/receipt-upload.svg';
 import Button from '../../../components/Button';
-import styles from '../../../styles/styles';
+import useThemeStyles from '../../../styles/useThemeStyles';
 import CopyTextToClipboard from '../../../components/CopyTextToClipboard';
 import ReceiptDropUI from '../ReceiptDropUI';
 import AttachmentPicker from '../../../components/AttachmentPicker';
@@ -23,7 +23,7 @@ import * as FileUtils from '../../../libs/fileDownload/FileUtils';
 import Navigation from '../../../libs/Navigation/Navigation';
 import * as Expensicons from '../../../components/Icon/Expensicons';
 import Icon from '../../../components/Icon';
-import themeColors from '../../../styles/themes/default';
+import useTheme from '../../../styles/themes/useTheme';
 import Shutter from '../../../../assets/images/shutter.svg';
 import NavigationAwareCamera from './NavigationAwareCamera';
 import * as Browser from '../../../libs/Browser';
@@ -68,6 +68,8 @@ const defaultProps = {
 };
 
 function ReceiptSelector({route, transactionID, iou, report}) {
+    const theme = useTheme();
+    const styles = useThemeStyles();
     const iouType = lodashGet(route, 'params.iouType', '');
 
     // Grouping related states
@@ -176,9 +178,10 @@ function ReceiptSelector({route, transactionID, iou, report}) {
                     <ActivityIndicator
                         size={CONST.ACTIVITY_INDICATOR_SIZE.LARGE}
                         style={[styles.flex1]}
-                        color={themeColors.textSupporting}
+                        color={theme.textSupporting}
                     />
                 )}
+
                 {cameraPermissionState === 'denied' && (
                     <View style={[styles.flex1, styles.permissionView, styles.userSelectNone]}>
                         <Icon
@@ -222,7 +225,7 @@ function ReceiptSelector({route, transactionID, iou, report}) {
                                 height={32}
                                 width={32}
                                 src={Expensicons.Gallery}
-                                fill={themeColors.textSupporting}
+                                fill={theme.textSupporting}
                             />
                         </PressableWithFeedback>
                     )}
@@ -249,7 +252,7 @@ function ReceiptSelector({route, transactionID, iou, report}) {
                         height={32}
                         width={32}
                         src={Expensicons.Bolt}
-                        fill={isFlashLightOn ? themeColors.iconHovered : themeColors.textSupporting}
+                        fill={isFlashLightOn ? theme.iconHovered : theme.textSupporting}
                     />
                 </PressableWithFeedback>
             </View>

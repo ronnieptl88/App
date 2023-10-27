@@ -3,7 +3,7 @@ import {View} from 'react-native';
 import {withOnyx} from 'react-native-onyx';
 import PropTypes from 'prop-types';
 import _ from 'underscore';
-import styles from '../../styles/styles';
+import useThemeStyles from '../../styles/useThemeStyles';
 import ONYXKEYS from '../../ONYXKEYS';
 import Text from '../../components/Text';
 import Button from '../../components/Button';
@@ -53,6 +53,7 @@ const defaultProps = {
 };
 
 function ChooseSSOOrMagicCode({credentials, account, setIsUsingMagicCode}) {
+    const styles = useThemeStyles();
     const {translate} = useLocalize();
     const {isOffline} = useNetwork();
     const {isSmallScreenWidth} = useWindowDimensions();

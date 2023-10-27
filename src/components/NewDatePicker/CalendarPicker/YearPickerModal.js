@@ -8,7 +8,7 @@ import Modal from '../../Modal';
 import {radioListItemPropTypes} from '../../SelectionList/selectionListPropTypes';
 import useLocalize from '../../../hooks/useLocalize';
 import ScreenWrapper from '../../ScreenWrapper';
-import styles from '../../../styles/styles';
+import useThemeStyles from '../../../styles/useThemeStyles';
 
 const propTypes = {
     /** Whether the modal is visible */
@@ -34,6 +34,7 @@ const defaultProps = {
 };
 
 function YearPickerModal(props) {
+    const styles = useThemeStyles();
     const {translate} = useLocalize();
     const [searchText, setSearchText] = useState('');
     const {sections, headerMessage} = useMemo(() => {

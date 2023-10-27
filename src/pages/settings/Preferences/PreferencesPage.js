@@ -6,8 +6,8 @@ import PropTypes from 'prop-types';
 import Navigation from '../../../libs/Navigation/Navigation';
 import ROUTES from '../../../ROUTES';
 import ONYXKEYS from '../../../ONYXKEYS';
-import styles from '../../../styles/styles';
-import themeColors from '../../../styles/themes/default';
+import useThemeStyles from '../../../styles/useThemeStyles';
+import useTheme from '../../../styles/themes/useTheme';
 import Text from '../../../components/Text';
 import CONST from '../../../CONST';
 import * as User from '../../../libs/actions/User';
@@ -37,6 +37,8 @@ const defaultProps = {
 };
 
 function PreferencesPage(props) {
+    const theme = useTheme();
+    const styles = useThemeStyles();
     const {isProduction} = useEnvironment();
     const {translate, preferredLocale} = useLocalize();
 
@@ -44,7 +46,7 @@ function PreferencesPage(props) {
         <IllustratedHeaderPageLayout
             title={translate('common.preferences')}
             onBackButtonPress={() => Navigation.goBack(ROUTES.SETTINGS)}
-            backgroundColor={themeColors.PAGE_BACKGROUND_COLORS[SCREENS.SETTINGS.PREFERENCES]}
+            backgroundColor={theme.PAGE_BACKGROUND_COLORS[SCREENS.SETTINGS.PREFERENCES]}
             illustration={LottieAnimations.PreferencesDJ}
         >
             <View style={styles.mb6}>

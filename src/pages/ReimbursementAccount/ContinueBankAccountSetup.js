@@ -10,7 +10,7 @@ import Button from '../../components/Button';
 import CONST from '../../CONST';
 import HeaderWithBackButton from '../../components/HeaderWithBackButton';
 import MenuItem from '../../components/MenuItem';
-import styles from '../../styles/styles';
+import useThemeStyles from '../../styles/useThemeStyles';
 import ScreenWrapper from '../../components/ScreenWrapper';
 import Section from '../../components/Section';
 import Text from '../../components/Text';
@@ -38,6 +38,7 @@ const propTypes = {
 const defaultProps = {policyName: ''};
 
 function ContinueBankAccountSetup(props) {
+    const styles = useThemeStyles();
     const errors = lodashGet(props.reimbursementAccount, 'errors', {});
     const pendingAction = lodashGet(props.reimbursementAccount, 'pendingAction', null);
     return (

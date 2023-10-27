@@ -3,7 +3,7 @@ import React, {useCallback, useState} from 'react';
 import {View, Dimensions} from 'react-native';
 import PropTypes from 'prop-types';
 import ImageWithSizeCalculation from './ImageWithSizeCalculation';
-import styles from '../styles/styles';
+import useThemeStyles from '../styles/useThemeStyles';
 import * as StyleUtils from '../styles/StyleUtils';
 import * as DeviceCapabilities from '../libs/DeviceCapabilities';
 import useWindowDimensions from '../hooks/useWindowDimensions';
@@ -70,6 +70,7 @@ function calculateThumbnailImageSize(width, height, windowHeight) {
 }
 
 function ThumbnailImage(props) {
+    const styles = useThemeStyles();
     const {windowHeight} = useWindowDimensions();
     const initialDimensions = calculateThumbnailImageSize(props.imageWidth, props.imageHeight, windowHeight);
     const [imageWidth, setImageWidth] = useState(initialDimensions.thumbnailWidth);

@@ -4,7 +4,7 @@ import {withOnyx} from 'react-native-onyx';
 import _ from 'underscore';
 import PropTypes from 'prop-types';
 import Text from '../../components/Text';
-import styles from '../../styles/styles';
+import useThemeStyles from '../../styles/useThemeStyles';
 import ONYXKEYS from '../../ONYXKEYS';
 import withLocalize, {withLocalizePropTypes} from '../../components/withLocalize';
 import compose from '../../libs/compose';
@@ -31,6 +31,7 @@ const defaultProps = {
 };
 
 function ChangeExpensifyLoginLink(props) {
+    const styles = useThemeStyles();
     return (
         <View style={[styles.changeExpensifyLoginLinkContainer, styles.mt3]}>
             {!_.isEmpty(props.credentials.login) && <Text style={styles.mr1}>{props.translate('loginForm.notYou', {user: props.formatPhoneNumber(props.credentials.login)})}</Text>}

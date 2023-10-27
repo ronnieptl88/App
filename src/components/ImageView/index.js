@@ -2,7 +2,7 @@ import React, {useState, useEffect, useRef, useCallback} from 'react';
 import PropTypes from 'prop-types';
 import {View} from 'react-native';
 import Image from '../Image';
-import styles from '../../styles/styles';
+import useThemeStyles from '../../styles/useThemeStyles';
 import * as StyleUtils from '../../styles/StyleUtils';
 import * as DeviceCapabilities from '../../libs/DeviceCapabilities';
 import FullscreenLoadingIndicator from '../FullscreenLoadingIndicator';
@@ -32,6 +32,7 @@ const defaultProps = {
 };
 
 function ImageView({isAuthTokenRequired, url, fileName, onError}) {
+    const styles = useThemeStyles();
     const [isLoading, setIsLoading] = useState(true);
     const [containerHeight, setContainerHeight] = useState(0);
     const [containerWidth, setContainerWidth] = useState(0);

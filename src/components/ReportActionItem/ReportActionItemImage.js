@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {View} from 'react-native';
 import _ from 'underscore';
-import styles from '../../styles/styles';
+import useThemeStyles from '../../styles/useThemeStyles';
 import Image from '../Image';
 import ThumbnailImage from '../ThumbnailImage';
 import tryResolveUrlFromApiRoot from '../../libs/tryResolveUrlFromApiRoot';
@@ -43,6 +43,7 @@ const defaultProps = {
  */
 
 function ReportActionItemImage({thumbnail, image, enablePreviewModal, transaction}) {
+    const styles = useThemeStyles();
     const {translate} = useLocalize();
     const imageSource = tryResolveUrlFromApiRoot(image || '');
     const thumbnailSource = tryResolveUrlFromApiRoot(thumbnail || '');

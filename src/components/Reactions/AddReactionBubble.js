@@ -2,7 +2,7 @@ import React, {useRef, useEffect} from 'react';
 import {View} from 'react-native';
 import PropTypes from 'prop-types';
 import Tooltip from '../Tooltip/PopoverAnchorTooltip';
-import styles from '../../styles/styles';
+import useThemeStyles from '../../styles/useThemeStyles';
 import * as StyleUtils from '../../styles/StyleUtils';
 import Icon from '../Icon';
 import * as Expensicons from '../Icon/Expensicons';
@@ -54,6 +54,7 @@ const defaultProps = {
 };
 
 function AddReactionBubble(props) {
+    const styles = useThemeStyles();
     const ref = useRef();
     useEffect(() => EmojiPickerAction.resetEmojiPopoverAnchor, []);
 
@@ -106,8 +107,8 @@ function AddReactionBubble(props) {
                 {({hovered, pressed}) => (
                     <>
                         {/* This (invisible) text will make the view have the same size as a regular
-                            emoji reaction. We make the text invisible and put the
-                            icon on top of it. */}
+               emoji reaction. We make the text invisible and put the
+               icon on top of it. */}
                         <Text style={[styles.opacity0, StyleUtils.getEmojiReactionBubbleTextStyle(props.isContextMenu)]}>{'\u2800\u2800'}</Text>
                         <View style={styles.pAbsolute}>
                             <Icon

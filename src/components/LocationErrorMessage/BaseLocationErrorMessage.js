@@ -3,7 +3,7 @@ import React from 'react';
 import {View} from 'react-native';
 import CONST from '../../CONST';
 import colors from '../../styles/colors';
-import styles from '../../styles/styles';
+import useThemeStyles from '../../styles/useThemeStyles';
 import Icon from '../Icon';
 import * as Expensicons from '../Icon/Expensicons';
 import PressableWithoutFeedback from '../Pressable/PressableWithoutFeedback';
@@ -25,6 +25,7 @@ const propTypes = {
 };
 
 function BaseLocationErrorMessage({onClose, onAllowLocationLinkPress, locationErrorCode, translate}) {
+    const styles = useThemeStyles();
     if (!locationErrorCode) {
         return null;
     }

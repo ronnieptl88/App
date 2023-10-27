@@ -5,7 +5,7 @@ import FullPageOfflineBlockingView from '../../../../../components/BlockingViews
 import * as TwoFactorAuthActions from '../../../../../libs/actions/TwoFactorAuthActions';
 import StepWrapperPropTypes from './StepWrapperPropTypes';
 import AnimatedStep from '../../../../../components/AnimatedStep';
-import styles from '../../../../../styles/styles';
+import useThemeStyles from '../../../../../styles/useThemeStyles';
 import useAnimatedStepContext from '../../../../../components/AnimatedStep/useAnimatedStepContext';
 
 function StepWrapper({
@@ -16,6 +16,7 @@ function StepWrapper({
     shouldEnableKeyboardAvoidingView = true,
     onEntryTransitionEnd,
 }) {
+    const styles = useThemeStyles();
     const shouldShowStepCounter = Boolean(stepCounter);
 
     const {animationDirection} = useAnimatedStepContext();

@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {View} from 'react-native';
 import Text from '../Text';
-import styles from '../../styles/styles';
+import useThemeStyles from '../../styles/useThemeStyles';
 import stylePropTypes from '../../styles/stylePropTypes';
 import * as StyleUtils from '../../styles/StyleUtils';
 
@@ -30,6 +30,7 @@ const defaultProps = {
 };
 
 function TextWithEllipsis(props) {
+    const styles = useThemeStyles();
     return (
         <View style={[styles.flexRow, ...StyleUtils.parseStyleAsArray(props.wrapperStyle)]}>
             <View style={[styles.flexShrink1, ...StyleUtils.parseStyleAsArray(props.leadingTextParentStyle)]}>

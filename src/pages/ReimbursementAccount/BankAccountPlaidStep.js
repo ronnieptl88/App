@@ -16,7 +16,7 @@ import TextLink from '../../components/TextLink';
 import Text from '../../components/Text';
 import * as ReimbursementAccount from '../../libs/actions/ReimbursementAccount';
 import Form from '../../components/Form';
-import styles from '../../styles/styles';
+import useThemeStyles from '../../styles/useThemeStyles';
 import ScreenWrapper from '../../components/ScreenWrapper';
 import * as PlaidDataProps from './plaidDataPropTypes';
 import StepPropTypes from './StepPropTypes';
@@ -41,6 +41,7 @@ const defaultProps = {
 };
 
 function BankAccountPlaidStep(props) {
+    const styles = useThemeStyles();
     const {plaidData, receivedRedirectURI, plaidLinkOAuthToken, reimbursementAccount, reimbursementAccountDraft, onBackButtonPress, getDefaultStateForField, translate} = props;
     const isFocused = useIsFocused();
 

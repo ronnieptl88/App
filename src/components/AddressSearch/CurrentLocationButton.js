@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import {Text} from 'react-native';
 import colors from '../../styles/colors';
-import styles from '../../styles/styles';
+import useThemeStyles from '../../styles/useThemeStyles';
 import Icon from '../Icon';
 import * as Expensicons from '../Icon/Expensicons';
 import PressableWithFeedback from '../Pressable/PressableWithFeedback';
@@ -24,6 +24,7 @@ const defaultProps = {
 };
 
 function CurrentLocationButton({onPress, isDisabled}) {
+    const styles = useThemeStyles();
     const {translate} = useLocalize();
 
     return (

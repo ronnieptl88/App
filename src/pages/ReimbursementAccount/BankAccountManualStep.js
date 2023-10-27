@@ -7,7 +7,7 @@ import CONST from '../../CONST';
 import * as BankAccounts from '../../libs/actions/BankAccounts';
 import Text from '../../components/Text';
 import TextInput from '../../components/TextInput';
-import styles from '../../styles/styles';
+import useThemeStyles from '../../styles/useThemeStyles';
 import CheckboxWithLabel from '../../components/CheckboxWithLabel';
 import TextLink from '../../components/TextLink';
 import useLocalize from '../../hooks/useLocalize';
@@ -25,6 +25,7 @@ const propTypes = {
 };
 
 function BankAccountManualStep(props) {
+    const styles = useThemeStyles();
     const {translate, preferredLocale} = useLocalize();
     const {reimbursementAccount, reimbursementAccountDraft} = props;
     /**

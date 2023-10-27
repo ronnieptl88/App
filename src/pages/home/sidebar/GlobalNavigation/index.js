@@ -1,7 +1,7 @@
 import React, {useMemo, useContext} from 'react';
 import {View} from 'react-native';
 import _ from 'underscore';
-import styles from '../../../../styles/styles';
+import useThemeStyles from '../../../../styles/useThemeStyles';
 import * as Expensicons from '../../../../components/Icon/Expensicons';
 import CONST from '../../../../CONST';
 import Navigation from '../../../../libs/Navigation/Navigation';
@@ -12,6 +12,7 @@ import {SidebarNavigationContext} from '../SidebarNavigationContext';
 import SignInOrAvatarWithOptionalStatus from '../SignInOrAvatarWithOptionalStatus';
 
 function GlobalNavigation() {
+    const styles = useThemeStyles();
     const sidebarNavigation = useContext(SidebarNavigationContext);
     const {translate} = useLocalize();
     const items = useMemo(

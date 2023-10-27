@@ -1,7 +1,7 @@
 import React from 'react';
 import {View} from 'react-native';
 import PropTypes from 'prop-types';
-import styles from '../styles/styles';
+import useThemeStyles from '../styles/useThemeStyles';
 import * as StyleUtils from '../styles/StyleUtils';
 import Text from './Text';
 import CONST from '../CONST';
@@ -46,6 +46,7 @@ const defaultProps = {
 };
 
 function Badge(props) {
+    const styles = useThemeStyles();
     const textStyles = props.success || props.error ? styles.textWhite : undefined;
     const Wrapper = props.pressable ? PressableWithoutFeedback : View;
     const wrapperStyles = ({pressed}) => [

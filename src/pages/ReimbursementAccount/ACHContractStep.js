@@ -6,7 +6,7 @@ import {View} from 'react-native';
 import Str from 'expensify-common/lib/str';
 import Text from '../../components/Text';
 import HeaderWithBackButton from '../../components/HeaderWithBackButton';
-import styles from '../../styles/styles';
+import useThemeStyles from '../../styles/useThemeStyles';
 import CheckboxWithLabel from '../../components/CheckboxWithLabel';
 import TextLink from '../../components/TextLink';
 import IdentityForm from './IdentityForm';
@@ -28,6 +28,7 @@ const propTypes = {
 };
 
 function ACHContractStep(props) {
+    const styles = useThemeStyles();
     const [beneficialOwners, setBeneficialOwners] = useState(() =>
         lodashGet(props.reimbursementAccountDraft, 'beneficialOwners', lodashGet(props.reimbursementAccount, 'achData.beneficialOwners', [])),
     );

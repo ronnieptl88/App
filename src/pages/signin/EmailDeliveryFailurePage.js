@@ -3,7 +3,7 @@ import {Keyboard, View} from 'react-native';
 import {withOnyx} from 'react-native-onyx';
 import PropTypes from 'prop-types';
 import Str from 'expensify-common/lib/str';
-import styles from '../../styles/styles';
+import useThemeStyles from '../../styles/useThemeStyles';
 import Text from '../../components/Text';
 import TextLink from '../../components/TextLink';
 import ONYXKEYS from '../../ONYXKEYS';
@@ -28,6 +28,7 @@ const defaultProps = {
 };
 
 function EmailDeliveryFailurePage(props) {
+    const styles = useThemeStyles();
     const {isKeyboardShown} = useKeyboardState();
     const {translate} = useLocalize();
     const login = Str.isSMSLogin(props.credentials.login) ? Str.removeSMSDomain(props.credentials.login) : props.credentials.login;

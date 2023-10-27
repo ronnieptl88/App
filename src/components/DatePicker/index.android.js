@@ -5,9 +5,10 @@ import moment from 'moment';
 import TextInput from '../TextInput';
 import CONST from '../../CONST';
 import {propTypes, defaultProps} from './datepickerPropTypes';
-import styles from '../../styles/styles';
+import useThemeStyles from '../../styles/useThemeStyles';
 
 function DatePicker({value, defaultValue, label, placeholder, errorText, containerStyles, disabled, onBlur, onInputChange, maxDate, minDate}, outerRef) {
+    const styles = useThemeStyles();
     const ref = useRef();
 
     const [isPickerVisible, setIsPickerVisible] = useState(false);

@@ -4,14 +4,14 @@ import _ from 'underscore';
 import PropTypes from 'prop-types';
 import Str from 'expensify-common/lib/str';
 import {withOnyx} from 'react-native-onyx';
-import styles from '../../../styles/styles';
+import useThemeStyles from '../../../styles/useThemeStyles';
 import Icon from '../../Icon';
 import * as Expensicons from '../../Icon/Expensicons';
 import withLocalize, {withLocalizePropTypes} from '../../withLocalize';
 import compose from '../../../libs/compose';
 import Text from '../../Text';
 import Tooltip from '../../Tooltip';
-import themeColors from '../../../styles/themes/default';
+import useTheme from '../../../styles/themes/useTheme';
 import variables from '../../../styles/variables';
 import AttachmentViewImage from './AttachmentViewImage';
 import AttachmentViewPdf from './AttachmentViewPdf';
@@ -78,6 +78,8 @@ function AttachmentView({
     transaction,
     isUsedInAttachmentModal,
 }) {
+    const theme = useTheme();
+    const styles = useThemeStyles();
     const [loadComplete, setLoadComplete] = useState(false);
     const [imageError, setImageError] = useState(false);
 
@@ -186,7 +188,7 @@ function AttachmentView({
                     <Tooltip text={translate('common.downloading')}>
                         <ActivityIndicator
                             size="small"
-                            color={themeColors.textSupporting}
+                            color={theme.textSupporting}
                         />
                     </Tooltip>
                 </View>

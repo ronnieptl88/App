@@ -7,7 +7,7 @@ import ONYXKEYS from '../../../ONYXKEYS';
 import HeaderWithBackButton from '../../../components/HeaderWithBackButton';
 import ScreenWrapper from '../../../components/ScreenWrapper';
 import Navigation from '../../../libs/Navigation/Navigation';
-import styles from '../../../styles/styles';
+import useThemeStyles from '../../../styles/useThemeStyles';
 import withLocalize, {withLocalizePropTypes} from '../../../components/withLocalize';
 import compose from '../../../libs/compose';
 import * as Expensicons from '../../../components/Icon/Expensicons';
@@ -66,6 +66,7 @@ const defaultProps = {
 };
 
 function TransferBalancePage(props) {
+    const styles = useThemeStyles();
     const paymentCardList = props.fundList || {};
 
     const paymentTypes = [

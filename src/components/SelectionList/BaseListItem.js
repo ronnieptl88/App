@@ -2,10 +2,10 @@ import React from 'react';
 import {View} from 'react-native';
 import lodashGet from 'lodash/get';
 import PressableWithFeedback from '../Pressable/PressableWithFeedback';
-import styles from '../../styles/styles';
+import useThemeStyles from '../../styles/useThemeStyles';
 import Icon from '../Icon';
 import * as Expensicons from '../Icon/Expensicons';
-import themeColors from '../../styles/themes/default';
+import useTheme from '../../styles/themes/useTheme';
 import {baseListItemPropTypes} from './selectionListPropTypes';
 import * as StyleUtils from '../../styles/StyleUtils';
 import UserListItem from './UserListItem';
@@ -23,6 +23,8 @@ function BaseListItem({
     onSelectRow,
     onDismissError = () => {},
 }) {
+    const theme = useTheme();
+    const styles = useThemeStyles();
     const isUserItem = lodashGet(item, 'icons.length', 0) > 0;
     const ListItem = isUserItem ? UserListItem : RadioListItem;
 
@@ -68,7 +70,7 @@ function BaseListItem({
                                 {item.isSelected && (
                                     <Icon
                                         src={Expensicons.Checkmark}
-                                        fill={themeColors.textLight}
+                                        fill={theme.textLight}
                                         height={14}
                                         width={14}
                                     />
@@ -93,7 +95,7 @@ function BaseListItem({
                             <View>
                                 <Icon
                                     src={Expensicons.Checkmark}
-                                    fill={themeColors.success}
+                                    fill={theme.success}
                                 />
                             </View>
                         </View>

@@ -8,7 +8,7 @@ import Button from '../Button';
 import Icon from '../Icon';
 import Text from '../Text';
 import * as Expensicons from '../Icon/Expensicons';
-import styles from '../../styles/styles';
+import useThemeStyles from '../../styles/useThemeStyles';
 import reportActionPropTypes from '../../pages/home/report/reportActionPropTypes';
 import withLocalize, {withLocalizePropTypes} from '../withLocalize';
 import compose from '../../libs/compose';
@@ -26,7 +26,7 @@ import SettlementButton from '../SettlementButton';
 import * as IOU from '../../libs/actions/IOU';
 import refPropTypes from '../refPropTypes';
 import PressableWithoutFeedback from '../Pressable/PressableWithoutFeedback';
-import themeColors from '../../styles/themes/default';
+import useTheme from '../../styles/themes/useTheme';
 import reportPropTypes from '../../pages/reportPropTypes';
 import * as ReceiptUtils from '../../libs/ReceiptUtils';
 import * as ReportActionUtils from '../../libs/ReportActionsUtils';
@@ -107,6 +107,8 @@ const defaultProps = {
 };
 
 function ReportPreview(props) {
+    const theme = useTheme();
+    const styles = useThemeStyles();
     const {translate} = useLocalize();
 
     const managerID = props.iouReport.managerID || 0;
@@ -212,7 +214,7 @@ function ReportPreview(props) {
                             {hasErrors && (
                                 <Icon
                                     src={Expensicons.DotIndicator}
-                                    fill={themeColors.danger}
+                                    fill={theme.danger}
                                 />
                             )}
                         </View>
@@ -223,7 +225,7 @@ function ReportPreview(props) {
                                     <View style={styles.defaultCheckmarkWrapper}>
                                         <Icon
                                             src={Expensicons.Checkmark}
-                                            fill={themeColors.iconSuccessFill}
+                                            fill={theme.iconSuccessFill}
                                         />
                                     </View>
                                 )}

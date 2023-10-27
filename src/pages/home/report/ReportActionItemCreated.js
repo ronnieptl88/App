@@ -7,7 +7,7 @@ import ONYXKEYS from '../../../ONYXKEYS';
 import ReportWelcomeText from '../../../components/ReportWelcomeText';
 import participantPropTypes from '../../../components/participantPropTypes';
 import * as ReportUtils from '../../../libs/ReportUtils';
-import styles from '../../../styles/styles';
+import useThemeStyles from '../../../styles/useThemeStyles';
 import OfflineWithFeedback from '../../../components/OfflineWithFeedback';
 import * as Report from '../../../libs/actions/Report';
 import reportPropTypes from '../../reportPropTypes';
@@ -49,6 +49,7 @@ const defaultProps = {
 };
 
 function ReportActionItemCreated(props) {
+    const styles = useThemeStyles();
     if (!ReportUtils.isChatReport(props.report)) {
         return null;
     }

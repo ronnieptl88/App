@@ -6,9 +6,9 @@ import {Circle, Rect} from 'react-native-svg';
 import {View} from 'react-native';
 import * as StyleUtils from '../../styles/StyleUtils';
 import CONST from '../../CONST';
-import themeColors from '../../styles/themes/default';
+import useTheme from '../../styles/themes/useTheme';
 import variables from '../../styles/variables';
-import styles from '../../styles/styles';
+import useThemeStyles from '../../styles/useThemeStyles';
 
 const propTypes = {
     /** Whether to animate the skeleton view */
@@ -27,11 +27,13 @@ const propTypes = {
 const defaultProps = {
     shouldAnimate: true,
     avatarSize: CONST.AVATAR_SIZE.LARGE,
-    backgroundColor: themeColors.highlightBG,
-    foregroundColor: themeColors.border,
+    backgroundColor: theme.highlightBG,
+    foregroundColor: theme.border,
 };
 
 function CurrentUserPersonalDetailsSkeletonView(props) {
+    const theme = useTheme();
+    const styles = useThemeStyles();
     const avatarPlaceholderSize = StyleUtils.getAvatarSize(props.avatarSize);
     const avatarPlaceholderRadius = avatarPlaceholderSize / 2;
     const spaceBetweenAvatarAndHeadline = styles.mb3.marginBottom + styles.mt1.marginTop + (variables.lineHeightXXLarge - variables.fontSizeXLarge) / 2;

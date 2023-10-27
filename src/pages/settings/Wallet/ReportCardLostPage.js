@@ -7,7 +7,7 @@ import ScreenWrapper from '../../../components/ScreenWrapper';
 import Navigation from '../../../libs/Navigation/Navigation';
 import ROUTES from '../../../ROUTES';
 import HeaderWithBackButton from '../../../components/HeaderWithBackButton';
-import styles from '../../../styles/styles';
+import useThemeStyles from '../../../styles/useThemeStyles';
 import ONYXKEYS from '../../../ONYXKEYS';
 import SingleOptionSelector from '../../../components/SingleOptionSelector';
 import useLocalize from '../../../hooks/useLocalize';
@@ -85,6 +85,7 @@ function ReportCardLostPage({
     },
     formData,
 }) {
+    const styles = useThemeStyles();
     usePrivatePersonalDetails();
 
     const domainCards = CardUtils.getDomainCards(cardList)[domain];

@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import ONYXKEYS from '../ONYXKEYS';
 import * as StyleUtils from '../styles/StyleUtils';
 import transactionPropTypes from './transactionPropTypes';
-import styles from '../styles/styles';
+import useThemeStyles from '../styles/useThemeStyles';
 import * as Expensicons from './Icon/Expensicons';
 import Icon from './Icon';
 import Text from './Text';
@@ -30,6 +30,7 @@ const defaultProps = {
 };
 
 function EReceipt({transaction, transactionID}) {
+    const styles = useThemeStyles();
     const {translate} = useLocalize();
 
     // Get receipt colorway, or default to Yellow.

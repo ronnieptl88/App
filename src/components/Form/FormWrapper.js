@@ -6,7 +6,7 @@ import {withOnyx} from 'react-native-onyx';
 import * as ErrorUtils from '../../libs/ErrorUtils';
 import FormSubmit from '../FormSubmit';
 import FormAlertWithSubmitButton from '../FormAlertWithSubmitButton';
-import styles from '../../styles/styles';
+import useThemeStyles from '../../styles/useThemeStyles';
 import SafeAreaConsumer from '../SafeAreaConsumer';
 import ScrollViewWithContext from '../ScrollViewWithContext';
 
@@ -78,6 +78,7 @@ const defaultProps = {
 };
 
 function FormWrapper(props) {
+    const styles = useThemeStyles();
     const {onSubmit, children, formState, errors, inputRefs, submitButtonText, footerContent, isSubmitButtonVisible, style, enabledWhenOffline, isSubmitActionDangerous, formID} = props;
     const formRef = useRef(null);
     const formContentRef = useRef(null);

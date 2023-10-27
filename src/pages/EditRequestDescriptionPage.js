@@ -7,7 +7,7 @@ import ScreenWrapper from '../components/ScreenWrapper';
 import HeaderWithBackButton from '../components/HeaderWithBackButton';
 import Form from '../components/Form';
 import ONYXKEYS from '../ONYXKEYS';
-import styles from '../styles/styles';
+import useThemeStyles from '../styles/useThemeStyles';
 import CONST from '../CONST';
 import useLocalize from '../hooks/useLocalize';
 import * as Browser from '../libs/Browser';
@@ -22,6 +22,7 @@ const propTypes = {
 };
 
 function EditRequestDescriptionPage({defaultDescription, onSubmit}) {
+    const styles = useThemeStyles();
     const {translate} = useLocalize();
     const descriptionInputRef = useRef(null);
     const focusTimeoutRef = useRef(null);

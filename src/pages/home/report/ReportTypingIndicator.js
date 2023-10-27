@@ -6,7 +6,7 @@ import {withNetwork} from '../../../components/OnyxProvider';
 import networkPropTypes from '../../../components/networkPropTypes';
 import compose from '../../../libs/compose';
 import ONYXKEYS from '../../../ONYXKEYS';
-import styles from '../../../styles/styles';
+import useThemeStyles from '../../../styles/useThemeStyles';
 import * as PersonalDetails from '../../../libs/actions/PersonalDetails';
 import withLocalize, {withLocalizePropTypes} from '../../../components/withLocalize';
 import Text from '../../../components/Text';
@@ -27,6 +27,7 @@ const defaultProps = {
 };
 
 function ReportTypingIndicator(props) {
+    const styles = useThemeStyles();
     const usersTyping = useMemo(() => _.filter(_.keys(props.userTypingStatuses), (loginOrAccountID) => props.userTypingStatuses[loginOrAccountID]), [props.userTypingStatuses]);
     // If we are offline, the user typing statuses are not up-to-date so do not show them
     if (props.network.isOffline) {

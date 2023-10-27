@@ -1,13 +1,14 @@
 import React from 'react';
 import {View} from 'react-native';
 import lodashGet from 'lodash/get';
-import styles from '../../styles/styles';
+import useThemeStyles from '../../styles/useThemeStyles';
 import Text from '../Text';
 import {userListItemPropTypes} from './selectionListPropTypes';
 import Tooltip from '../Tooltip';
 import SubscriptAvatar from '../SubscriptAvatar';
 
 function UserListItem({item, isFocused = false, showTooltip}) {
+    const styles = useThemeStyles();
     return (
         <>
             {Boolean(item.icons) && (

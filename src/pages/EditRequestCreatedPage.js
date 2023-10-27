@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import ScreenWrapper from '../components/ScreenWrapper';
 import HeaderWithBackButton from '../components/HeaderWithBackButton';
 import ONYXKEYS from '../ONYXKEYS';
-import styles from '../styles/styles';
+import useThemeStyles from '../styles/useThemeStyles';
 import useLocalize from '../hooks/useLocalize';
 import NewDatePicker from '../components/NewDatePicker';
 import FormProvider from '../components/Form/FormProvider';
@@ -17,6 +17,7 @@ const propTypes = {
 };
 
 function EditRequestCreatedPage({defaultCreated, onSubmit}) {
+    const styles = useThemeStyles();
     const {translate} = useLocalize();
 
     return (

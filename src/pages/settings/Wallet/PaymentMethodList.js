@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import {FlashList} from '@shopify/flash-list';
 import lodashGet from 'lodash/get';
 import {withOnyx} from 'react-native-onyx';
-import styles from '../../../styles/styles';
+import useThemeStyles from '../../../styles/useThemeStyles';
 import variables from '../../../styles/variables';
 import * as StyleUtils from '../../../styles/StyleUtils';
 import MenuItem from '../../../components/MenuItem';
@@ -206,6 +206,7 @@ function PaymentMethodList({
     shouldEnableScroll,
     style,
 }) {
+    const styles = useThemeStyles();
     const {translate} = useLocalize();
     const {isOffline} = useNetwork();
 

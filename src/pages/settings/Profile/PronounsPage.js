@@ -7,7 +7,7 @@ import withCurrentUserPersonalDetails, {withCurrentUserPersonalDetailsPropTypes,
 import ScreenWrapper from '../../../components/ScreenWrapper';
 import HeaderWithBackButton from '../../../components/HeaderWithBackButton';
 import Text from '../../../components/Text';
-import styles from '../../../styles/styles';
+import useThemeStyles from '../../../styles/useThemeStyles';
 import * as PersonalDetails from '../../../libs/actions/PersonalDetails';
 import CONST from '../../../CONST';
 import ROUTES from '../../../ROUTES';
@@ -31,6 +31,7 @@ const defaultProps = {
 };
 
 function PronounsPage({currentUserPersonalDetails, isLoadingApp}) {
+    const styles = useThemeStyles();
     const {translate} = useLocalize();
     const currentPronouns = lodashGet(currentUserPersonalDetails, 'pronouns', '');
     const currentPronounsKey = currentPronouns.substring(CONST.PRONOUNS.PREFIX.length);

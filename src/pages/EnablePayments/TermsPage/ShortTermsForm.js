@@ -1,6 +1,6 @@
 import React from 'react';
 import {View} from 'react-native';
-import styles from '../../../styles/styles';
+import useThemeStyles from '../../../styles/useThemeStyles';
 import Text from '../../../components/Text';
 import * as Localize from '../../../libs/Localize';
 import CONST from '../../../CONST';
@@ -17,6 +17,7 @@ const defaultProps = {
 };
 
 function ShortTermsForm(props) {
+    const styles = useThemeStyles();
     return (
         <>
             <Text style={styles.mb5}>

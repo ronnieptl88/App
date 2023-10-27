@@ -7,7 +7,7 @@ import compose from '../../libs/compose';
 import HeaderWithBackButton from '../../components/HeaderWithBackButton';
 import Navigation from '../../libs/Navigation/Navigation';
 import ScreenWrapper from '../../components/ScreenWrapper';
-import styles from '../../styles/styles';
+import useThemeStyles from '../../styles/useThemeStyles';
 import ONYXKEYS from '../../ONYXKEYS';
 import Form from '../../components/Form';
 import TextInput from '../../components/TextInput';
@@ -40,6 +40,7 @@ const defaultProps = {
 };
 
 function NewTaskDescriptionPage(props) {
+    const styles = useThemeStyles();
     const {inputCallbackRef} = useAutoFocusInput();
 
     const onSubmit = (values) => {

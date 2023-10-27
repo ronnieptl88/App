@@ -13,7 +13,7 @@ import ScreenWrapper from '../../../components/ScreenWrapper';
 import useLocalize from '../../../hooks/useLocalize';
 import * as CurrencyUtils from '../../../libs/CurrencyUtils';
 import Navigation from '../../../libs/Navigation/Navigation';
-import styles from '../../../styles/styles';
+import useThemeStyles from '../../../styles/useThemeStyles';
 import * as Expensicons from '../../../components/Icon/Expensicons';
 import * as CardUtils from '../../../libs/CardUtils';
 import Button from '../../../components/Button';
@@ -23,7 +23,7 @@ import MenuItem from '../../../components/MenuItem';
 import CONST from '../../../CONST';
 import assignedCardPropTypes from './assignedCardPropTypes';
 import useNetwork from '../../../hooks/useNetwork';
-import theme from '../../../styles/themes/default';
+import useTheme from '../../../styles/themes/useTheme';
 import DotIndicatorMessage from '../../../components/DotIndicatorMessage';
 import * as Link from '../../../libs/actions/Link';
 import DangerCardSection from './DangerCardSection';
@@ -52,6 +52,8 @@ function ExpensifyCardPage({
         params: {domain},
     },
 }) {
+    const theme = useTheme();
+    const styles = useThemeStyles();
     const {isOffline} = useNetwork();
     const {translate} = useLocalize();
     const domainCards = CardUtils.getDomainCards(cardList)[domain];

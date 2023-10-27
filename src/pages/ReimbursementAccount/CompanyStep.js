@@ -13,7 +13,7 @@ import * as BankAccounts from '../../libs/actions/BankAccounts';
 import Text from '../../components/Text';
 import DatePicker from '../../components/DatePicker';
 import TextInput from '../../components/TextInput';
-import styles from '../../styles/styles';
+import useThemeStyles from '../../styles/useThemeStyles';
 import CheckboxWithLabel from '../../components/CheckboxWithLabel';
 import TextLink from '../../components/TextLink';
 import withLocalize from '../../components/withLocalize';
@@ -54,6 +54,7 @@ const defaultProps = {
 };
 
 function CompanyStep({reimbursementAccount, reimbursementAccountDraft, getDefaultStateForField, onBackButtonPress, translate, session, user, policyID}) {
+    const styles = useThemeStyles();
     /**
      * @param {Array} fieldNames
      *

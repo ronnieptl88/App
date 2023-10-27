@@ -2,7 +2,7 @@ import React from 'react';
 import {View} from 'react-native';
 import PropTypes from 'prop-types';
 import _ from 'underscore';
-import styles from '../styles/styles';
+import useThemeStyles from '../styles/useThemeStyles';
 import Text from './Text';
 import EnvironmentBadge from './EnvironmentBadge';
 
@@ -28,6 +28,7 @@ const defaultProps = {
     shouldShowEnvironmentBadge: false,
 };
 function Header(props) {
+    const styles = useThemeStyles();
     return (
         <View style={[styles.flex1, styles.flexRow]}>
             <View style={styles.mw100}>

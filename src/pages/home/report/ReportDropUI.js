@@ -1,7 +1,7 @@
 import React from 'react';
 import {View} from 'react-native';
 import PropTypes from 'prop-types';
-import styles from '../../../styles/styles';
+import useThemeStyles from '../../../styles/useThemeStyles';
 import Text from '../../../components/Text';
 import DragAndDropConsumer from '../../../components/DragAndDrop/Consumer';
 import Icon from '../../../components/Icon';
@@ -14,6 +14,7 @@ const propTypes = {
 };
 
 function ReportDropUI({onDrop}) {
+    const styles = useThemeStyles();
     const {translate} = useLocalize();
     return (
         <DragAndDropConsumer onDrop={onDrop}>

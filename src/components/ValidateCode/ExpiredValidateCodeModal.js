@@ -1,7 +1,7 @@
 import React from 'react';
 import {View} from 'react-native';
-import themeColors from '../../styles/themes/default';
-import styles from '../../styles/styles';
+import useTheme from '../../styles/themes/useTheme';
+import useThemeStyles from '../../styles/useThemeStyles';
 import Icon from '../Icon';
 import withLocalize, {withLocalizePropTypes} from '../withLocalize';
 import Text from '../Text';
@@ -14,6 +14,8 @@ const propTypes = {
 };
 
 function ExpiredValidateCodeModal(props) {
+    const theme = useTheme();
+    const styles = useThemeStyles();
     return (
         <View style={styles.deeplinkWrapperContainer}>
             <View style={styles.deeplinkWrapperMessage}>
@@ -33,7 +35,7 @@ function ExpiredValidateCodeModal(props) {
                 <Icon
                     width={variables.modalWordmarkWidth}
                     height={variables.modalWordmarkHeight}
-                    fill={themeColors.success}
+                    fill={theme.success}
                     src={Expensicons.ExpensifyWordmark}
                 />
             </View>

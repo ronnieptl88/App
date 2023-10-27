@@ -4,10 +4,10 @@ import PropTypes from 'prop-types';
 import {withOnyx} from 'react-native-onyx';
 import _ from 'underscore';
 import lodashGet from 'lodash/get';
-import styles from '../../../styles/styles';
+import useThemeStyles from '../../../styles/useThemeStyles';
 import Button from '../../../components/Button';
 import Text from '../../../components/Text';
-import themeColors from '../../../styles/themes/default';
+import useTheme from '../../../styles/themes/useTheme';
 import * as Session from '../../../libs/actions/Session';
 import ONYXKEYS from '../../../ONYXKEYS';
 import CONST from '../../../CONST';
@@ -85,6 +85,8 @@ const defaultProps = {
 };
 
 function BaseValidateCodeForm(props) {
+    const theme = useTheme();
+    const styles = useThemeStyles();
     const [formError, setFormError] = useState({});
     const [validateCode, setValidateCode] = useState(props.credentials.validateCode || '');
     const [twoFactorAuthCode, setTwoFactorAuthCode] = useState('');
@@ -337,7 +339,7 @@ function BaseValidateCodeForm(props) {
                     <PressableWithFeedback
                         style={[styles.mt2]}
                         onPress={switchBetween2faAndRecoveryCode}
-                        underlayColor={themeColors.componentBG}
+                        underlayColor={theme.componentBG}
                         hoverDimmingValue={1}
                         pressDimmingValue={0.2}
                         disabled={isValidateCodeFormSubmitting}
@@ -372,7 +374,7 @@ function BaseValidateCodeForm(props) {
                             <PressableWithFeedback
                                 style={[styles.mt2]}
                                 onPress={resendValidateCode}
-                                underlayColor={themeColors.componentBG}
+                                underlayColor={theme.componentBG}
                                 disabled={shouldDisableResendValidateCode}
                                 hoverDimmingValue={1}
                                 pressDimmingValue={0.2}

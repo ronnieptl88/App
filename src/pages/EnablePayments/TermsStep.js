@@ -3,7 +3,7 @@ import {ScrollView} from 'react-native';
 import {withOnyx} from 'react-native-onyx';
 import HeaderWithBackButton from '../../components/HeaderWithBackButton';
 import withLocalize, {withLocalizePropTypes} from '../../components/withLocalize';
-import styles from '../../styles/styles';
+import useThemeStyles from '../../styles/useThemeStyles';
 import * as BankAccounts from '../../libs/actions/BankAccounts';
 import TextLink from '../../components/TextLink';
 import compose from '../../libs/compose';
@@ -33,6 +33,7 @@ const defaultProps = {
 };
 
 function TermsStep(props) {
+    const styles = useThemeStyles();
     const [hasAcceptedDisclosure, setHasAcceptedDisclosure] = useState(false);
     const [hasAcceptedPrivacyPolicyAndWalletAgreement, setHasAcceptedPrivacyPolicyAndWalletAgreement] = useState(false);
     const [error, setError] = useState(false);

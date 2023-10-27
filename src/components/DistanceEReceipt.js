@@ -3,7 +3,7 @@ import {View, ScrollView} from 'react-native';
 import lodashGet from 'lodash/get';
 import _ from 'underscore';
 import Text from './Text';
-import styles from '../styles/styles';
+import useThemeStyles from '../styles/useThemeStyles';
 import transactionPropTypes from './transactionPropTypes';
 import * as ReceiptUtils from '../libs/ReceiptUtils';
 import * as ReportUtils from '../libs/ReportUtils';
@@ -13,7 +13,7 @@ import tryResolveUrlFromApiRoot from '../libs/tryResolveUrlFromApiRoot';
 import ThumbnailImage from './ThumbnailImage';
 import useLocalize from '../hooks/useLocalize';
 import Icon from './Icon';
-import themeColors from '../styles/themes/default';
+import useTheme from '../styles/themes/useTheme';
 import * as Expensicons from './Icon/Expensicons';
 import EReceiptBackground from '../../assets/images/eReceipt_background.svg';
 import useNetwork from '../hooks/useNetwork';
@@ -29,6 +29,8 @@ const defaultProps = {
 };
 
 function DistanceEReceipt({transaction}) {
+    const theme = useTheme();
+    const styles = useThemeStyles();
     const {translate} = useLocalize();
     const {isOffline} = useNetwork();
     const {thumbnail} = TransactionUtils.hasReceipt(transaction) ? ReceiptUtils.getThumbnailAndImageURIs(transaction) : {};
@@ -105,9 +107,10 @@ function DistanceEReceipt({transaction}) {
                         <Icon
                             width={86}
                             height={19.25}
-                            fill={themeColors.textBrand}
+                            fill={theme.textBrand}
                             src={Expensicons.ExpensifyWordmark}
                         />
+
                         <Text style={styles.eReceiptGuaranteed}>{translate('eReceipt.guaranteed')}</Text>
                     </View>
                 </View>

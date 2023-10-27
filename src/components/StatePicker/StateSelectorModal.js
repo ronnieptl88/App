@@ -8,7 +8,7 @@ import HeaderWithBackButton from '../HeaderWithBackButton';
 import SelectionList from '../SelectionList';
 import useLocalize from '../../hooks/useLocalize';
 import ScreenWrapper from '../ScreenWrapper';
-import styles from '../../styles/styles';
+import useThemeStyles from '../../styles/useThemeStyles';
 import searchCountryOptions from '../../libs/searchCountryOptions';
 import StringUtils from '../../libs/StringUtils';
 
@@ -43,6 +43,7 @@ const defaultProps = {
 };
 
 function StateSelectorModal({currentState, isVisible, onClose, onStateSelected, searchValue, setSearchValue, label}) {
+    const styles = useThemeStyles();
     const {translate} = useLocalize();
 
     useEffect(() => {

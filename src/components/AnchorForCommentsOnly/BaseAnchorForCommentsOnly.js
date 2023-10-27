@@ -10,7 +10,7 @@ import * as ReportActionContextMenu from '../../pages/home/report/ContextMenu/Re
 import * as ContextMenuActions from '../../pages/home/report/ContextMenu/ContextMenuActions';
 import Tooltip from '../Tooltip';
 import * as DeviceCapabilities from '../../libs/DeviceCapabilities';
-import styles from '../../styles/styles';
+import useThemeStyles from '../../styles/useThemeStyles';
 import * as StyleUtils from '../../styles/StyleUtils';
 import {propTypes as anchorForCommentsOnlyPropTypes} from './anchorForCommentsOnlyPropTypes';
 import CONST from '../../CONST';
@@ -32,6 +32,7 @@ const propTypes = {
  * This is a default anchor component for regular links.
  */
 function BaseAnchorForCommentsOnly({onPressIn, onPressOut, href = '', rel = '', target = '', children = null, style = {}, onPress, ...rest}) {
+    const styles = useThemeStyles();
     useEffect(
         () => () => {
             ReportActionContextMenu.hideContextMenu();

@@ -4,7 +4,7 @@ import {ScrollView} from 'react-native';
 import {withOnyx} from 'react-native-onyx';
 import PropTypes from 'prop-types';
 import lodashGet from 'lodash/get';
-import styles from '../../styles/styles';
+import useThemeStyles from '../../styles/useThemeStyles';
 import withLocalize, {withLocalizePropTypes} from '../../components/withLocalize';
 import HeaderWithBackButton from '../../components/HeaderWithBackButton';
 import Text from '../../components/Text';
@@ -47,6 +47,7 @@ const defaultProps = {
 };
 
 function EnableStep(props) {
+    const styles = useThemeStyles();
     const isUsingExpensifyCard = props.user.isUsingExpensifyCard;
     const achData = lodashGet(props.reimbursementAccount, 'achData') || {};
     const {icon, iconSize} = getBankIcon(achData.bankName);

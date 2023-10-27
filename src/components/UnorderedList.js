@@ -3,7 +3,7 @@ import _ from 'underscore';
 import {View} from 'react-native';
 import PropTypes from 'prop-types';
 import Text from './Text';
-import styles from '../styles/styles';
+import useThemeStyles from '../styles/useThemeStyles';
 
 const propTypes = {
     /** An array of strings to display as an unordered list */
@@ -14,6 +14,7 @@ const defaultProps = {
 };
 
 function UnorderedList(props) {
+    const styles = useThemeStyles();
     return (
         <>
             {_.map(props.items, (itemText) => (

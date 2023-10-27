@@ -3,7 +3,7 @@ import {View, Text} from 'react-native';
 import PropTypes from 'prop-types';
 import _ from 'underscore';
 import lodashGet from 'lodash/get';
-import styles from '../../../styles/styles';
+import useThemeStyles from '../../../styles/useThemeStyles';
 import ReportActionItemFragment from './ReportActionItemFragment';
 import * as ReportUtils from '../../../libs/ReportUtils';
 import * as ReportActionsUtils from '../../../libs/ReportActionsUtils';
@@ -36,6 +36,7 @@ const defaultProps = {
 };
 
 function ReportActionItemMessage(props) {
+    const styles = useThemeStyles();
     const messages = _.compact(props.action.previousMessage || props.action.message);
     const isAttachment = ReportUtils.isReportMessageAttachment(_.last(messages));
     const isIOUReport = ReportActionsUtils.isMoneyRequestAction(props.action);

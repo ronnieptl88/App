@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import {ActivityIndicator, View} from 'react-native';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import {withOnyx} from 'react-native-onyx';
-import styles from '../../styles/styles';
+import useThemeStyles from '../../styles/useThemeStyles';
 import compose from '../../libs/compose';
 import SignInPageLayout from './SignInPageLayout';
 import withLocalize, {withLocalizePropTypes} from '../../components/withLocalize';
@@ -41,6 +41,7 @@ const defaultProps = {
  * to desktop once we have an Expensify auth token.
  */
 function ThirdPartySignInPage(props) {
+    const styles = useThemeStyles();
     const goBack = () => {
         Navigation.navigate(ROUTES.HOME);
     };

@@ -9,11 +9,11 @@ import PressableWithFeedback from '../../../components/Pressable/PressableWithFe
 import Icon from '../../../components/Icon';
 import * as Expensicons from '../../../components/Icon/Expensicons';
 import AttachmentPicker from '../../../components/AttachmentPicker';
-import styles from '../../../styles/styles';
+import useThemeStyles from '../../../styles/useThemeStyles';
 import Shutter from '../../../../assets/images/shutter.svg';
 import Hand from '../../../../assets/images/hand.svg';
 import * as IOU from '../../../libs/actions/IOU';
-import themeColors from '../../../styles/themes/default';
+import useTheme from '../../../styles/themes/useTheme';
 import reportPropTypes from '../../reportPropTypes';
 import CONST from '../../../CONST';
 import Button from '../../../components/Button';
@@ -67,6 +67,8 @@ const defaultProps = {
 };
 
 function ReceiptSelector({route, report, iou, transactionID, isInTabNavigator, selectedTab}) {
+    const theme = useTheme();
+    const styles = useThemeStyles();
     const devices = useCameraDevices('wide-angle-camera');
     const device = devices.back;
 
@@ -186,7 +188,7 @@ function ReceiptSelector({route, report, iou, transactionID, isInTabNavigator, s
                     <ActivityIndicator
                         size={CONST.ACTIVITY_INDICATOR_SIZE.LARGE}
                         style={[styles.flex1]}
-                        color={themeColors.textSupporting}
+                        color={theme.textSupporting}
                     />
                 </View>
             )}
@@ -230,7 +232,7 @@ function ReceiptSelector({route, report, iou, transactionID, isInTabNavigator, s
                                 height={32}
                                 width={32}
                                 src={Expensicons.Gallery}
-                                fill={themeColors.textSupporting}
+                                fill={theme.textSupporting}
                             />
                         </PressableWithFeedback>
                     )}
@@ -257,7 +259,7 @@ function ReceiptSelector({route, report, iou, transactionID, isInTabNavigator, s
                         height={32}
                         width={32}
                         src={Expensicons.Bolt}
-                        fill={flash ? themeColors.iconHovered : themeColors.textSupporting}
+                        fill={flash ? theme.iconHovered : theme.textSupporting}
                     />
                 </PressableWithFeedback>
             </View>

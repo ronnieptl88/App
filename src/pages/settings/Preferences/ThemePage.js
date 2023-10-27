@@ -8,7 +8,7 @@ import withLocalize, {withLocalizePropTypes} from '../../../components/withLocal
 import Navigation from '../../../libs/Navigation/Navigation';
 import ROUTES from '../../../ROUTES';
 import SelectionList from '../../../components/SelectionList';
-import styles from '../../../styles/styles';
+import useThemeStyles from '../../../styles/useThemeStyles';
 import ONYXKEYS from '../../../ONYXKEYS';
 import CONST from '../../../CONST';
 import compose from '../../../libs/compose';
@@ -27,6 +27,7 @@ const defaultProps = {
 };
 
 function ThemePage(props) {
+    const styles = useThemeStyles();
     const localesToThemes = _.map(_.values(_.omit(CONST.THEME, 'DEFAULT')), (theme) => ({
         value: theme,
         text: props.translate(`themePage.themes.${theme}.label`),

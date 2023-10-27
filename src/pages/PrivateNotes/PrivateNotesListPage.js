@@ -7,7 +7,7 @@ import {ScrollView} from 'react-native';
 import Navigation from '../../libs/Navigation/Navigation';
 import ONYXKEYS from '../../ONYXKEYS';
 import CONST from '../../CONST';
-import styles from '../../styles/styles';
+import useThemeStyles from '../../styles/useThemeStyles';
 import compose from '../../libs/compose';
 import OfflineWithFeedback from '../../components/OfflineWithFeedback';
 import MenuItem from '../../components/MenuItem';
@@ -61,6 +61,7 @@ const defaultProps = {
 };
 
 function PrivateNotesListPage({report, personalDetailsList, network, session}) {
+    const styles = useThemeStyles();
     const {translate} = useLocalize();
 
     useEffect(() => {

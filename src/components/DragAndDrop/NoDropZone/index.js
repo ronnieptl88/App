@@ -1,7 +1,7 @@
 import React, {useRef} from 'react';
 import {View} from 'react-native';
 import PropTypes from 'prop-types';
-import styles from '../../../styles/styles';
+import useThemeStyles from '../../../styles/useThemeStyles';
 import useDragAndDrop from '../../../hooks/useDragAndDrop';
 
 const propTypes = {
@@ -10,6 +10,7 @@ const propTypes = {
 };
 
 function NoDropZone({children}) {
+    const styles = useThemeStyles();
     const noDropZone = useRef(null);
     useDragAndDrop({
         dropZone: noDropZone,

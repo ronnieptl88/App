@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import * as Animatable from 'react-native-animatable';
 import CONST from '../../CONST';
-import styles from '../../styles/styles';
+import useThemeStyles from '../../styles/useThemeStyles';
 import useNativeDriver from '../../libs/useNativeDriver';
 
 const propTypes = {
@@ -38,6 +38,7 @@ function getAnimationStyle(direction) {
 }
 
 function AnimatedStep(props) {
+    const styles = useThemeStyles();
     return (
         <Animatable.View
             onAnimationEnd={() => {

@@ -3,7 +3,7 @@ import {View} from 'react-native';
 import {withOnyx} from 'react-native-onyx';
 import Text from '../../../components/Text';
 import Button from '../../../components/Button';
-import styles from '../../../styles/styles';
+import useThemeStyles from '../../../styles/useThemeStyles';
 import withLocalize, {withLocalizePropTypes} from '../../../components/withLocalize';
 import * as Expensicons from '../../../components/Icon/Expensicons';
 import * as Illustrations from '../../../components/Icon/Illustrations';
@@ -27,6 +27,7 @@ const defaultProps = {
 };
 
 function WorkspaceCardVBANoECardView(props) {
+    const styles = useThemeStyles();
     return (
         <>
             <Section

@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 import * as ModalStackNavigators from '../ModalStackNavigators';
 import RHPScreenOptions from '../RHPScreenOptions';
 import useWindowDimensions from '../../../../hooks/useWindowDimensions';
-import styles from '../../../../styles/styles';
+import useThemeStyles from '../../../../styles/useThemeStyles';
 import Overlay from './Overlay';
 import NoDropZone from '../../../../components/DragAndDrop/NoDropZone';
 
@@ -20,6 +20,7 @@ const propTypes = {
 };
 
 function RightModalNavigator(props) {
+    const styles = useThemeStyles();
     const {isSmallScreenWidth} = useWindowDimensions();
 
     return (

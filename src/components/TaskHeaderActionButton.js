@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import {withOnyx} from 'react-native-onyx';
 import reportPropTypes from '../pages/reportPropTypes';
 import withLocalize, {withLocalizePropTypes} from './withLocalize';
-import styles from '../styles/styles';
+import useThemeStyles from '../styles/useThemeStyles';
 import Button from './Button';
 import * as Task from '../libs/actions/Task';
 import * as ReportUtils from '../libs/ReportUtils';
@@ -30,6 +30,7 @@ const defaultProps = {
 };
 
 function TaskHeaderActionButton(props) {
+    const styles = useThemeStyles();
     return (
         <View style={[styles.flexRow, styles.alignItemsCenter, styles.justifyContentEnd]}>
             <Button

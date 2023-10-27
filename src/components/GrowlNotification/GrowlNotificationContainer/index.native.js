@@ -1,7 +1,7 @@
 import React from 'react';
 import {Animated} from 'react-native';
 import {SafeAreaInsetsContext} from 'react-native-safe-area-context';
-import styles from '../../../styles/styles';
+import useThemeStyles from '../../../styles/useThemeStyles';
 import * as StyleUtils from '../../../styles/StyleUtils';
 import growlNotificationContainerPropTypes from './growlNotificationContainerPropTypes';
 
@@ -10,6 +10,7 @@ const propTypes = {
 };
 
 function GrowlNotificationContainer(props) {
+    const styles = useThemeStyles();
     return (
         <SafeAreaInsetsContext.Consumer>
             {(insets) => (

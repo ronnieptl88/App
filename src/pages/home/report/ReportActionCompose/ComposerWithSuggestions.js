@@ -4,8 +4,8 @@ import {withOnyx} from 'react-native-onyx';
 import _ from 'underscore';
 import lodashGet from 'lodash/get';
 import {useIsFocused, useNavigation} from '@react-navigation/native';
-import styles from '../../../../styles/styles';
-import themeColors from '../../../../styles/themes/default';
+import useThemeStyles from '../../../../styles/useThemeStyles';
+import useTheme from '../../../../styles/themes/useTheme';
 import Composer from '../../../../components/Composer';
 import containerComposeStyles from '../../../../styles/containerComposeStyles';
 import useWindowDimensions from '../../../../hooks/useWindowDimensions';
@@ -105,6 +105,8 @@ function ComposerWithSuggestions({
     isNextModalWillOpenRef,
     editFocused,
 }) {
+    const theme = useTheme();
+    const styles = useThemeStyles();
     const {preferredLocale} = useLocalize();
     const isFocused = useIsFocused();
     const navigation = useNavigation();
@@ -532,7 +534,7 @@ function ComposerWithSuggestions({
                     ref={setTextInputRef}
                     textAlignVertical="top"
                     placeholder={inputPlaceholder}
-                    placeholderTextColor={themeColors.placeholderText}
+                    placeholderTextColor={theme.placeholderText}
                     onChangeText={(commentValue) => updateComment(commentValue, true)}
                     onKeyPress={triggerHotkeyActions}
                     style={[styles.textInputCompose, isComposerFullSize ? styles.textInputFullCompose : styles.flex4]}

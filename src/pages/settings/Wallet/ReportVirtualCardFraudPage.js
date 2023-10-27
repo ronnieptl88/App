@@ -7,7 +7,7 @@ import ROUTES from '../../../ROUTES';
 import HeaderWithBackButton from '../../../components/HeaderWithBackButton';
 import ScreenWrapper from '../../../components/ScreenWrapper';
 import Navigation from '../../../libs/Navigation/Navigation';
-import styles from '../../../styles/styles';
+import useThemeStyles from '../../../styles/useThemeStyles';
 import Text from '../../../components/Text';
 import useLocalize from '../../../hooks/useLocalize';
 import * as Card from '../../../libs/actions/Card';
@@ -47,6 +47,7 @@ function ReportVirtualCardFraudPage({
     cardList,
     formData,
 }) {
+    const styles = useThemeStyles();
     const {translate} = useLocalize();
 
     const domainCards = CardUtils.getDomainCards(cardList)[domain];

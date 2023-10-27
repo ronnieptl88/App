@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import withLocalize, {withLocalizePropTypes} from '../../withLocalize';
 import * as Session from '../../../libs/actions/Session';
 import CONFIG from '../../../CONFIG';
-import styles from '../../../styles/styles';
+import useThemeStyles from '../../../styles/useThemeStyles';
 
 const propTypes = {
     /** Whether we're rendering in the Desktop Flow, if so show a different button. */
@@ -31,6 +31,7 @@ const signIn = (response) => {
  * @returns {React.Component}
  */
 function GoogleSignIn({translate, isDesktopFlow}) {
+    const styles = useThemeStyles();
     const loadScript = useCallback(() => {
         const google = window.google;
         if (google) {

@@ -6,7 +6,7 @@ import _ from 'underscore';
 import lodashGet from 'lodash/get';
 import CONST from '../../../CONST';
 import ONYXKEYS from '../../../ONYXKEYS';
-import styles from '../../../styles/styles';
+import useThemeStyles from '../../../styles/useThemeStyles';
 import compose from '../../../libs/compose';
 import Navigation from '../../../libs/Navigation/Navigation';
 import * as Report from '../../../libs/actions/Report';
@@ -54,6 +54,7 @@ const defaultProps = {
 };
 
 function ReportSettingsPage(props) {
+    const styles = useThemeStyles();
     const {report, policies} = props;
     const {translate} = useLocalize();
     // The workspace the report is on, null if the user isn't a member of the workspace

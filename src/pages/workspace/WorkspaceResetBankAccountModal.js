@@ -6,7 +6,7 @@ import ConfirmModal from '../../components/ConfirmModal';
 import * as BankAccounts from '../../libs/actions/BankAccounts';
 import * as ReimbursementAccountProps from '../ReimbursementAccount/reimbursementAccountPropTypes';
 import Text from '../../components/Text';
-import styles from '../../styles/styles';
+import useThemeStyles from '../../styles/useThemeStyles';
 import BankAccount from '../../libs/models/BankAccount';
 import ONYXKEYS from '../../ONYXKEYS';
 import useLocalize from '../../hooks/useLocalize';
@@ -23,6 +23,7 @@ const propTypes = {
 };
 
 function WorkspaceResetBankAccountModal({reimbursementAccount, session}) {
+    const styles = useThemeStyles();
     const {translate} = useLocalize();
     const achData = lodashGet(reimbursementAccount, 'achData') || {};
     const isInOpenState = achData.state === BankAccount.STATE.OPEN;

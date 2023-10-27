@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {View} from 'react-native';
 import Text from '../../../components/Text';
-import styles from '../../../styles/styles';
+import useThemeStyles from '../../../styles/useThemeStyles';
 import withLocalize, {withLocalizePropTypes} from '../../../components/withLocalize';
 import * as Illustrations from '../../../components/Icon/Illustrations';
 import UnorderedList from '../../../components/UnorderedList';
@@ -17,6 +17,7 @@ const propTypes = {
 };
 
 function WorkspaceCardNoVBAView(props) {
+    const styles = useThemeStyles();
     return (
         <Section
             title={props.translate('workspace.card.header')}

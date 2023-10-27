@@ -6,7 +6,7 @@ import lodashGet from 'lodash/get';
 import _ from 'underscore';
 import Text from '../../../components/Text';
 import Navigation from '../../../libs/Navigation/Navigation';
-import styles from '../../../styles/styles';
+import useThemeStyles from '../../../styles/useThemeStyles';
 import MagicCodeInput from '../../../components/MagicCodeInput';
 import * as DeviceCapabilities from '../../../libs/DeviceCapabilities';
 import * as ErrorUtils from '../../../libs/ErrorUtils';
@@ -14,7 +14,7 @@ import * as CardSettings from '../../../libs/actions/Card';
 import BigNumberPad from '../../../components/BigNumberPad';
 import Button from '../../../components/Button';
 import IllustratedHeaderPageLayout from '../../../components/IllustratedHeaderPageLayout';
-import themeColors from '../../../styles/themes/default';
+import useTheme from '../../../styles/themes/useTheme';
 import SCREENS from '../../../SCREENS';
 import * as LottieAnimations from '../../../components/LottieAnimations';
 import useWindowDimensions from '../../../hooks/useWindowDimensions';
@@ -55,6 +55,8 @@ function ActivatePhysicalCardPage({
         params: {domain},
     },
 }) {
+    const theme = useTheme();
+    const styles = useThemeStyles();
     const {isExtraSmallScreenHeight} = useWindowDimensions();
     const {translate} = useLocalize();
     const {isOffline} = useNetwork();
@@ -132,7 +134,7 @@ function ActivatePhysicalCardPage({
         <IllustratedHeaderPageLayout
             title={translate('activateCardPage.activateCard')}
             onBackButtonPress={() => Navigation.navigate(ROUTES.SETTINGS_WALLET_DOMAINCARD.getRoute(domain))}
-            backgroundColor={themeColors.PAGE_BACKGROUND_COLORS[SCREENS.SETTINGS.PREFERENCES]}
+            backgroundColor={theme.PAGE_BACKGROUND_COLORS[SCREENS.SETTINGS.PREFERENCES]}
             illustration={LottieAnimations.Magician}
             scrollViewContainerStyles={[styles.mnh100]}
             childrenContainerStyles={[styles.flex1]}

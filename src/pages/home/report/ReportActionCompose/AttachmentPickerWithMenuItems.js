@@ -3,7 +3,7 @@ import {View} from 'react-native';
 import {withOnyx} from 'react-native-onyx';
 import PropTypes from 'prop-types';
 import _ from 'underscore';
-import styles from '../../../../styles/styles';
+import useThemeStyles from '../../../../styles/useThemeStyles';
 import Icon from '../../../../components/Icon';
 import * as Expensicons from '../../../../components/Icon/Expensicons';
 import AttachmentPicker from '../../../../components/AttachmentPicker';
@@ -117,6 +117,7 @@ function AttachmentPickerWithMenuItems({
     onItemSelected,
     actionButtonRef,
 }) {
+    const styles = useThemeStyles();
     const {translate} = useLocalize();
     const {windowHeight} = useWindowDimensions();
 

@@ -3,7 +3,7 @@ import {View} from 'react-native';
 import PropTypes from 'prop-types';
 import _ from 'underscore';
 import {CONST as COMMON_CONST} from 'expensify-common/lib/CONST';
-import styles from '../../styles/styles';
+import useThemeStyles from '../../styles/useThemeStyles';
 import MenuItemWithTopDescription from '../MenuItemWithTopDescription';
 import useLocalize from '../../hooks/useLocalize';
 import FormHelpMessage from '../FormHelpMessage';
@@ -36,6 +36,7 @@ const defaultProps = {
 };
 
 function StatePicker({value, errorText, onInputChange, forwardedRef, label}) {
+    const styles = useThemeStyles();
     const {translate} = useLocalize();
     const [isPickerVisible, setIsPickerVisible] = useState(false);
     const [searchValue, setSearchValue] = useState('');

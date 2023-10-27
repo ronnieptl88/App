@@ -8,7 +8,7 @@ import {withOnyx} from 'react-native-onyx';
 import OptionsSelector from '../../components/OptionsSelector';
 import * as OptionsListUtils from '../../libs/OptionsListUtils';
 import ONYXKEYS from '../../ONYXKEYS';
-import styles from '../../styles/styles';
+import useThemeStyles from '../../styles/useThemeStyles';
 import Navigation from '../../libs/Navigation/Navigation';
 import HeaderWithBackButton from '../../components/HeaderWithBackButton';
 import ScreenWrapper from '../../components/ScreenWrapper';
@@ -72,6 +72,7 @@ const defaultProps = {
 };
 
 function TaskAssigneeSelectorModal(props) {
+    const styles = useThemeStyles();
     const [searchValue, setSearchValue] = useState('');
     const [headerMessage, setHeaderMessage] = useState('');
     const [filteredRecentReports, setFilteredRecentReports] = useState([]);

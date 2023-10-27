@@ -13,7 +13,7 @@ import * as Expensicons from '../Icon/Expensicons';
 import launchCamera from './launchCamera';
 import Popover from '../Popover';
 import MenuItem from '../MenuItem';
-import styles from '../../styles/styles';
+import useThemeStyles from '../../styles/useThemeStyles';
 import useLocalize from '../../hooks/useLocalize';
 import useWindowDimensions from '../../hooks/useWindowDimensions';
 import useKeyboardShortcut from '../../hooks/useKeyboardShortcut';
@@ -101,6 +101,7 @@ const getDataForUpload = (fileData) => {
  * @returns {JSX.Element}
  */
 function AttachmentPicker({type, children, shouldHideCameraOption}) {
+    const styles = useThemeStyles();
     const [isVisible, setIsVisible] = useState(false);
 
     const completeAttachmentSelection = useRef();

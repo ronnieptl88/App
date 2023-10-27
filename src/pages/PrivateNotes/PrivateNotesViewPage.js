@@ -8,7 +8,7 @@ import withLocalize from '../../components/withLocalize';
 import ScreenWrapper from '../../components/ScreenWrapper';
 import HeaderWithBackButton from '../../components/HeaderWithBackButton';
 import Navigation from '../../libs/Navigation/Navigation';
-import styles from '../../styles/styles';
+import useThemeStyles from '../../styles/useThemeStyles';
 import compose from '../../libs/compose';
 import ONYXKEYS from '../../ONYXKEYS';
 import ROUTES from '../../ROUTES';
@@ -52,6 +52,7 @@ const defaultProps = {
 };
 
 function PrivateNotesViewPage({route, personalDetailsList, session, report}) {
+    const styles = useThemeStyles();
     const {translate} = useLocalize();
     const isCurrentUserNote = Number(session.accountID) === Number(route.params.accountID);
     const privateNote = lodashGet(report, ['privateNotes', route.params.accountID, 'note'], '');

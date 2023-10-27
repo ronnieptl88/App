@@ -4,7 +4,7 @@ import {View} from 'react-native';
 import PropTypes from 'prop-types';
 import menuItemPropTypes from './menuItemPropTypes';
 import MenuItem from './MenuItem';
-import styles from '../styles/styles';
+import useThemeStyles from '../styles/useThemeStyles';
 import useLocalize from '../hooks/useLocalize';
 import Text from './Text';
 
@@ -20,6 +20,7 @@ const propTypes = {
 };
 
 function FeatureList({menuItems, headline, description}) {
+    const styles = useThemeStyles();
     const {translate} = useLocalize();
     return (
         <>

@@ -1,6 +1,6 @@
 import React, {memo} from 'react';
 import PropTypes from 'prop-types';
-import styles from '../../../styles/styles';
+import useThemeStyles from '../../../styles/useThemeStyles';
 import withLocalize, {withLocalizePropTypes} from '../../../components/withLocalize';
 import compose from '../../../libs/compose';
 import Text from '../../../components/Text';
@@ -13,6 +13,7 @@ const propTypes = {
 };
 
 function ReportActionItemDate(props) {
+    const styles = useThemeStyles();
     return <Text style={[styles.chatItemMessageHeaderTimestamp]}>{props.datetimeToCalendarTime(props.created)}</Text>;
 }
 

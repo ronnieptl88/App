@@ -3,10 +3,10 @@ import {View} from 'react-native';
 import PropTypes from 'prop-types';
 import ReactNativeModal from 'react-native-modal';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
-import styles from '../../styles/styles';
+import useThemeStyles from '../../styles/useThemeStyles';
 import * as Modal from '../../libs/actions/Modal';
 import * as StyleUtils from '../../styles/StyleUtils';
-import themeColors from '../../styles/themes/default';
+import useTheme from '../../styles/themes/useTheme';
 import {propTypes as modalPropTypes, defaultProps as modalDefaultProps} from './modalPropTypes';
 import getModalStyles from '../../styles/getModalStyles';
 import useWindowDimensions from '../../hooks/useWindowDimensions';
@@ -52,6 +52,8 @@ function BaseModal({
     forwardedRef,
     children,
 }) {
+    const theme = useTheme();
+    const styles = useThemeStyles();
     const {windowWidth, windowHeight, isSmallScreenWidth} = useWindowDimensions();
 
     const safeAreaInsets = useSafeAreaInsets();
@@ -187,7 +189,7 @@ function BaseModal({
             onSwipeComplete={onClose}
             swipeDirection={swipeDirection}
             isVisible={isVisible}
-            backdropColor={themeColors.overlay}
+            backdropColor={theme.overlay}
             backdropOpacity={hideBackdrop ? 0 : variables.overlayOpacity}
             backdropTransitionOutTiming={0}
             hasBackdrop={fullscreen}

@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import MobileBackgroundImage from '../../../../../assets/images/home-background--mobile.svg';
 import DesktopBackgroundImage from '../../../../../assets/images/home-background--desktop.svg';
-import styles from '../../../../styles/styles';
+import useThemeStyles from '../../../../styles/useThemeStyles';
 import defaultPropTypes from './propTypes';
 
 const defaultProps = {
@@ -16,6 +16,7 @@ const propTypes = {
     ...defaultPropTypes,
 };
 function BackgroundImage(props) {
+    const styles = useThemeStyles();
     return props.isSmallScreen ? (
         <MobileBackgroundImage
             pointerEvents={props.pointerEvents}

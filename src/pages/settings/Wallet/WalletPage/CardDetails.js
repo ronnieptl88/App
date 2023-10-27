@@ -10,7 +10,7 @@ import usePrivatePersonalDetails from '../../../../hooks/usePrivatePersonalDetai
 import ONYXKEYS from '../../../../ONYXKEYS';
 import * as PersonalDetailsUtils from '../../../../libs/PersonalDetailsUtils';
 import PressableWithDelayToggle from '../../../../components/Pressable/PressableWithDelayToggle';
-import styles from '../../../../styles/styles';
+import useThemeStyles from '../../../../styles/useThemeStyles';
 import TextLink from '../../../../components/TextLink';
 import Navigation from '../../../../libs/Navigation/Navigation';
 import ROUTES from '../../../../ROUTES';
@@ -58,6 +58,7 @@ const defaultProps = {
 };
 
 function CardDetails({pan, expiration, cvv, privatePersonalDetails, domain}) {
+    const styles = useThemeStyles();
     usePrivatePersonalDetails();
     const {translate} = useLocalize();
 

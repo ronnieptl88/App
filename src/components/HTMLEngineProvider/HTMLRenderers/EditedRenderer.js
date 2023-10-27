@@ -5,8 +5,8 @@ import htmlRendererPropTypes from './htmlRendererPropTypes';
 import withLocalize, {withLocalizePropTypes} from '../../withLocalize';
 import Text from '../../Text';
 import variables from '../../../styles/variables';
-import themeColors from '../../../styles/themes/default';
-import styles from '../../../styles/styles';
+import useTheme from '../../../styles/themes/useTheme';
+import useThemeStyles from '../../../styles/useThemeStyles';
 import editedLabelStyles from '../../../styles/editedLabelStyles';
 
 const propTypes = {
@@ -15,6 +15,8 @@ const propTypes = {
 };
 
 function EditedRenderer(props) {
+    const theme = useTheme();
+    const styles = useThemeStyles();
     const defaultRendererProps = _.omit(props, ['TDefaultRenderer', 'style', 'tnode']);
     const isPendingDelete = Boolean(props.tnode.attributes.deleted !== undefined);
     return (
@@ -30,7 +32,7 @@ function EditedRenderer(props) {
                 // eslint-disable-next-line react/jsx-props-no-spreading
                 {...defaultRendererProps}
                 fontSize={variables.fontSizeSmall}
-                color={themeColors.textSupporting}
+                color={theme.textSupporting}
                 style={[editedLabelStyles, isPendingDelete && styles.offlineFeedback.deleted]}
             >
                 {props.translate('reportActionCompose.edited')}

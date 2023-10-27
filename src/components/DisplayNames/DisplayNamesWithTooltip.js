@@ -2,13 +2,14 @@ import React, {Fragment, useCallback, useRef} from 'react';
 import {View} from 'react-native';
 import _ from 'underscore';
 import lodashGet from 'lodash/get';
-import styles from '../../styles/styles';
+import useThemeStyles from '../../styles/useThemeStyles';
 import Text from '../Text';
 import Tooltip from '../Tooltip';
 import DisplayNamesTooltipItem from './DisplayNamesTooltipItem';
 import {defaultProps, propTypes} from './displayNamesPropTypes';
 
 function DisplayNamesWithToolTip(props) {
+    const styles = useThemeStyles();
     const containerRef = useRef(null);
     const childRefs = useRef([]);
     const isEllipsisActive = lodashGet(containerRef.current, 'offsetWidth') < lodashGet(containerRef.current, 'scrollWidth');

@@ -4,10 +4,10 @@ import Icon from '../Icon';
 import Tooltip from '../Tooltip';
 import useLocalize from '../../hooks/useLocalize';
 import variables from '../../styles/variables';
-import styles from '../../styles/styles';
+import useThemeStyles from '../../styles/useThemeStyles';
 import * as StyleUtils from '../../styles/StyleUtils';
 import getButtonState from '../../libs/getButtonState';
-import themeColors from '../../styles/themes/default';
+import useTheme from '../../styles/themes/useTheme';
 import PressableWithoutFeedback from '../Pressable/PressableWithoutFeedback';
 import CONST from '../../CONST';
 
@@ -23,6 +23,8 @@ const propTypes = {
 };
 
 function CategoryShortcutButton(props) {
+    const theme = useTheme();
+    const styles = useThemeStyles();
     const {translate} = useLocalize();
     const [isHighlighted, setIsHighlighted] = useState(false);
 
@@ -41,7 +43,7 @@ function CategoryShortcutButton(props) {
                 accessibilityRole={CONST.ACCESSIBILITY_ROLE.BUTTON}
             >
                 <Icon
-                    fill={themeColors.icon}
+                    fill={theme.icon}
                     src={props.icon}
                     height={variables.iconSizeNormal}
                     width={variables.iconSizeNormal}

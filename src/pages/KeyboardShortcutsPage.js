@@ -4,13 +4,14 @@ import _ from 'underscore';
 import HeaderWithBackButton from '../components/HeaderWithBackButton';
 import ScreenWrapper from '../components/ScreenWrapper';
 import Text from '../components/Text';
-import styles from '../styles/styles';
+import useThemeStyles from '../styles/useThemeStyles';
 import CONST from '../CONST';
 import useLocalize from '../hooks/useLocalize';
 import KeyboardShortcut from '../libs/KeyboardShortcut';
 import MenuItem from '../components/MenuItem';
 
 function KeyboardShortcutsPage() {
+    const styles = useThemeStyles();
     const {translate} = useLocalize();
     const shortcuts = _.chain(CONST.KEYBOARD_SHORTCUTS)
         .filter((shortcut) => !_.isEmpty(shortcut.descriptionKey))

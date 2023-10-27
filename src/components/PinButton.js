@@ -1,6 +1,6 @@
 import React from 'react';
-import styles from '../styles/styles';
-import themeColors from '../styles/themes/default';
+import useThemeStyles from '../styles/useThemeStyles';
+import useTheme from '../styles/themes/useTheme';
 import Icon from './Icon';
 import Tooltip from './Tooltip';
 import withLocalize, {withLocalizePropTypes} from './withLocalize';
@@ -22,6 +22,8 @@ const defaultProps = {
 };
 
 function PinButton(props) {
+    const theme = useTheme();
+    const styles = useThemeStyles();
     return (
         <Tooltip text={props.report.isPinned ? props.translate('common.unPin') : props.translate('common.pin')}>
             <PressableWithFeedback
@@ -33,7 +35,7 @@ function PinButton(props) {
             >
                 <Icon
                     src={Expensicons.Pin}
-                    fill={props.report.isPinned ? themeColors.heading : themeColors.icon}
+                    fill={props.report.isPinned ? theme.heading : theme.icon}
                 />
             </PressableWithFeedback>
         </Tooltip>

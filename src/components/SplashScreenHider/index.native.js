@@ -4,7 +4,7 @@ import {StyleSheet} from 'react-native';
 import Reanimated, {useSharedValue, withTiming, Easing, useAnimatedStyle, runOnJS} from 'react-native-reanimated';
 import BootSplash from '../../libs/BootSplash';
 import Logo from '../../../assets/images/new-expensify-dark.svg';
-import styles from '../../styles/styles';
+import useThemeStyles from '../../styles/useThemeStyles';
 
 const propTypes = {
     /** Splash screen has been hidden */
@@ -16,6 +16,7 @@ const defaultProps = {
 };
 
 function SplashScreenHider(props) {
+    const styles = useThemeStyles();
     const {onHide} = props;
 
     const logoSizeRatio = BootSplash.logoSizeRatio || 1;

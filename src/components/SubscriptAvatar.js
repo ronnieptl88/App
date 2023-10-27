@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import {View} from 'react-native';
 import _ from 'underscore';
 import lodashGet from 'lodash/get';
-import styles from '../styles/styles';
-import themeColors from '../styles/themes/default';
+import useThemeStyles from '../styles/useThemeStyles';
+import useTheme from '../styles/themes/useTheme';
 import Avatar from './Avatar';
 import CONST from '../CONST';
 import * as StyleUtils from '../styles/StyleUtils';
@@ -33,7 +33,7 @@ const propTypes = {
 
 const defaultProps = {
     size: CONST.AVATAR_SIZE.DEFAULT,
-    backgroundColor: themeColors.componentBG,
+    backgroundColor: theme.componentBG,
     mainAvatar: {},
     secondaryAvatar: {},
     noMargin: false,
@@ -41,6 +41,8 @@ const defaultProps = {
 };
 
 function SubscriptAvatar({size, backgroundColor, mainAvatar, secondaryAvatar, noMargin, showTooltip}) {
+    const theme = useTheme();
+    const styles = useThemeStyles();
     const isSmall = size === CONST.AVATAR_SIZE.SMALL;
     const subscriptStyle = size === CONST.AVATAR_SIZE.SMALL_NORMAL ? styles.secondAvatarSubscriptSmallNormal : styles.secondAvatarSubscript;
     const containerStyle = StyleUtils.getContainerStyles(size);
@@ -81,7 +83,7 @@ function SubscriptAvatar({size, backgroundColor, mainAvatar, secondaryAvatar, no
                         ]}
                         source={secondaryAvatar.source}
                         size={isSmall ? CONST.AVATAR_SIZE.SMALL_SUBSCRIPT : CONST.AVATAR_SIZE.SUBSCRIPT}
-                        fill={themeColors.iconSuccessFill}
+                        fill={theme.iconSuccessFill}
                         name={secondaryAvatar.name}
                         type={secondaryAvatar.type}
                         fallbackIcon={secondaryAvatar.fallbackIcon}

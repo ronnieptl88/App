@@ -7,7 +7,7 @@ import Str from 'expensify-common/lib/str';
 import lodashGet from 'lodash/get';
 import {parsePhoneNumber} from 'awesome-phonenumber';
 import * as Session from '../libs/actions/Session';
-import styles from '../styles/styles';
+import useThemeStyles from '../styles/useThemeStyles';
 import Text from '../components/Text';
 import ONYXKEYS from '../ONYXKEYS';
 import Avatar from '../components/Avatar';
@@ -100,6 +100,7 @@ const getPhoneNumber = (details) => {
 };
 
 function ProfilePage(props) {
+    const styles = useThemeStyles();
     const accountID = Number(lodashGet(props.route.params, 'accountID', 0));
 
     const details = lodashGet(props.personalDetails, accountID, ValidationUtils.isValidAccountRoute(accountID) ? {} : {isloading: false});

@@ -9,7 +9,7 @@ import withLocalize, {withLocalizePropTypes} from '../components/withLocalize';
 import compose from '../libs/compose';
 import ScreenWrapper from '../components/ScreenWrapper';
 import HeaderWithBackButton from '../components/HeaderWithBackButton';
-import styles from '../styles/styles';
+import useThemeStyles from '../styles/useThemeStyles';
 import Navigation from '../libs/Navigation/Navigation';
 import Text from '../components/Text';
 import * as Expensicons from '../components/Icon/Expensicons';
@@ -62,6 +62,7 @@ function getReportID(route) {
 }
 
 function FlagCommentPage(props) {
+    const styles = useThemeStyles();
     const severities = [
         {
             severity: CONST.MODERATION.FLAG_SEVERITY_SPAM,

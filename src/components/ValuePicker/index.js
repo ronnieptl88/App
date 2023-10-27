@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import {View} from 'react-native';
 import PropTypes from 'prop-types';
 import _ from 'lodash';
-import styles from '../../styles/styles';
+import useThemeStyles from '../../styles/useThemeStyles';
 import MenuItemWithTopDescription from '../MenuItemWithTopDescription';
 import ValueSelectorModal from './ValueSelectorModal';
 import FormHelpMessage from '../FormHelpMessage';
@@ -44,6 +44,7 @@ const defaultProps = {
 };
 
 function ValuePicker({value, label, items, placeholder, errorText, onInputChange, forwardedRef}) {
+    const styles = useThemeStyles();
     const [isPickerVisible, setIsPickerVisible] = useState(false);
 
     const showPickerModal = () => {

@@ -3,7 +3,7 @@ import lodashGet from 'lodash/get';
 import _ from 'underscore';
 import {View} from 'react-native';
 import PropTypes from 'prop-types';
-import styles from '../../styles/styles';
+import useThemeStyles from '../../styles/useThemeStyles';
 import EmojiReactionBubble from './EmojiReactionBubble';
 import AddReactionBubble from './AddReactionBubble';
 import withCurrentUserPersonalDetails, {withCurrentUserPersonalDetailsDefaultProps, withCurrentUserPersonalDetailsPropTypes} from '../withCurrentUserPersonalDetails';
@@ -43,6 +43,7 @@ const defaultProps = {
 };
 
 function ReportActionItemEmojiReactions(props) {
+    const styles = useThemeStyles();
     const reactionListRef = useContext(ReactionListContext);
     const popoverReactionListAnchors = useRef({});
 

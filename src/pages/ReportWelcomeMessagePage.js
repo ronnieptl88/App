@@ -8,7 +8,7 @@ import compose from '../libs/compose';
 import withLocalize, {withLocalizePropTypes} from '../components/withLocalize';
 import ScreenWrapper from '../components/ScreenWrapper';
 import HeaderWithBackButton from '../components/HeaderWithBackButton';
-import styles from '../styles/styles';
+import useThemeStyles from '../styles/useThemeStyles';
 import reportPropTypes from './reportPropTypes';
 import withReportOrNotFound from './home/report/withReportOrNotFound';
 import Text from '../components/Text';
@@ -45,6 +45,7 @@ const defaultProps = {
 };
 
 function ReportWelcomeMessagePage(props) {
+    const styles = useThemeStyles();
     const parser = new ExpensiMark();
     const [welcomeMessage, setWelcomeMessage] = useState(() => parser.htmlToMarkdown(props.report.welcomeMessage));
     const welcomeMessageInputRef = useRef(null);

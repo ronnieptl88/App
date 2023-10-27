@@ -7,8 +7,8 @@ import Text from '../components/Text';
 import * as Session from '../libs/actions/Session';
 import FullScreenLoadingIndicator from '../components/FullscreenLoadingIndicator';
 import Navigation from '../libs/Navigation/Navigation';
-import styles from '../styles/styles';
-import themeColors from '../styles/themes/default';
+import useThemeStyles from '../styles/useThemeStyles';
+import useTheme from '../styles/themes/useTheme';
 import Icon from '../components/Icon';
 import * as Expensicons from '../components/Icon/Expensicons';
 import * as Illustrations from '../components/Icon/Illustrations';
@@ -46,6 +46,8 @@ const defaultProps = {
 };
 
 function LogInWithShortLivedAuthTokenPage(props) {
+    const theme = useTheme();
+    const styles = useThemeStyles();
     const {translate} = useLocalize();
 
     useEffect(() => {
@@ -109,7 +111,7 @@ function LogInWithShortLivedAuthTokenPage(props) {
                 <Icon
                     width={154}
                     height={34}
-                    fill={themeColors.success}
+                    fill={theme.success}
                     src={Expensicons.ExpensifyWordmark}
                 />
             </View>

@@ -2,7 +2,7 @@ import React from 'react';
 import {View} from 'react-native';
 import PropTypes from 'prop-types';
 import _ from 'underscore';
-import styles from '../styles/styles';
+import useThemeStyles from '../styles/useThemeStyles';
 import * as StyleUtils from '../styles/StyleUtils';
 import * as EmojiUtils from '../libs/EmojiUtils';
 import Text from './Text';
@@ -61,6 +61,7 @@ const defaultProps = {
 const keyExtractor = (item, index) => `${item.name}+${index}}`;
 
 function EmojiSuggestions(props) {
+    const styles = useThemeStyles();
     /**
      * Render an emoji suggestion menu item component.
      * @param {Object} item

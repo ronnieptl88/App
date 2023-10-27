@@ -31,8 +31,8 @@ import * as Report from '../../libs/actions/Report';
 import * as Task from '../../libs/actions/Task';
 import compose from '../../libs/compose';
 import * as Session from '../../libs/actions/Session';
-import styles from '../../styles/styles';
-import themeColors from '../../styles/themes/default';
+import useThemeStyles from '../../styles/useThemeStyles';
+import useTheme from '../../styles/themes/useTheme';
 import reportPropTypes from '../reportPropTypes';
 import reportWithoutHasDraftSelector from '../../libs/OnyxSelectors/reportWithoutHasDraftSelector';
 
@@ -72,6 +72,8 @@ const defaultProps = {
 };
 
 function HeaderView(props) {
+    const theme = useTheme();
+    const styles = useThemeStyles();
     const participants = lodashGet(props.report, 'participantAccountIDs', []);
     const participantPersonalDetails = OptionsListUtils.getPersonalDetailsForAccountIDs(participants, props.personalDetails);
     const isMultipleParticipant = participants.length > 1;
@@ -246,7 +248,7 @@ function HeaderView(props) {
                                 <View style={[styles.alignItemsCenter, styles.justifyContentCenter]}>
                                     <Icon
                                         src={Expensicons.DotIndicator}
-                                        fill={themeColors.danger}
+                                        fill={theme.danger}
                                     />
                                 </View>
                             )}

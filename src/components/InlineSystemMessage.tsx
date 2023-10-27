@@ -1,7 +1,7 @@
 import React from 'react';
 import {View} from 'react-native';
-import styles from '../styles/styles';
-import theme from '../styles/themes/default';
+import useThemeStyles from '../styles/useThemeStyles';
+import useTheme from '../styles/themes/useTheme';
 import Text from './Text';
 import * as Expensicons from './Icon/Expensicons';
 import Icon from './Icon';
@@ -12,6 +12,8 @@ type InlineSystemMessageProps = {
 };
 
 function InlineSystemMessage({message = ''}: InlineSystemMessageProps) {
+    const theme = useTheme();
+    const styles = useThemeStyles();
     if (!message) {
         return null;
     }

@@ -3,7 +3,7 @@ import React from 'react';
 import {View} from 'react-native';
 import {PanGestureHandler} from 'react-native-gesture-handler';
 import Animated, {interpolate, useAnimatedStyle} from 'react-native-reanimated';
-import styles from '../../styles/styles';
+import useThemeStyles from '../../styles/useThemeStyles';
 import Icon from '../Icon';
 import * as Expensicons from '../Icon/Expensicons';
 import * as StyleUtils from '../../styles/StyleUtils';
@@ -50,6 +50,7 @@ const defaultProps = {
 };
 
 function ImageCropView(props) {
+    const styles = useThemeStyles();
     const containerStyle = StyleUtils.getWidthAndHeightStyle(props.containerSize, props.containerSize);
 
     const originalImageHeight = props.originalImageHeight;

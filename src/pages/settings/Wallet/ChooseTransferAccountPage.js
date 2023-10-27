@@ -14,7 +14,7 @@ import * as Expensicons from '../../../components/Icon/Expensicons';
 import compose from '../../../libs/compose';
 import ONYXKEYS from '../../../ONYXKEYS';
 import walletTransferPropTypes from './walletTransferPropTypes';
-import styles from '../../../styles/styles';
+import useThemeStyles from '../../../styles/useThemeStyles';
 import * as BankAccounts from '../../../libs/actions/BankAccounts';
 
 const propTypes = {
@@ -29,6 +29,7 @@ const defaultProps = {
 };
 
 function ChooseTransferAccountPage(props) {
+    const styles = useThemeStyles();
     /**
      * Go back to transfer balance screen with the selected bank account set
      * @param {Object} event Click event object

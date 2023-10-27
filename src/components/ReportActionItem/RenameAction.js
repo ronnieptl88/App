@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import lodashGet from 'lodash/get';
 import Text from '../Text';
-import styles from '../../styles/styles';
+import useThemeStyles from '../../styles/useThemeStyles';
 import reportActionPropTypes from '../../pages/home/report/reportActionPropTypes';
 import withLocalize, {withLocalizePropTypes} from '../withLocalize';
 import compose from '../../libs/compose';
@@ -17,6 +17,7 @@ const propTypes = {
 };
 
 function RenameAction(props) {
+    const styles = useThemeStyles();
     const currentUserAccountID = lodashGet(props.currentUserPersonalDetails, 'accountID', '');
     const userDisplayName = lodashGet(props.action, ['person', 0, 'text']);
     const actorAccountID = lodashGet(props.action, 'actorAccountID', '');

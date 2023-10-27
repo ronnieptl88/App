@@ -7,7 +7,7 @@ import OptionsSelector from '../components/OptionsSelector';
 import * as OptionsListUtils from '../libs/OptionsListUtils';
 import * as ReportUtils from '../libs/ReportUtils';
 import ONYXKEYS from '../ONYXKEYS';
-import styles from '../styles/styles';
+import withThemeStyles, {withThemeStylesPropTypes} from '../components/withThemeStyles';
 import Navigation from '../libs/Navigation/Navigation';
 import withWindowDimensions, {windowDimensionsPropTypes} from '../components/withWindowDimensions';
 import * as Report from '../libs/actions/Report';
@@ -45,6 +45,7 @@ const propTypes = {
 
     /** Whether we are searching for reports in the server */
     isSearchingForReports: PropTypes.bool,
+    ...withThemeStylesPropTypes,
 };
 
 const defaultProps = {
@@ -190,7 +191,7 @@ class SearchPage extends Component {
                 {({didScreenTransitionEnd, safeAreaPaddingBottomStyle}) => (
                     <>
                         <HeaderWithBackButton title={this.props.translate('common.search')} />
-                        <View style={[styles.flex1, styles.w100, styles.pRelative]}>
+                        <View style={[this.props.themeStyles.flex1, this.props.themeStyles.w100, this.props.themeStyles.pRelative]}>
                             <OptionsSelector
                                 sections={sections}
                                 value={this.state.searchValue}
@@ -240,4 +241,5 @@ export default compose(
             initWithStoredValues: false,
         },
     }),
+    withThemeStyles,
 )(SearchPage);

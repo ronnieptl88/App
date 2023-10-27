@@ -3,7 +3,7 @@ import React, {useRef} from 'react';
 import PropTypes from 'prop-types';
 import {View} from 'react-native';
 import PopoverWithMeasuredContent from '../PopoverWithMeasuredContent';
-import styles from '../../styles/styles';
+import useThemeStyles from '../../styles/useThemeStyles';
 import withWindowDimensions, {windowDimensionsPropTypes} from '../withWindowDimensions';
 import MenuItem from '../MenuItem';
 import {propTypes as createMenuPropTypes, defaultProps as createMenuDefaultProps} from './popoverMenuPropTypes';
@@ -51,6 +51,7 @@ const defaultProps = {
 };
 
 function PopoverMenu(props) {
+    const styles = useThemeStyles();
     const {isSmallScreenWidth} = useWindowDimensions();
     const selectedItemIndex = useRef(null);
     const [focusedIndex, setFocusedIndex] = useArrowKeyFocusManager({initialFocusedIndex: -1, maxIndex: props.menuItems.length - 1, isActive: props.isVisible});

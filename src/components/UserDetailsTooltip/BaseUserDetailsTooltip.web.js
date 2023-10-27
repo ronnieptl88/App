@@ -7,7 +7,7 @@ import _ from 'underscore';
 import Avatar from '../Avatar';
 import Tooltip from '../Tooltip';
 import {propTypes, defaultProps} from './userDetailsTooltipPropTypes';
-import styles from '../../styles/styles';
+import useThemeStyles from '../../styles/useThemeStyles';
 import ONYXKEYS from '../../ONYXKEYS';
 import * as UserUtils from '../../libs/UserUtils';
 import CONST from '../../CONST';
@@ -15,6 +15,7 @@ import * as LocalePhoneNumber from '../../libs/LocalePhoneNumber';
 import useLocalize from '../../hooks/useLocalize';
 
 function BaseUserDetailsTooltip(props) {
+    const styles = useThemeStyles();
     const {translate} = useLocalize();
 
     const userDetails = lodashGet(props.personalDetailsList, props.accountID, props.fallbackUserDetails);

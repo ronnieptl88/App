@@ -16,7 +16,7 @@ import DateUtils from '../../../libs/DateUtils';
 import * as ReportUtils from '../../../libs/ReportUtils';
 import * as Report from '../../../libs/actions/Report';
 import compose from '../../../libs/compose';
-import styles from '../../../styles/styles';
+import useThemeStyles from '../../../styles/useThemeStyles';
 import variables from '../../../styles/variables';
 import reportPropTypes from '../../reportPropTypes';
 import FloatingMessageCounter from './FloatingMessageCounter';
@@ -130,6 +130,7 @@ function ReportActionsList({
     onLayout,
     isComposerFullSize,
 }) {
+    const styles = useThemeStyles();
     const reportScrollManager = useReportScrollManager();
     const {translate} = useLocalize();
     const {isOffline} = useNetwork();

@@ -2,7 +2,7 @@ import _ from 'underscore';
 import React, {useRef, useEffect, forwardRef, memo} from 'react';
 import {View} from 'react-native';
 import PropTypes from 'prop-types';
-import styles from '../../styles/styles';
+import useThemeStyles from '../../styles/useThemeStyles';
 import variables from '../../styles/variables';
 import OptionRow from '../OptionRow';
 import SectionList from '../SectionList';
@@ -70,6 +70,7 @@ function BaseOptionsList({
     nestedScrollEnabled,
     bounces,
 }) {
+    const styles = useThemeStyles();
     const flattenedData = useRef();
     const previousSections = usePrevious(sections);
     const didLayout = useRef(false);

@@ -7,7 +7,7 @@ import Modal from './Modal';
 import CONST from '../CONST';
 import toggleTestToolsModal from '../libs/actions/TestTool';
 import TestToolMenu from './TestToolMenu';
-import styles from '../styles/styles';
+import useThemeStyles from '../styles/useThemeStyles';
 
 const propTypes = {
     /** Details about modal */
@@ -26,6 +26,7 @@ const defaultProps = {
 };
 
 function TestToolsModal(props) {
+    const styles = useThemeStyles();
     return (
         <Modal
             isVisible={props.isTestToolsModalOpen}

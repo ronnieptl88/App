@@ -8,7 +8,7 @@ import ScreenWrapper from '../../components/ScreenWrapper';
 import withLocalize, {withLocalizePropTypes} from '../../components/withLocalize';
 import compose from '../../libs/compose';
 import MenuItem from '../../components/MenuItem';
-import styles from '../../styles/styles';
+import useThemeStyles from '../../styles/useThemeStyles';
 import * as Link from '../../libs/actions/Link';
 import withWindowDimensions, {windowDimensionsPropTypes} from '../../components/withWindowDimensions';
 import * as ReportActionContextMenu from '../home/report/ContextMenu/ReportActionContextMenu';
@@ -22,6 +22,7 @@ const propTypes = {
 };
 
 function AppDownloadLinksPage(props) {
+    const styles = useThemeStyles();
     let popoverAnchor;
 
     const menuItems = [
