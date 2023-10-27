@@ -54,8 +54,6 @@ type OverlayStylesParams = {progress: Animated.AnimatedInterpolation<string | nu
 
 type TwoFactorAuthCodesBoxParams = {isExtraSmallScreenWidth: boolean; isSmallScreenWidth: boolean};
 
-type Translation = 'perspective' | 'rotate' | 'rotateX' | 'rotateY' | 'rotateZ' | 'scale' | 'scaleX' | 'scaleY' | 'translateX' | 'translateY' | 'skewX' | 'skewY' | 'matrix';
-
 type OfflineFeedbackStyle = Record<'deleted' | 'pending' | 'error' | 'container' | 'textContainer' | 'text' | 'errorDot', ViewStyle | TextStyle>;
 
 type MapDirectionStyle = Pick<LineLayerStyleProps, 'lineColor' | 'lineWidth'>;
@@ -2761,16 +2759,6 @@ const styles = (theme: ThemeDefault) =>
             ({
                 transform: [{translateY}],
             } satisfies ViewStyle),
-
-        makeSlideInTranslation: (translationType: Translation, fromValue: number) =>
-            ({
-                from: {
-                    [translationType]: fromValue,
-                },
-                to: {
-                    [translationType]: 0,
-                },
-            } satisfies CustomAnimation),
 
         growlNotificationBox: {
             backgroundColor: theme.inverse,

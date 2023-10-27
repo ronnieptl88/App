@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import * as Animatable from 'react-native-animatable';
 import CONST from '../../CONST';
-import useThemeStyles from '../../styles/useThemeStyles';
+import * as StyleUtils from '../../styles/StyleUtils';
 import useNativeDriver from '../../libs/useNativeDriver';
 
 const propTypes = {
@@ -34,11 +34,10 @@ function getAnimationStyle(direction) {
     } else if (direction === 'out') {
         transitionValue = -CONST.ANIMATED_TRANSITION_FROM_VALUE;
     }
-    return styles.makeSlideInTranslation('translateX', transitionValue);
+    return StyleUtils.makeSlideInTranslation('translateX', transitionValue);
 }
 
 function AnimatedStep(props) {
-    const styles = useThemeStyles();
     return (
         <Animatable.View
             onAnimationEnd={() => {
@@ -60,4 +59,5 @@ function AnimatedStep(props) {
 AnimatedStep.propTypes = propTypes;
 AnimatedStep.defaultProps = defaultProps;
 AnimatedStep.displayName = 'AnimatedStep';
+
 export default AnimatedStep;

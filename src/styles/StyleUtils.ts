@@ -2,6 +2,7 @@ import {CSSProperties} from 'react';
 import {Animated, DimensionValue, ImageStyle, PressableStateCallbackType, TextStyle, ViewStyle} from 'react-native';
 import {EdgeInsets} from 'react-native-safe-area-context';
 import {ValueOf} from 'type-fest';
+import {CustomAnimation} from 'react-native-animatable';
 import CONST from '../CONST';
 import * as Browser from '../libs/Browser';
 import * as UserUtils from '../libs/UserUtils';
@@ -17,6 +18,8 @@ import {Transaction} from '../types/onyx';
 
 type AllStyles = ViewStyle | TextStyle | ImageStyle;
 type ParsableStyle = AllStyles | ((state: PressableStateCallbackType) => AllStyles);
+
+type Translation = 'perspective' | 'rotate' | 'rotateX' | 'rotateY' | 'rotateZ' | 'scale' | 'scaleX' | 'scaleY' | 'translateX' | 'translateY' | 'skewX' | 'skewY' | 'matrix';
 
 type ColorValue = ValueOf<typeof colors>;
 type AvatarSizeName = ValueOf<typeof CONST.AVATAR_SIZE>;
@@ -1316,6 +1319,17 @@ function getTransparentColor(color: string) {
     return `${color}00`;
 }
 
+function makeSlideInTranslation(translationType: Translation, fromValue: number): CustomAnimation {
+    return {
+        from: {
+            [translationType]: fromValue,
+        },
+        to: {
+            [translationType]: 0,
+        },
+    };
+}
+
 export {
     combineStyles,
     displayIfTrue,
@@ -1398,4 +1412,5 @@ export {
     getContainerStyles,
     getEReceiptColorStyles,
     getEReceiptColorCode,
+    makeSlideInTranslation,
 };
