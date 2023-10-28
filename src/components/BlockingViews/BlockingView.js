@@ -44,7 +44,7 @@ const propTypes = {
 };
 
 const defaultProps = {
-    iconColor: theme.offline,
+    iconColor: undefined,
     subtitle: '',
     shouldShowLink: false,
     linkKey: 'notFound.goBackHome',
@@ -81,7 +81,7 @@ function BlockingView(props) {
         <View style={[styles.flex1, styles.alignItemsCenter, styles.justifyContentCenter, styles.ph10]}>
             <Icon
                 src={props.icon}
-                fill={props.iconColor}
+                fill={props.iconColor || theme.offline}
                 width={props.iconWidth}
                 height={props.iconHeight}
             />
