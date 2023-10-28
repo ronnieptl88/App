@@ -133,7 +133,7 @@ const defaultProps = {
     shouldShowRightIcon: false,
     icon: null,
     iconRight: Expensicons.ArrowRight,
-    iconFill: this.props.theme.textLight,
+    iconFill: undefined,
     iconStyles: [],
     iconRightStyles: [],
     isLoading: false,
@@ -208,6 +208,7 @@ class Button extends Component {
             return this.props.children;
         }
 
+        const iconFill = this.props.iconFill || this.props.theme.textLight;
         const textComponent = (
             <Text
                 numberOfLines={1}
@@ -238,7 +239,7 @@ class Button extends Component {
                             <View style={[this.props.themeStyles.mr1, ...this.props.iconStyles]}>
                                 <Icon
                                     src={this.props.icon}
-                                    fill={this.props.iconFill}
+                                    fill={iconFill}
                                     small={this.props.small}
                                 />
                             </View>
@@ -249,7 +250,7 @@ class Button extends Component {
                         <View style={[this.props.themeStyles.justifyContentCenter, this.props.themeStyles.ml1, ...this.props.iconRightStyles]}>
                             <Icon
                                 src={this.props.iconRight}
-                                fill={this.props.iconFill}
+                                fill={iconFill}
                                 small={this.props.small}
                             />
                         </View>
