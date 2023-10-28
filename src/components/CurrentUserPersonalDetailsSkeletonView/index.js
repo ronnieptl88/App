@@ -27,8 +27,8 @@ const propTypes = {
 const defaultProps = {
     shouldAnimate: true,
     avatarSize: CONST.AVATAR_SIZE.LARGE,
-    backgroundColor: theme.highlightBG,
-    foregroundColor: theme.border,
+    backgroundColor: undefined,
+    foregroundColor: undefined,
 };
 
 function CurrentUserPersonalDetailsSkeletonView(props) {
@@ -44,8 +44,8 @@ function CurrentUserPersonalDetailsSkeletonView(props) {
         <View style={styles.avatarSectionWrapperSkeleton}>
             <SkeletonViewContentLoader
                 animate={props.shouldAnimate}
-                backgroundColor={props.backgroundColor}
-                foregroundColor={props.foregroundColor}
+                backgroundColor={props.backgroundColor || theme.highlightBG}
+                foregroundColor={props.foregroundColor || theme.border}
                 height={avatarPlaceholderSize + spaceBetweenAvatarAndHeadline + headlineSize + spaceBetweenHeadlineAndLabel + labelSize}
             >
                 <Circle
